@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hong Kong pet space</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Inter Font + 可爱感备用字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        // 活力浅色 + 宠物友好主题色
+                        brand: {
+                            50: '#fff9f0',
+                            100: '#ffefe0',
+                            200: '#ffd9b5',
+                            300: '#ffbf85',
+                            400: '#ff9f55',
+                            500: '#f97316',   // 主橙
+                            600: '#ea580c',
+                            700: '#c2410c',
+                        },
+                        // 二级跳色—猫爪粉 / 天空蓝 / 薄荷
+                        paw: {
+                            pink: '#ffb7c5',
+                            blue: '#a5d8ff',
+                            mint: '#b2f2bb',
+                            yellow: '#ffec99',
+                            purple: '#d0bfff',
+                        },
+                        soft: {
+                            bg: '#fffdf9',
+                            sidebar: '#fff7ed',
+                            card: '#ffffff',
+                            border: '#ffe6d5',
+                            text: '#2d2d2d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'Inter', 'sans-serif'],
+                        cute: ['Quicksand', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'paw': '1.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 自定义滚动条——暖色细条 */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff1e6;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffc9a8;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f9a87a;
+        }
+
+        /* 打字光标 */
+        .typing-cursor::after {
+            content: '🐾';
+            animation: blink 1s infinite;
+            color: #f97316;
+            margin-left: 2px;
+            font-size: 0.9em;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* 消息入场动画 */
+        @keyframes popIn {
+            0% { opacity: 0; transform: translateY(8px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .message-anim {
+            animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* 装饰小耳朵 (用于某些头像) */
+        .ear-fluffy::before {
+            content: '🐕';
+            position: absolute;
+            top: -8px;
+            left: 4px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* 聊天背景层淡入 */
+        .chat-bg-layer {
+            transition: all 0.3s ease;
+        }
+
+        /* 宠物爪印点缀 */
+        .bg-paw-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="20" cy="20" r="5" fill="%23f97316"/><circle cx="40" cy="20" r="5" fill="%23f97316"/><circle cx="60" cy="20" r="5" fill="%23f97316"/><circle cx="30" cy="40" r="8" fill="%23f97316"/><circle cx="50" cy="40" r="8" fill="%23f97316"/><circle cx="70" cy="40" r="8" fill="%23f97316"/></svg>');
+            background-repeat: repeat;
+            background-size: 80px 80px;
+        }
+    </style>
+</head>
+<body class="h-full w-full overflow-hidden bg-soft-bg text-soft-text font-sans antialiased select-none">
+
+<!-- 手机侧边栏遮罩 -->
+<div id="mobile-overlay" onclick="toggleSidebar(false)" class="fixed inset-0 bg-orange-900/20 backdrop-blur-sm z-30 hidden md:hidden transition-opacity opacity-0"></div>
+
+<div class="flex h-full w-full overflow-hidden relative">
+
+    <!-- ========================================================================= -->
+    <!-- 左侧边栏：宠物主题                                             -->
+    <!-- ========================================================================= -->
+    <aside id="sidebar" class="fixed md:relative z-40 h-full w-72 flex-shrink-0 bg-soft-sidebar border-r border-soft-border flex flex-col justify-between transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0 shadow-sm">
+
+        <!-- 1. 顶部Logo & 新聊天按钮 -->
+        <div class="p-4 space-y-4">
+
+            <!-- Logo 区域（宠物友好版本） -->
+            <div class="logo-container flex items-center gap-3 px-2 py-1">
+                <!-- 默认用可爱的猫猫SVG图标 -->
+                <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-paw-pink to-brand-400 flex items-center justify-center shadow-md shadow-orange-200">
+                    <i data-lucide="cat" class="w-5 h-5 text-white"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-base tracking-wide text-brand-600 flex items-center gap-1.5">
+                        PetFriendly AI Agent
+                    </span>
+                    <span class="text-xs text-orange-400/80">All about pets in Hong Kong</span>
+                </div>
+            </div>
+
+            <!-- 新聊天按钮 -->
+            <button onclick="createNewChat()" class="w-full flex items-center justify-between px-4 py-2.5 rounded-2xl bg-brand-500 hover:bg-brand-600 active:scale-[0.98] text-white font-medium text-sm shadow-md shadow-orange-200 transition-all">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    New chat
+                </span>
+            </button>
+        </div>
+
+        <!-- 2. 历史会话 -->
+        <div class="flex-1 overflow-y-auto px-3 space-y-4 py-2">
+
+            <!-- 今天 -->
+            <div>
+                <div class="px-3 text-[11px] font-semibold text-orange-400 tracking-wider uppercase mb-1.5 flex items-center gap-1">
+                    <i data-lucide="paw-print" class="w-3 h-3"></i> Today
+                </div>
+                <div id="history-list-today" class="space-y-1">
+                    <!-- 动态填充 -->
+                </div>
+            </div>
+
+            <!-- 过去7天 -->
+            <div>
+                <div class="px-3 text-[11px] font-semibold text-orange-400 tracking-wider uppercase mb-1.5 flex items-center gap-1">
+                    <i data-lucide="paw-print" class="w-3 h-3"></i> Last 7 days
+                </div>
+                <div id="history-list-past" class="space-y-1">
+                    <!-- 动态填充 -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 3. 底部用户资料（宠物头像） -->
+        <div class="p-3 border-t border-soft-border bg-white/60">
+            <div class="flex items-center justify-between p-2 rounded-2xl hover:bg-orange-50 cursor-pointer transition-colors group">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <!-- 宠物头像（柴犬） -->
+                        <!-- When user click the image, they could change it or observe it  -->
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100&auto=format&fit=crop&q=80" alt="User Avatar" class="w-8 h-8 rounded-full object-cover ring-2 ring-paw-yellow/70">
+                        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-paw-mint border-2 border-white rounded-full"></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-sm font-medium text-soft-text group-hover:text-brand-600">Default name</span>
+                    </div>
+                </div>
+                <button class="text-orange-300 hover:text-brand-500 p-1 rounded-lg hover:bg-orange-100 transition-colors" title="设置">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- ========================================================================= -->
+    <!-- 主聊天区域                                                         -->
+    <!-- ========================================================================= -->
+    <main class="flex-1 flex flex-col h-full w-full relative overflow-hidden bg-soft-bg">
+
+        <!-- 背景图层：淡爪印图案 + 暖色渐变（替换深色背景图） -->
+        <div class="chat-bg-layer absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none z-0"
+             style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22 opacity=%220.3%22><circle cx=%2280%22 cy=%2280%22 r=%2215%22 fill=%22%23f97316%22/><circle cx=%22200%22 cy=%22120%22 r=%2212%22 fill=%22%23f9a87a%22/><circle cx=%22320%22 cy=%22160%22 r=%2218%22 fill=%22%23ffb7c5%22/><circle cx=%22120%22 cy=%22280%22 r=%2220%22 fill=%22%23a5d8ff%22/><circle cx=%22280%22 cy=%22320%22 r=%2214%22 fill=%22%23b2f2bb%22/></svg>');">
+        </div>
+        <!-- 额外铺一层淡淡的爪印纹理 -->
+        <div class="absolute inset-0 bg-paw-pattern opacity-[0.04] pointer-events-none z-0"></div>
+
+        <!-- 1. 顶部导航栏 -->
+        <header class="relative z-10 flex items-center justify-between px-4 py-3 border-b border-soft-border bg-white/70 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <!-- 移动端菜单按钮 -->
+                <button onclick="toggleSidebar(true)" class="md:hidden p-2 rounded-xl text-orange-400 hover:text-brand-500 hover:bg-orange-50 transition-colors">
+                    <i data-lucide="panel-left" class="w-5 h-5"></i>
+                </button>
+
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                        <h1 id="current-chat-title" class="text-sm md:text-base font-semibold text-soft-text truncate max-w-[180px] sm:max-w-xs md:max-w-md">
+                            <!-- 初始无对话，此处留空 -->
+                        </h1>
+                        <button onclick="renameCurrentChat()" class="text-orange-300 hover:text-brand-500 transition-colors" title="重命名会话">
+                            <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                    <span class="text-[11px] text-orange-400 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-paw-mint animate-pulse"></span>
+                        Modle
+                    </span>
+                </div>
+            </div>
+
+            <!-- 头部操作 -->
+            <div class="flex items-center gap-1.5">
+                <button onclick="clearCurrentMessages()" class="p-2 rounded-xl text-orange-300 hover:text-rose-400 hover:bg-orange-50 transition-colors" title="清空消息">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                </button>
+                <button onclick="toggleDecorationWidget()" class="p-2 rounded-xl text-orange-300 hover:text-brand-500 hover:bg-orange-50 transition-colors" title="显示/隐藏宠物伙伴">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 3. 漂浮宠物伴侣小组件（图片改成宠物）
+        <div id="decorative-widget" class="absolute right-6 top-20 z-20 pointer-events-auto transition-all duration-300 hidden md:block">
+            <div class="relative group">
+                <div class="bg-white/90 backdrop-blur-md border border-paw-yellow/60 rounded-3xl p-2.5 shadow-xl shadow-orange-200/50 flex flex-col items-center gap-2 w-36 hover:border-brand-400/70 transition-all">
+                    宠物头像容器
+                    <div class="relative w-28 h-28 rounded-2xl overflow-hidden bg-gradient-to-b from-paw-pink/30 to-paw-blue/30 border border-orange-200 flex items-center justify-center">
+                         使用可爱的狗狗图片
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=200&auto=format&fit=crop&q=80" alt="宠物伙伴" class="w-full h-full object-cover">
+                        <span class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-paw-mint text-emerald-800 text-[9px] font-bold rounded-full backdrop-blur-sm border border-white/60">在线</span>
+                    </div>
+                    <span class="text-[11px] text-brand-600 font-semibold tracking-wide">🐕 旺财</span>
+                </div>
+
+                 关闭按钮
+                <button onclick="toggleDecorationWidget()" class="absolute -top-2 -right-2 bg-white text-orange-400 hover:text-brand-500 rounded-full p-1 border border-orange-200 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i data-lucide="x" class="w-3 h-3"></i>
+                </button>
+            </div>
+        </div>
+       -->
+        <!-- 2. 消息流区域 -->
+        <div id="messages-container" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 relative z-10">
+            <!-- 消息由JS注入 —— 初始为空 -->
+        </div>
+
+        <!-- 3. 底部输入区域 -->
+        <div class="relative z-10 p-3 md:p-4 bg-white/80 backdrop-blur-md border-t border-soft-border">
+            <div class="max-w-4xl mx-auto relative">
+
+                <!-- 输入框容器 -->
+                <div class="bg-white border border-orange-200 rounded-3xl p-2 md:p-3 shadow-lg shadow-orange-100/50 focus-within:border-brand-400 focus-within:ring-2 focus-within:ring-brand-200 transition-all">
+
+                    <!-- 文本域 -->
+                    <textarea id="user-input" rows="1" placeholder="Ask PetFriendly"
+                              class="w-full bg-transparent text-soft-text placeholder-orange-300 resize-none outline-none text-sm md:text-base max-h-36 px-2 py-1"
+                              onkeydown="handleKeyDown(event)"
+                              oninput="autoResizeTextarea(this)"></textarea>
+
+                    <!-- 操作栏 -->
+                    <div class="flex items-center justify-between pt-2 border-t border-orange-100 mt-1 px-1">
+
+                        <!-- 工具图标（宠物相关） -->
+                        <div class="flex items-center gap-1">
+                            <button class="p-1.5 rounded-xl text-orange-400 hover:text-brand-500 hover:bg-orange-50 transition-colors" title="上传照片">
+                                <i data-lucide="image" class="w-4 h-4"></i>
+                            </button>
+                            <button class="p-1.5 rounded-xl text-orange-400 hover:text-brand-500 hover:bg-orange-50 transition-colors" title="宠物百科">
+                                <i data-lucide="book-open" class="w-4 h-4"></i>
+                            </button>
+                            <button class="p-1.5 rounded-xl text-orange-400 hover:text-brand-500 hover:bg-orange-50 transition-colors" title="健康咨询">
+                                <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                        <!-- 发送按钮 -->
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] text-orange-400 hidden sm:inline">Press button to send</span>
+                            <button onclick="sendMessage()" id="send-btn" class="p-2 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md shadow-orange-200 active:scale-95">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- 底部提示（宠物友好） -->
+                <div class="text-center mt-2">
+                    <span class="text-[10px] text-orange-400/70"> *** </span>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<!-- ========================================================================= -->
+<!-- JAVASCRIPT 逻辑（无默认对话、无模拟回复，仅返回“未连接模型”）     -->
+<!-- ========================================================================= -->
+<script>
+    // 1. 应用状态 —— 初始没有任何对话
+    let chatState = {
+        activeChatId: null,
+        chats: []          // 空数组，不生成默认对话
+    };
+
+    // 2. 初始化
+    window.addEventListener('DOMContentLoaded', () => {
+        renderSidebarHistory();
+        renderActiveChatMessages();   // 此时会显示空状态
+        lucide.createIcons();
+    });
+
+    // 3. 渲染侧边栏历史（按时间排序，最新的在上面；今天/过去7天分类）
+    function renderSidebarHistory() {
+        const todayContainer = document.getElementById('history-list-today');
+        const pastContainer = document.getElementById('history-list-past');
+
+        todayContainer.innerHTML = '';
+        pastContainer.innerHTML = '';
+
+        // 按时间倒序排列 (最新的排前面)
+        const sortedChats = [...chatState.chats].sort((a, b) => {
+            // 使用最后一条消息的时间戳或 chat 创建时间降序
+            const timeA = a.messages.length > 0 ? new Date(a.messages[a.messages.length-1].timestamp).getTime() || 0 : 0;
+            const timeB = b.messages.length > 0 ? new Date(b.messages[b.messages.length-1].timestamp).getTime() || 0 : 0;
+            return timeB - timeA;
+        });
+
+        sortedChats.forEach(chat => {
+            const isActive = chat.id === chatState.activeChatId;
+            const itemEl = document.createElement('div');
+            itemEl.className = `group flex items-center justify-between px-3 py-2 rounded-2xl text-sm cursor-pointer transition-all ${
+                isActive
+                    ? 'bg-orange-100 text-brand-700 font-medium border border-orange-200 shadow-sm'
+                    : 'text-soft-text/70 hover:bg-orange-50 hover:text-brand-600'
+            }`;
+
+            itemEl.onclick = () => selectChat(chat.id);
+
+            itemEl.innerHTML = `
+                    <div class="flex items-center gap-2.5 truncate">
+                        <i data-lucide="paw-print" class="w-4 h-4 flex-shrink-0 ${isActive ? 'text-brand-500' : 'text-orange-300'}"></i>
+                        <span class="truncate">${escapeHtml(chat.title)}</span>
+                    </div>
+                    <button onclick="deleteChat('${chat.id}', event)" class="opacity-0 group-hover:opacity-100 p-1 hover:text-rose-400 text-orange-300 rounded transition-all" title="删除会话">
+                        <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                    </button>
+                `;
+
+            // 根据 category 分配 (保持简单，仍按 today / past 分类，但根据时间戳自动判断)
+            // 为了不改动过多，沿用 category 字段，但新会话没有预设 category，则根据时间判断
+            const lastMsg = chat.messages[chat.messages.length-1];
+            const isToday = lastMsg && isTodayDate(lastMsg.timestamp);
+            const category = chat.category || (isToday ? 'today' : 'past');
+
+            if (category === 'today') {
+                todayContainer.appendChild(itemEl);
+            } else {
+                pastContainer.appendChild(itemEl);
+            }
+        });
+
+        lucide.createIcons();
+    }
+
+    // 辅助判断今天
+    function isTodayDate(timestampStr) {
+        if (!timestampStr) return true;
+        // 如果是 "刚刚" 或 时间字符串，简单处理
+        if (timestampStr === '刚刚' || timestampStr.includes('AM') || timestampStr.includes('PM')) return true;
+        return false; // 简化处理
+    }
+
+    // 4. 渲染消息（当没有活跃对话时，显示空状态）
+    function renderActiveChatMessages() {
+        const container = document.getElementById('messages-container');
+        const titleEl = document.getElementById('current-chat-title');
+
+        // 如果没有活跃对话或对话列表为空
+        if (!chatState.activeChatId || chatState.chats.length === 0) {
+            container.innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full text-center text-orange-300/70 space-y-3 py-20">
+                    <i data-lucide="cat" class="w-16 h-16 opacity-30"></i>
+                    <p class="text-sm font-medium">Welcome to PetFriendly!</p>
+                    <p class="text-xs">What can I do for you?</p>
+                </div>
+            `;
+            titleEl.innerText = 'New Chat';
+            lucide.createIcons();
+            return;
+        }
+
+        const currentChat = chatState.chats.find(c => c.id === chatState.activeChatId);
+        if (!currentChat) return;
+
+        titleEl.innerText = currentChat.title;
+
+        container.innerHTML = '';
+
+        currentChat.messages.forEach(msg => {
+            appendMessageToDOM(msg.sender, msg.text, msg.timestamp, false);
+        });
+
+        scrollToBottom();
+    }
+
+    // 5. 追加消息气泡 (配色调整)
+    function appendMessageToDOM(sender, text, timestamp = '刚刚', animate = true) {
+        const container = document.getElementById('messages-container');
+        // 清除空状态
+        if (container.children.length === 1 && container.children[0].querySelector('.lucide-cat')) {
+            container.innerHTML = '';
+        }
+
+        const isUser = sender === 'user';
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `flex gap-3 md:gap-4 max-w-3xl mx-auto ${isUser ? 'justify-end' : 'justify-start'} ${animate ? 'message-anim' : ''}`;
+
+        if (isUser) {
+            msgDiv.innerHTML = `
+                    <div class="flex flex-col items-end max-w-[85%] sm:max-w-[75%]">
+                        <div class="bg-brand-500 text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-md shadow-orange-200 text-sm md:text-base leading-relaxed break-words">
+                            ${escapeHtml(text)}
+                        </div>
+                        <span class="text-[10px] text-orange-400 mt-1 mr-1">${timestamp}</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=100&auto=format&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover ring-2 ring-paw-yellow flex-shrink-0">
+                `;
+        } else {
+            msgDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-paw-pink to-brand-300 flex items-center justify-center text-white flex-shrink-0 shadow-md shadow-orange-200">
+                        <i data-lucide="cat" class="w-4 h-4"></i>
+                    </div>
+                    <div class="flex flex-col items-start max-w-[85%] sm:max-w-[75%]">
+                        <div class="bg-white/90 border border-orange-200 text-soft-text rounded-2xl rounded-tl-sm px-4 py-3 shadow-lg text-sm md:text-base leading-relaxed break-words">
+                            ${formatMarkdownText(text)}
+                        </div>
+                        <span class="text-[10px] text-orange-400 mt-1 ml-1">${timestamp}</span>
+                    </div>
+                `;
+        }
+
+        container.appendChild(msgDiv);
+        lucide.createIcons();
+        scrollToBottom();
+    }
+
+    // 6. 发送消息 —— 如果没有活跃会话，则自动创建新会话
+    function sendMessage() {
+        const input = document.getElementById('user-input');
+        const text = input.value.trim();
+        if (!text) return;
+
+        // 如果当前没有活跃对话或对话列表为空，创建一个新对话
+        if (!chatState.activeChatId || chatState.chats.length === 0) {
+            createNewChat(true); // 静默创建，不渲染空状态
+        }
+
+        const currentChat = chatState.chats.find(c => c.id === chatState.activeChatId);
+        if (!currentChat) return;
+
+        input.value = '';
+        input.style.height = 'auto';
+
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        // 添加用户消息
+        currentChat.messages.push({ id: 'm_' + Date.now(), sender: 'user', text: text, timestamp: now });
+        appendMessageToDOM('user', text, now, true);
+
+        // 如果标题是默认的"新对话"，则用第一条用户消息更新标题
+        if (currentChat.title.startsWith('New Chat') && currentChat.messages.filter(m => m.sender === 'user').length === 1) {
+            currentChat.title = text.length > 20 ? text.substring(0, 20) + '...' : text;
+            document.getElementById('current-chat-title').innerText = currentChat.title;
+        }
+        // 重新渲染侧边栏以更新排序和标题
+        renderSidebarHistory();
+
+        // 直接回复固定文本 “未连接模型”
+        const aiReply = "Next step: \n "
+                + "1. Should we allow more than one users to use this webpage? (It means that we should code a log in page) \n"
+                + "2. How we store all chat data? \n"
+                + "3. We still need time to learn how to build a web crawler. \n "
+                + "4. Please add the questions here at source code line 518. "
+            ;
+        const aiTimestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        // 延迟一点模拟打字机效果？ 但不需要流式，直接一次性回复
+        setTimeout(() => {
+            // 确保当前对话还在活跃状态（防止用户切换）
+            const chatNow = chatState.chats.find(c => c.id === chatState.activeChatId);
+            if (chatNow && chatNow.id === currentChat.id) {
+                chatNow.messages.push({
+                    id: 'm_ai_' + Date.now(),
+                    sender: 'ai',
+                    text: aiReply,
+                    timestamp: aiTimestamp
+                });
+                // 直接追加到DOM，带动画
+                appendMessageToDOM('ai', aiReply, aiTimestamp, true);
+                // 更新侧边栏排序（时间变了）
+                renderSidebarHistory();
+            } else {
+                // 如果用户切换了，仍然保存消息到对应对话（但对话可能已被删除？）
+                if (chatNow) {
+                    chatNow.messages.push({
+                        id: 'm_ai_' + Date.now(),
+                        sender: 'ai',
+                        text: aiReply,
+                        timestamp: aiTimestamp
+                    });
+                }
+            }
+        }, 300); // 稍微延迟，让用户感知到发送完成
+    }
+
+    // 7. 不再模拟AI流式回复，函数留空或删除；但为了兼容可能调用的地方，保留空函数
+    function simulateAIStreamResponse() {
+        // 不再使用
+    }
+
+    // 8. 选择会话
+    function selectChat(id) {
+        chatState.activeChatId = id;
+        renderSidebarHistory();
+        renderActiveChatMessages();
+        toggleSidebar(false);
+    }
+
+    // 9. 新建会话 —— 可选择静默创建（不自动聚焦）
+    function createNewChat(silent = false) {
+        const newId = 'chat_' + Date.now();
+        const newChat = {
+            id: newId,
+            title: 'New Chat ' + (chatState.chats.length + 1),
+            category: 'today',
+            messages: []       // 没有初始消息
+        };
+        chatState.chats.unshift(newChat);
+        chatState.activeChatId = newId;
+
+        if (!silent) {
+            renderSidebarHistory();
+            renderActiveChatMessages();
+        } else {
+            // 静默时只更新状态，稍后渲染
+        }
+    }
+
+    // 10. 删除会话
+    function deleteChat(id, event) {
+        event.stopPropagation();
+        chatState.chats = chatState.chats.filter(c => c.id !== id);
+        if (chatState.activeChatId === id) {
+            if (chatState.chats.length > 0) {
+                chatState.activeChatId = chatState.chats[0].id;
+            } else {
+                chatState.activeChatId = null;
+            }
+        }
+        renderSidebarHistory();
+        renderActiveChatMessages();
+    }
+
+    // 11. 重命名
+    function renameCurrentChat() {
+        const currentChat = chatState.chats.find(c => c.id === chatState.activeChatId);
+        if (!currentChat) return;
+
+        const newTitle = prompt('Please enter the name of chat:', currentChat.title);
+        if (newTitle && newTitle.trim()) {
+            currentChat.title = newTitle.trim();
+            document.getElementById('current-chat-title').innerText = currentChat.title;
+            renderSidebarHistory();
+        }
+    }
+
+    // 12. 清空消息
+    function clearCurrentMessages() {
+        const currentChat = chatState.chats.find(c => c.id === chatState.activeChatId);
+        if (!currentChat) return;
+
+        currentChat.messages = [];
+        renderActiveChatMessages();
+    }
+
+    // 13. 移动端侧边栏开关
+    function toggleSidebar(show) {
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('mobile-overlay');
+
+        if (show) {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+            setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+        } else {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+        }
+    }
+
+    // 14. 宠物伴侣组件显示/隐藏
+    function toggleDecorationWidget() {
+        const widget = document.getElementById('decorative-widget');
+        widget.classList.toggle('hidden');
+    }
+
+    // 工具函数
+    function autoResizeTextarea(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = Math.min(textarea.scrollHeight, 140) + 'px';
+    }
+
+    function handleKeyDown(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    }
+
+    function scrollToBottom() {
+        const container = document.getElementById('messages-container');
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function formatMarkdownText(text) {
+        let escaped = escapeHtml(text);
+        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        return escaped.replace(/\n/g, '<br>');
+    }
+
+    // 初始化时，如果无对话，显示空状态；但侧边栏无内容
+    // 同时确保lucide图标渲染
+    window.addEventListener('load', () => {
+        lucide.createIcons();
+    });
+</script>
+</body>
+</html>

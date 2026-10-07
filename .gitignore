@@ -6,3 +6,18 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+# Python / PawPlan
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.db
+data/curated/
+data/staging/
+data/raw/*.pdf
+data/raw/*.txt
+data/raw/*.html
+logs/
+_probe_*.py

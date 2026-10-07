@@ -1,0 +1,93 @@
+[
+  {
+    "doc_id": "care_heatstroke_walk",
+    "category": "pet_care",
+    "title_zh": "带狗散步时如何降低中暑风险",
+    "title_en": "Reduce heatstroke risk when walking a dog",
+    "tags": ["中暑", "散步", "热", "夏天", "heatstroke", "walk", "summer", "高温"],
+    "summary_zh": "高温时段避免长时间户外活动，注意路面温度、补水与观察中暑征象。",
+    "content_zh": "香港夏季湿热，带狗散步应避开正午与路面最热时段，优先选择清晨或傍晚。出发前可触摸柏油路：手掌无法舒适停留时，狗爪也可能过热。携带清水，安排阴凉休息，避免强迫长时间奔跑。若出现过度喘息、无力、牙龈异常、呕吐或神志不清，应立即转移到阴凉处并寻求兽医协助。本条为一般护理提示，不能替代专业兽医诊断。",
+    "source_name": "PawPlan curated pet-care note (AFCD responsible ownership themes)",
+    "source_url": "https://www.pets.gov.hk/",
+    "last_verified_at": "2026-10-01",
+    "confidence": 0.8
+  },
+  {
+    "doc_id": "rule_public_beach",
+    "category": "city_rules",
+    "title_zh": "可否带狗进入公众泳滩",
+    "title_en": "Can dogs enter public bathing beaches",
+    "tags": ["泳滩", "海滩", "沙滩", "beach", "公众泳滩", "带狗", "进入"],
+    "summary_zh": "一般公众泳滩不允许狗只进入；请以康文署最新告示与场规为准。",
+    "content_zh": "在香港，多数公众泳滩及指定泳滩范围通常禁止狗只进入，以保障泳客卫生与安全。个别场地若另有宠物友善安排，会以场内告示或管理部门公布为准。出行前应查阅康文署相关场规，并遵守牵绳、清理排泄物等基本要求。若目的地是宠物公园或宠物共享公园，则适用另一套场地规则，与泳滩不同。",
+    "source_name": "LCSD / public venue rules (project curated summary)",
+    "source_url": "https://www.lcsd.gov.hk/",
+    "last_verified_at": "2026-10-01",
+    "confidence": 0.75
+  },
+  {
+    "doc_id": "dining_permitted_rules",
+    "category": "dining_policy",
+    "title_zh": "获准食肆内的基本规则",
+    "title_en": "Basic rules inside FEHD-permitted restaurants",
+    "tags": ["食肆", "餐厅", "获准", "狗", "食环署", "FEHD", "餐厅守则", "宠物友好餐厅"],
+    "summary_zh": "只有登上食环署获准名单的食肆才可让狗只进入，并需遵守该店餐厅守则。",
+    "content_zh": "自相关计划实施后，狗只只可进入食物环境卫生署名单上的获准食肆。进入前应确认店铺仍在最新名单中，并阅读该店的餐厅守则（例如活动范围、牵绳、座位安排、卫生要求等）。名单会持续更新，出发前建议再核实。PawPlan 的餐厅推荐应引用名单来源与核实日期，不能凭记忆编造许可状态。",
+    "source_name": "FEHD List of Food Premises Permitted for Dog Entry",
+    "source_url": "https://www.fehd.gov.hk/tc_chi/licensing/dog_restaurants/dog_restaurants_list.html",
+    "last_verified_at": "2026-10-06",
+    "confidence": 0.9
+  },
+  {
+    "doc_id": "care_hydration_travel",
+    "category": "pet_care",
+    "title_zh": "外出时的补水与休息",
+    "title_en": "Hydration and rest during outings",
+    "tags": ["补水", "喝水", "休息", "出行", "water", "hydration", "outing"],
+    "summary_zh": "短途出行也要准备饮水与阴凉休息点，尤其是大型犬与短吻犬。",
+    "content_zh": "带宠物在城市中活动时，应准备便携水具，并在巴士转乘、排队或户外等候时安排休息。短吻犬、老年犬与幼犬更易受热影响，应缩短连续步行时间。若宠物拒绝前进、持续喘气或显得烦躁，应停止当前行程并降温。此为一般建议，个体差异大，请按宠物状况调整。",
+    "source_name": "PawPlan curated pet-care note",
+    "source_url": "https://www.pets.gov.hk/",
+    "last_verified_at": "2026-10-01",
+    "confidence": 0.75
+  },
+  {
+    "doc_id": "rule_leash_cleanup",
+    "category": "city_rules",
+    "title_zh": "公共空间牵绳与清理责任",
+    "title_en": "Leash and clean-up responsibilities in public spaces",
+    "tags": ["牵绳", "狗绳", "清理", "排泄", "公共空间", "leash", "clean"],
+    "summary_zh": "在公共地方应妥善控制宠物，并清理排泄物，遵守场地告示。",
+    "content_zh": "负责任饲养包括在公共地方有效控制宠物（通常使用牵绳或其他合适约束），并即时清理排泄物。不同公园、商场与交通设施可能有额外限制（例如体型、载具、禁入区域）。请以现场告示及管理部门最新指引为准。",
+    "source_name": "AFCD responsible pet ownership themes (project curated summary)",
+    "source_url": "https://www.pets.gov.hk/",
+    "last_verified_at": "2026-10-01",
+    "confidence": 0.8
+  },
+  {
+    "doc_id": "transport_lightrail_pets",
+    "category": "city_rules",
+    "title_zh": "轻铁猫狗同行安排（概要）",
+    "title_en": "Light Rail pet accompaniment scheme (summary)",
+    "tags": ["轻铁", "交通", "猫狗同行", "Light Rail", "运输"],
+    "summary_zh": "轻铁猫狗同行已有恒常安排，但须遵守承运人当时公布的条件。",
+    "content_zh": "项目背景提到轻铁猫狗同行计划成为恒常安排。实际乘车时仍须遵守港铁/相关营运方公布的最新条件，例如宠物约束方式、车厢或时段限制、卫生要求等。请在出行前查阅官方交通指引，不要仅依赖过时摘要。",
+    "source_name": "Project briefing policy timeline + official transport notices",
+    "source_url": "https://www.mtr.com.hk/",
+    "last_verified_at": "2026-10-01",
+    "confidence": 0.65
+  },
+  {
+    "doc_id": "scope_pawplan",
+    "category": "product_scope",
+    "title_zh": "PawPlan 目前能帮助什么",
+    "title_en": "What PawPlan helps with now",
+    "tags": ["PawPlan", "范围", "能做什么", "功能"],
+    "summary_zh": "期中前半聚焦宠物知识问答与领域过滤；地点推荐逐步接入。",
+    "content_zh": "PawPlan HK 的长期目标是宠物友善生活与出行规划。期中演示的前半部分优先做：1）基于可信资料的宠物知识问答并给出来源；2）识别并引导无关问题回到项目领域。随后再强化单一条件地点推荐（如获准食肆、宠物公园）。多地点行程、地图时间线属于更后阶段。",
+    "source_name": "PawPlan HK Project Briefing (COM4101)",
+    "source_url": "project://PawPlan_HK_Project_Briefing",
+    "last_verified_at": "2026-10-07",
+    "confidence": 1.0
+  }
+]

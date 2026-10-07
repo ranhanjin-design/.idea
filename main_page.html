@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hong Kong pet space</title>
+    <title>PawPlan HK</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -140,9 +140,9 @@
                 </div>
                 <div class="flex flex-col">
                     <span class="font-bold text-base tracking-wide text-brand-600 flex items-center gap-1.5">
-                        PetFriendly AI Agent
+                        PawPlan HK
                     </span>
-                    <span class="text-xs text-orange-400/80">All about pets in Hong Kong</span>
+                    <span class="text-xs text-orange-400/80">Pet-friendly living · Midterm Q&A</span>
                 </div>
             </div>
 
@@ -233,7 +233,7 @@
                     </div>
                     <span class="text-[11px] text-orange-400 flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-paw-mint animate-pulse"></span>
-                        Modle
+                        PawPlan Agent
                     </span>
                 </div>
             </div>
@@ -282,7 +282,7 @@
                 <div class="bg-white border border-orange-200 rounded-3xl p-2 md:p-3 shadow-lg shadow-orange-100/50 focus-within:border-brand-400 focus-within:ring-2 focus-within:ring-brand-200 transition-all">
 
                     <!-- 文本域 -->
-                    <textarea id="user-input" rows="1" placeholder="Ask PetFriendly"
+                    <textarea id="user-input" rows="1" placeholder="Ask PawPlan — e.g. 带狗散步怎样防中暑？"
                               class="w-full bg-transparent text-soft-text placeholder-orange-300 resize-none outline-none text-sm md:text-base max-h-36 px-2 py-1"
                               onkeydown="handleKeyDown(event)"
                               oninput="autoResizeTextarea(this)"></textarea>
@@ -415,8 +415,8 @@
             container.innerHTML = `
                 <div class="flex flex-col items-center justify-center h-full text-center text-orange-300/70 space-y-3 py-20">
                     <i data-lucide="cat" class="w-16 h-16 opacity-30"></i>
-                    <p class="text-sm font-medium">Welcome to PetFriendly!</p>
-                    <p class="text-xs">What can I do for you?</p>
+                    <p class="text-sm font-medium">Welcome to PawPlan HK</p>
+                    <p class="text-xs">试试：「沙田有没有宠物公园？」或「带狗散步怎样防中暑？」</p>
                 </div>
             `;
             titleEl.innerText = 'New Chat';
@@ -480,15 +480,44 @@
         scrollToBottom();
     }
 
+    function chatEndpoints() {
+        const urls = [];
+        if (window.location.protocol.startsWith('http')) {
+            urls.push(`${window.location.origin}/api/chat`);
+        }
+        urls.push('http://127.0.0.1:8000/api/chat');
+        return [...new Set(urls)];
+    }
+
+    function setSendLoading(loading) {
+        const btn = document.getElementById('send-btn');
+        btn.disabled = loading;
+    }
+
+    function pushAssistantReply(currentChat, aiReply) {
+        const aiTimestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const chatNow = chatState.chats.find(c => c.id === chatState.activeChatId);
+        const target = chatNow && chatNow.id === currentChat.id ? chatNow : currentChat;
+        target.messages.push({
+            id: 'm_ai_' + Date.now(),
+            sender: 'ai',
+            text: aiReply,
+            timestamp: aiTimestamp
+        });
+        if (chatNow && chatNow.id === currentChat.id) {
+            appendMessageToDOM('ai', aiReply, aiTimestamp, true);
+            renderSidebarHistory();
+        }
+    }
+
     // 6. 发送消息 —— 如果没有活跃会话，则自动创建新会话
-    function sendMessage() {
+    async function sendMessage() {
         const input = document.getElementById('user-input');
         const text = input.value.trim();
         if (!text) return;
 
-        // 如果当前没有活跃对话或对话列表为空，创建一个新对话
         if (!chatState.activeChatId || chatState.chats.length === 0) {
-            createNewChat(true); // 静默创建，不渲染空状态
+            createNewChat(true);
         }
 
         const currentChat = chatState.chats.find(c => c.id === chatState.activeChatId);
@@ -498,54 +527,54 @@
         input.style.height = 'auto';
 
         const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        // 添加用户消息
         currentChat.messages.push({ id: 'm_' + Date.now(), sender: 'user', text: text, timestamp: now });
         appendMessageToDOM('user', text, now, true);
 
-        // 如果标题是默认的"新对话"，则用第一条用户消息更新标题
         if (currentChat.title.startsWith('New Chat') && currentChat.messages.filter(m => m.sender === 'user').length === 1) {
             currentChat.title = text.length > 20 ? text.substring(0, 20) + '...' : text;
             document.getElementById('current-chat-title').innerText = currentChat.title;
         }
-        // 重新渲染侧边栏以更新排序和标题
         renderSidebarHistory();
 
-        // 直接回复固定文本 “未连接模型”
-        const aiReply = "Next step: \n "
-                + "1. Should we allow more than one users to use this webpage? (It means that we should code a log in page) \n"
-                + "2. How we store all chat data? \n"
-                + "3. We still need time to learn how to build a web crawler. \n "
-                + "4. Please add the questions here at source code line 518. "
-            ;
-        const aiTimestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-        // 延迟一点模拟打字机效果？ 但不需要流式，直接一次性回复
-        setTimeout(() => {
-            // 确保当前对话还在活跃状态（防止用户切换）
-            const chatNow = chatState.chats.find(c => c.id === chatState.activeChatId);
-            if (chatNow && chatNow.id === currentChat.id) {
-                chatNow.messages.push({
-                    id: 'm_ai_' + Date.now(),
-                    sender: 'ai',
-                    text: aiReply,
-                    timestamp: aiTimestamp
-                });
-                // 直接追加到DOM，带动画
-                appendMessageToDOM('ai', aiReply, aiTimestamp, true);
-                // 更新侧边栏排序（时间变了）
-                renderSidebarHistory();
-            } else {
-                // 如果用户切换了，仍然保存消息到对应对话（但对话可能已被删除？）
-                if (chatNow) {
-                    chatNow.messages.push({
-                        id: 'm_ai_' + Date.now(),
-                        sender: 'ai',
-                        text: aiReply,
-                        timestamp: aiTimestamp
+        setSendLoading(true);
+        try {
+            let data = null;
+            let lastError = null;
+            for (const url of chatEndpoints()) {
+                try {
+                    const res = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text })
                     });
+                    if (!res.ok) {
+                        lastError = new Error(`HTTP ${res.status}`);
+                        continue;
+                    }
+                    data = await res.json();
+                    break;
+                } catch (err) {
+                    lastError = err;
                 }
             }
-        }, 300); // 稍微延迟，让用户感知到发送完成
+            if (!data) {
+                throw lastError || new Error('backend unreachable');
+            }
+            let aiReply = data.reply || '（空回复）';
+            if (data.mode === 'dev') {
+                aiReply += '\n\n（当前为本地演示模式：配置 DEEPSEEK_API_KEY 后启用完整 Agent）';
+            }
+            pushAssistantReply(currentChat, aiReply);
+        } catch (err) {
+            pushAssistantReply(
+                currentChat,
+                '无法连接 PawPlan 后端。请在项目目录运行：\n'
+                + 'python -m pawplan.api.main\n'
+                + '然后用浏览器打开 http://127.0.0.1:8000 （不要直接双击 HTML 文件）'
+            );
+        } finally {
+            setSendLoading(false);
+        }
     }
 
     // 7. 不再模拟AI流式回复，函数留空或删除；但为了兼容可能调用的地方，保留空函数

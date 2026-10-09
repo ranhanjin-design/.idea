@@ -1,28 +1,32 @@
 """Rule-based path when DEEPSEEK_API_KEY is not set (midterm-half demo)."""
 
+from __future__ import annotations
+
+import re
+
 from pawplan.agent.intent import classify_intent, is_park_query, is_restaurant_query
-from pawplan.normalize import detect_district_in_text, normalize_cuisine
+from pawplan.normalize import cuisine_label_zh, detect_cuisine_in_text, detect_district_in_text
 from pawplan.tools.search_knowledge import search_knowledge
 from pawplan.tools.search_parks import search_parks
 from pawplan.tools.search_restaurants import search_restaurants
 
-CUISINE_HINTS = (
-    ("dim_sum", ("点心", "饮茶", "飲茶", "yum cha", "dim sum", "茶楼", "茶樓")),
-    ("french", ("法国", "法國", "法餐", "french")),
-    ("cafe", ("咖啡", "cafe", "coffee")),
-    ("japanese", ("日本", "日料", "寿司", "壽司", "japanese", "sushi")),
-    ("korean", ("韩国", "韓國", "韩餐", "korean")),
-    ("thai", ("泰国", "泰國", "泰餐", "thai")),
-    ("italian", ("意大利", "pizza", "italian")),
-    ("cantonese", ("粤菜", "粵菜", "广东菜", "cantonese")),
-)
 
-
-def _extract_cuisine(text: str) -> str | None:
-    lower = text.lower()
-    for code, hints in CUISINE_HINTS:
-        if any(h in text or h in lower for h in hints):
-            return code
+def _guess_unknown_district(text: str) -> str | None:
+    """Use an explicit place phrase so unknown areas can return honest empty results."""
+    raw = (text or "").strip()
+    patterns = (
+        r"^([\u4e00-\u9fffA-Za-z]{2,12})有没有",
+        r"^([\u4e00-\u9fffA-Za-z]{2,12})有沒有",
+        r"^([\u4e00-\u9fffA-Za-z ]{2,20})附近",
+    )
+    skip = {"附近", "哪里", "哪裡", "什么", "什麼", "哪些"}
+    for pat in patterns:
+        m = re.search(pat, raw)
+        if not m:
+            continue
+        cand = m.group(1).strip()
+        if cand and cand not in skip:
+            return cand
     return None
 
 
@@ -123,6 +127,7 @@ def _answer_parks(user_question: str, district: str) -> tuple[str, list[dict]]:
         addr = p.get("address") or "地址见康文署资料"
         hours = p.get("opening_hours") or "开放时间未收录"
         lines.append(f"{i}. **{name}**{en} — {kind}")
+        lines.append(f"   地区：{p.get('district') or district}")
         lines.append(f"   地址：{addr}")
         lines.append(f"   开放：{hours}")
         lines.append(
@@ -136,11 +141,27 @@ def _answer_parks(user_question: str, district: str) -> tuple[str, list[dict]]:
     return "\n".join(lines), trace
 
 
-def _answer_restaurants(user_question: str, district: str) -> tuple[str, list[dict]]:
-    cuisine = _extract_cuisine(user_question)
-    if cuisine:
-        cuisine = normalize_cuisine(cuisine)
+def _format_restaurant_block(restaurants: list[dict], district: str) -> list[str]:
+    lines: list[str] = []
+    for i, r in enumerate(restaurants, 1):
+        name = r["name_zh"] or r["name_en"] or r["restaurant_id"]
+        source = r["source_url"]
+        lines.append(f"{i}. **{name}**")
+        lines.append(f"   地区：{r.get('district') or district}")
+        lines.append(f"   地址：{r['address']}")
+        label = r.get("cuisine_label_zh")
+        if label:
+            conf = r.get("cuisine_confidence")
+            conf_txt = f"，置信度 {conf:.2f}" if isinstance(conf, (int, float)) else ""
+            lines.append(f"   菜系标签：{label}{conf_txt}（非正式官方确认）")
+        lines.append(
+            f"   来源：[{source}]({source})（核实日期 {r['last_verified_at']}）"
+        )
+    return lines
 
+
+def _answer_restaurants(user_question: str, district: str) -> tuple[str, list[dict]]:
+    cuisine = detect_cuisine_in_text(user_question)
     args: dict = {"district": district, "limit": 5}
     if cuisine:
         args["cuisine"] = cuisine
@@ -153,46 +174,56 @@ def _answer_restaurants(user_question: str, district: str) -> tuple[str, list[di
         }
     ]
 
-    if result["count"] == 0 and cuisine:
-        relaxed = search_restaurants(district=district, limit=5)
-        trace.append(
-            {
-                "tool": "search_restaurants",
-                "arguments": {"district": district, "limit": 5},
-                "result_count": relaxed["count"],
-                "note": "relaxed_cuisine",
-            }
-        )
-        if relaxed["count"] == 0:
+    if cuisine:
+        label = cuisine_label_zh(cuisine)
+        if result.get("cuisine_confirmed") and result["count"] > 0:
+            lines = [
+                f"按菜系「{label}」筛选到 {result['count']} 间「{district}」获准带狗食肆。",
+                "食环署公开名单**没有官方菜系字段**，以下仅按店名/策展标签匹配，"
+                "**非正式官方确认**，不能当作已核实的菜系推荐。",
+                "",
+            ]
+            lines.extend(_format_restaurant_block(result["restaurants"], district))
+            lines.append("")
+            lines.append(
+                f"若你更需要官方许可名单，是否愿意改查「{district}」获准带狗进入的食肆？"
+                f"可以说「{district}有没有获准让狗进入的食肆」。"
+            )
+            return "\n".join(lines), trace
+
+        permission_count = int(result.get("district_permission_count") or 0)
+        if permission_count == 0:
             return (
-                f"数据库中暂无「{district}」的匹配食肆。可以换一个地区再试。",
+                f"数据库中暂无「{district}」的获准带狗食肆，因此也无法确认是否有{label}。",
                 trace,
             )
-        result = relaxed
-        header = (
-            f"未找到菜系「{cuisine}」的完全匹配；"
-            f"以下是 {district} 的 {result['count']} 间获准食肆："
+        return (
+            f"食环署名单没有菜系字段，**无法确认**「{district}」是否有宠物友好的{label}。"
+            f"我不会把其他不匹配的获准食肆当作{label}推荐。"
+            f"是否愿意改查「{district}」获准带狗进入的食肆？"
+            f"若愿意，请直接问「{district}有没有获准让狗进入的食肆」。",
+            trace,
         )
-    elif result["count"] == 0:
-        return (f"数据库中暂无「{district}」的匹配食肆。可以换一个地区再试。", trace)
-    else:
-        label = district + (f"、{cuisine}" if cuisine else "")
-        header = f"找到 {result['count']} 间符合「{label}、宠物友好」的食肆："
 
-    lines = [header, ""]
-    for i, r in enumerate(result["restaurants"], 1):
-        name = r["name_zh"] or r["name_en"] or r["restaurant_id"]
-        lines.append(f"{i}. **{name}** — {r['address']}")
-        lines.append(
-            f"   来源：{r['source_url']}（核实日期 {r['last_verified_at']}）"
-        )
+    if result["count"] == 0:
+        return (f"数据库中暂无「{district}」的匹配食肆。可以换一个地区再试。", trace)
+
+    lines = [
+        f"找到 {result['count']} 间「{district}」获准让狗只进入的食肆：",
+        "",
+    ]
+    lines.extend(_format_restaurant_block(result["restaurants"], district))
     lines.append("")
-    lines.append("名单来自食环署公开资料；出发前请再确认是否仍在最新名单及店内守则。")
+    lines.append(
+        "名单来自食环署公开资料；出发前请再确认是否仍在最新名单及店内守则。"
+    )
     return "\n".join(lines), trace
 
 
 def _answer_place(user_question: str) -> tuple[str, list[dict]]:
-    district = detect_district_in_text(user_question)
+    district = detect_district_in_text(user_question) or _guess_unknown_district(
+        user_question
+    )
     park = is_park_query(user_question)
     restaurant = is_restaurant_query(user_question)
 

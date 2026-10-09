@@ -1,0 +1,78 @@
+[
+  {
+    "id": "s1",
+    "date": "2024-08-06",
+    "turns": [
+      {"role": "她", "text": "花都好远啊我的天"},
+      {"role": "小石头", "text": "不远宝宝"},
+      {"role": "她", "text": "就是花都啊"}
+    ],
+    "tags": ["location", "soft"]
+  },
+  {
+    "id": "s2",
+    "date": "2024-09-24",
+    "turns": [
+      {"role": "小石头", "text": "下次去花都我们去玩"},
+      {"role": "她", "text": "行啊你别又放鸽子"}
+    ],
+    "tags": ["location", "tease"]
+  },
+  {
+    "id": "s3",
+    "date": "2025-03-06",
+    "turns": [
+      {"role": "她", "text": "你昨天那话什么意思啊"},
+      {"role": "小石头", "text": "我不是那个意思"},
+      {"role": "她", "text": "那你解释清楚 别装没事"}
+    ],
+    "tags": ["conflict"]
+  },
+  {
+    "id": "s4",
+    "date": "2025-01-12",
+    "turns": [
+      {"role": "小石头", "text": "你在干嘛"},
+      {"role": "她", "text": "在家躺着 你又想干嘛"}
+    ],
+    "tags": ["daily", "soft"]
+  },
+  {
+    "id": "s5",
+    "date": "2025-02-02",
+    "turns": [
+      {"role": "小石头", "text": "宝宝"},
+      {"role": "她", "text": "干嘛 叫这么甜想糊弄谁"}
+    ],
+    "tags": ["tease", "conflict"]
+  },
+  {
+    "id": "s6",
+    "date": "2025-04-01",
+    "turns": [
+      {"role": "小石头", "text": "想你了"},
+      {"role": "她", "text": "嘴倒是甜 有本事把昨天说清楚"}
+    ],
+    "tags": ["conflict", "tease"]
+  },
+  {
+    "id": "s7",
+    "date": "2025-10-07",
+    "turns": [
+      {"role": "小石头", "text": "我先发二十给你"},
+      {"role": "她", "text": "你笑什么"},
+      {"role": "小石头", "text": "没有 我发五十"},
+      {"role": "她", "text": "我觉得你在嘲讽我 我没自尊了"}
+    ],
+    "tags": ["conflict", "money", "dignity"]
+  },
+  {
+    "id": "s8",
+    "date": "2025-10-07",
+    "turns": [
+      {"role": "小石头", "text": "对不起宝宝"},
+      {"role": "她", "text": "算了 分手吧 你当时都不追一下"}
+    ],
+    "tags": ["conflict", "breakup"]
+  }
+]

@@ -1,4 +1,9 @@
-"""Attach cuisine labels using heuristics + optional curated overlay."""
+"""Cuisine overlay for optional restaurant filtering.
+
+FEHD official list has no cuisine field. Labels come from curated name
+overlays and name-keyword heuristics; never present them as official
+FEHD cuisine confirmation.
+"""
 
 from __future__ import annotations
 
@@ -14,10 +19,22 @@ ROOT = Path(__file__).resolve().parents[2]
 # Confidence reflects human/venue check, not LLM guessing.
 CURATED_CUISINES: list[dict] = [
     {
-        "match_name_contains": ["茶楼", "茶樓", "点心", "飲茶", "饮茶", "Dim Sum", "Yum Cha"],
-        "match_district": "Sha Tin",
+        "match_name_contains": [
+            "茶楼",
+            "茶樓",
+            "茶餐廳",
+            "茶餐厅",
+            "茶餐室",
+            "点心",
+            "點心",
+            "飲茶",
+            "饮茶",
+            "Dim Sum",
+            "Yum Cha",
+            "Tea House",
+        ],
         "cuisine_code": "dim_sum",
-        "confidence": 0.9,
+        "confidence": 0.85,
         "source_url": "curated://pawplan/cuisine_overlay",
     },
 ]

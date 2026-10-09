@@ -21,3 +21,5 @@ data/raw/*.txt
 data/raw/*.html
 logs/
 _probe_*.py
+xiaoshitou/data/memory.db
+xiaoshitou/data/*.db

@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from pawplan.agent.loop import run_agent
@@ -33,6 +34,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+_static_dir = ROOT / "static"
+if _static_dir.is_dir():
+    app.mount("/static", StaticFiles(directory=str(_static_dir)), name="static")
 
 
 class ChatRequest(BaseModel):
@@ -75,10 +80,23 @@ def health():
         geo = None
     return {
         "status": "ok",
-        "scope": "midterm-half: knowledge Q&A + domain filter + place search",
+        "scope": (
+            "midterm: knowledge Q&A + domain filter + "
+            "place search (parks / FEHD dog-permitted by district) + "
+            "optional cuisine filter. Unconfirmed cuisine is not recommended; "
+            "the agent asks whether to search dog-permitted restaurants instead."
+        ),
         "deepseek_configured": bool(os.environ.get("DEEPSEEK_API_KEY", "").strip()),
         "database": stats,
         "geocode": geo,
+        "capabilities": {
+            "knowledge_qa": True,
+            "domain_filter": True,
+            "park_search": True,
+            "restaurant_permission_search": True,
+            "cuisine_filter": True,
+            "cuisine_recommendation": False,
+        },
     }
 
 
@@ -109,7 +127,7 @@ def parks(body: ParkSearchRequest):
 
 @app.post("/api/search")
 def search(body: SearchRequest):
-    return search_restaurants(body.district, body.cuisine, body.limit)
+    return search_restaurants(body.district, body.limit, cuisine=body.cuisine)
 
 
 @app.get("/")

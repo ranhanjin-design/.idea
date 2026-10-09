@@ -1,4 +1,4 @@
-"""Run full FEHD -> staging -> curated DB pipeline."""
+"""Run FEHD -> staging -> cuisine enrich -> curated DB pipeline."""
 
 from __future__ import annotations
 

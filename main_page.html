@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/static/chat_markdown.js"></script>
     <!-- Inter Font + 可爱感备用字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -107,6 +108,37 @@
         /* 聊天背景层淡入 */
         .chat-bg-layer {
             transition: all 0.3s ease;
+        }
+
+        /* Chat Markdown presentation */
+        .chat-md-table-wrap {
+            overflow-x: auto;
+            margin: 0.5rem 0;
+            max-width: 100%;
+        }
+        .chat-md-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fffdf9;
+        }
+        .chat-md-table th,
+        .chat-md-table td {
+            border: 1px solid #ffe6d5;
+            padding: 0.45rem 0.55rem;
+            text-align: left;
+            vertical-align: top;
+            word-break: break-word;
+        }
+        .chat-md-table th {
+            background: #fff7ed;
+            color: #c2410c;
+            font-weight: 600;
+        }
+        .chat-md-link {
+            color: #ea580c;
+            text-decoration: underline;
+            word-break: break-all;
         }
 
         /* 宠物爪印点缀 */
@@ -688,13 +720,20 @@
     }
 
     function escapeHtml(str) {
-        return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        return String(str || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
     }
 
     function formatMarkdownText(text) {
+        if (typeof formatChatMarkdown === "function") {
+            return formatChatMarkdown(text);
+        }
+        // Fallback if /static/chat_markdown.js failed to load
         let escaped = escapeHtml(text);
-        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        return escaped.replace(/\n/g, '<br>');
+        escaped = escaped.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+        return escaped.replace(/\n/g, "<br>");
     }
 
     // 初始化时，如果无对话，显示空状态；但侧边栏无内容

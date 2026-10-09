@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pawplan.normalize import detect_cuisine_in_text
+
 OUT_OF_SCOPE_HINTS = (
     "股票",
     "股巿",
@@ -69,12 +71,22 @@ RESTAURANT_HINTS = (
     "食肆",
     "饭店",
     "飯店",
+    "食物店",
+    "食店",
     "咖啡馆",
     "咖啡店",
     "restaurant",
     "cafe",
     "点心",
     "饮茶",
+    "飲茶",
+    "茶楼",
+    "茶樓",
+    "法餐",
+    "日料",
+    "粤菜",
+    "粵菜",
+    "西餐",
 )
 
 PLACE_HINTS = (
@@ -154,4 +166,6 @@ def is_park_query(text: str) -> bool:
 
 def is_restaurant_query(text: str) -> bool:
     lower = text.lower()
-    return any(h in text or h in lower for h in RESTAURANT_HINTS)
+    if any(h in text or h in lower for h in RESTAURANT_HINTS):
+        return True
+    return detect_cuisine_in_text(text) is not None

@@ -155,6 +155,11 @@ CUISINE_NAME_HINTS: list[tuple[str, str, float]] = [
     ("饮茶", "dim_sum", 0.85),
     ("茶楼", "dim_sum", 0.75),
     ("茶樓", "dim_sum", 0.75),
+    ("茶餐廳", "dim_sum", 0.7),
+    ("茶餐厅", "dim_sum", 0.7),
+    ("茶餐室", "dim_sum", 0.7),
+    ("酒樓", "cantonese", 0.65),
+    ("酒楼", "cantonese", 0.65),
     ("cantonese", "cantonese", 0.75),
     ("粤", "cantonese", 0.65),
     ("粵", "cantonese", 0.65),
@@ -233,6 +238,35 @@ def normalize_cuisine(value: str | None) -> str | None:
         if alias in raw or alias in key:
             return code
     return key.replace(" ", "_")
+
+
+def cuisine_label_zh(code: str | None) -> str:
+    if not code:
+        return "该菜系"
+    return CUISINE_LABELS.get(code, (code, code))[0]
+
+
+def detect_cuisine_in_text(text: str) -> str | None:
+    """Return a cuisine code if the user explicitly names a food type.
+
+    Skip aliases that collide with district names (e.g. English "western").
+    """
+    if not text:
+        return None
+    lower = text.lower()
+    items = sorted(
+        (
+            (alias, code)
+            for alias, code in CUISINE_ALIASES.items()
+            if code != "unknown" and alias not in DISTRICT_ALIASES
+        ),
+        key=lambda kv: len(kv[0]),
+        reverse=True,
+    )
+    for alias, code in items:
+        if alias in text or alias in lower:
+            return code
+    return None
 
 
 def infer_cuisine_from_name(name_en: str, name_zh: str) -> tuple[str, float]:

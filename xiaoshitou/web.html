@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>小石头 · 懂她 / 哄她</title>
+  <style>
+    :root {
+      --bg: #f3efe8;
+      --panel: #fffaf4;
+      --ink: #2b2622;
+      --muted: #9a8d82;
+      --her: #f1e4da;
+      --me: #ffd9c8;
+      --coach: #e8f0e9;
+      --line: #e7dcd0;
+      --pink: #f07167;
+      --green: #3d6b4f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, #ffe8de 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, #e8f2ea 0%, transparent 35%),
+        var(--bg);
+    }
+    header {
+      padding: 16px 20px 8px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+    }
+    header .logo { font-size: 18px; }
+    header h1 { margin: 0; font-size: 15px; font-weight: 650; }
+    header span { color: var(--muted); font-size: 12px; }
+    .modes {
+      margin-left: auto;
+      display: flex;
+      gap: 6px;
+    }
+    .modes button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .modes button.on {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .wrap {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 14px;
+      padding: 8px 16px 16px;
+      max-width: 1080px;
+      margin: 0 auto;
+      height: calc(100vh - 70px);
+    }
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; height: auto; }
+      .modes { margin-left: 0; width: 100%; }
+    }
+    .panel {
+      background: rgba(255,250,244,.92);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 10px 40px rgba(80,50,30,.06);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 560px;
+    }
+    .panel-hd {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    #chat {
+      flex: 1;
+      overflow: auto;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .row { display: flex; flex-direction: column; gap: 4px; max-width: 88%; }
+    .row.me { align-self: flex-end; align-items: flex-end; }
+    .row.her { align-self: flex-start; align-items: flex-start; }
+    .row.coach { align-self: flex-start; align-items: flex-start; max-width: 95%; }
+    .name { font-size: 11px; color: var(--muted); padding: 0 6px; }
+    .bubble {
+      padding: 10px 14px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .me .bubble { background: var(--me); border-bottom-right-radius: 6px; }
+    .her .bubble { background: var(--her); border-bottom-left-radius: 6px; }
+    .coach .bubble {
+      background: var(--coach);
+      border-bottom-left-radius: 6px;
+      border: 1px solid #d5e4d8;
+    }
+    .composer {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+    .composer input {
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-size: 14px;
+      outline: none;
+      background: #fffdfb;
+    }
+    .composer button {
+      border: 0;
+      background: var(--pink);
+      color: #fff;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+    .composer.coach-on button { background: var(--green); }
+    #snips {
+      flex: 1;
+      overflow: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .snip {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .snip .meta { color: var(--muted); margin-bottom: 6px; }
+    .hint {
+      margin: 0;
+      padding: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      border-bottom: 1px solid var(--line);
+      background: #fffdf9;
+    }
+    .tools {
+      padding: 10px 12px 14px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 6px;
+    }
+    .tools input, .tools select {
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+    .tools button {
+      border: 0;
+      background: #2b2622;
+      color: #fff;
+      border-radius: 10px;
+      padding: 0 10px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .empty { color: var(--muted); font-size: 12px; padding: 8px; }
+    .quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 12px 10px;
+    }
+    .quick button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">⁽⁽ଘ( ˙꒳˙ )ଓ⁾⁾</div>
+    <h1>小石头 · 懂她 / 哄她</h1>
+    <span>左边练对话 · 教练给可发草稿</span>
+    <div class="modes">
+      <button id="modeHer" class="on" type="button">扮演她</button>
+      <button id="modeCoach" type="button">哄她教练</button>
+    </div>
+  </header>
+  <div class="wrap">
+    <section class="panel">
+      <div class="panel-hd" id="panelHd">对话 · 她现在可能还在气头上</div>
+      <div id="chat"></div>
+      <div class="quick" id="quick"></div>
+      <div class="composer" id="composer">
+        <input id="input" placeholder="像微信一样打字..." />
+        <button id="send">发送</button>
+      </div>
+    </section>
+    <section class="panel">
+      <p class="hint" id="sideHint">
+        她伤的是自尊，不是那三十块。教练模式会告诉你该发什么、别说什么。
+      </p>
+      <div class="panel-hd">检索到的历史片段（只学语气）</div>
+      <div id="snips"><div class="empty">发送后显示</div></div>
+      <div class="tools">
+        <select id="memKey">
+          <option value="school">学校</option>
+          <option value="major">专业</option>
+          <option value="lives_in">住址</option>
+        </select>
+        <input id="memVal" placeholder="悄悄写入真实信息" />
+        <button id="memAdd">记住</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    let mode = 'her';
+    const chat = document.getElementById('chat');
+    const snips = document.getElementById('snips');
+    const input = document.getElementById('input');
+    const composer = document.getElementById('composer');
+    const panelHd = document.getElementById('panelHd');
+    const sideHint = document.getElementById('sideHint');
+    const quick = document.getElementById('quick');
+
+    const herQuick = ['对不起', '我不是嘲讽你', '你还好吗', '我们谈谈好不好'];
+    const coachQuick = ['我该发什么', '她现在怎么想', '我能说我还有钱吗', '怎么道歉不显得假'];
+
+    function esc(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+    function push(role, text) {
+      const div = document.createElement('div');
+      let kind = 'her';
+      if (role === '小石头') kind = 'me';
+      if (role === '教练') kind = 'coach';
+      div.className = 'row ' + kind;
+      div.innerHTML = `<div class="name">${esc(role)}</div><div class="bubble">${esc(text)}</div>`;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+    function renderSnips(list) {
+      if (!list || !list.length) {
+        snips.innerHTML = '<div class="empty">本轮没有强相关片段</div>';
+        return;
+      }
+      snips.innerHTML = list.map(s => `
+        <div class="snip">
+          <div class="meta">${esc(s.date || '')} · ${esc((s.tags||[]).join(', '))} · score ${s.score}</div>
+          <div>${esc(s.preview || '')}</div>
+        </div>
+      `).join('');
+    }
+    function renderQuick() {
+      const items = mode === 'coach' ? coachQuick : herQuick;
+      quick.innerHTML = items.map(t => `<button type="button" data-q="${esc(t)}">${esc(t)}</button>`).join('');
+      quick.querySelectorAll('button').forEach(b => {
+        b.onclick = () => { input.value = b.dataset.q; send(); };
+      });
+    }
+    function setMode(next) {
+      mode = next;
+      document.getElementById('modeHer').classList.toggle('on', mode === 'her');
+      document.getElementById('modeCoach').classList.toggle('on', mode === 'coach');
+      composer.classList.toggle('coach-on', mode === 'coach');
+      panelHd.textContent = mode === 'coach'
+        ? '教练 · 告诉你怎么哄、草稿可直接复制'
+        : '对话 · 她现在可能还在气头上';
+      sideHint.textContent = mode === 'coach'
+        ? '先认「那个笑」和「没追」，别比钱包。问「我该发什么」会直接给草稿。'
+        : '扮演她：用来感受她会怎么回。要对策请切到「哄她教练」。';
+      input.placeholder = mode === 'coach' ? '问：我该发什么 / 她怎么想...' : '像微信一样打字...';
+      renderQuick();
+      if (mode === 'coach') {
+        push('教练', '说吧。你现在最想问的是「发什么」还是「她怎么想」？');
+      }
+    }
+
+    async function send() {
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+      push('小石头', text);
+      const data = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: text, mode })
+      }).then(r => r.json());
+      push(data.persona || (mode === 'coach' ? '教练' : '她'), data.reply);
+      renderSnips(data.retrieved || (data.debug && data.debug.retrieved) || []);
+    }
+
+    document.getElementById('send').onclick = send;
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+    document.getElementById('modeHer').onclick = () => setMode('her');
+    document.getElementById('modeCoach').onclick = () => setMode('coach');
+    document.getElementById('memAdd').onclick = async () => {
+      const key = document.getElementById('memKey').value;
+      const value = document.getElementById('memVal').value.trim();
+      if (!value) return;
+      await fetch('/api/memories', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ key, value, verified: true })
+      });
+      document.getElementById('memVal').value = '';
+      push('系统', '（已悄悄记住 ' + key + '）');
+    };
+
+    renderQuick();
+    push('她', '……');
+  </script>
+</body>
+</html>

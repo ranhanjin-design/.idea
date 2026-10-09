@@ -19,7 +19,13 @@ def _dispatch_tool(name: str, arguments: dict[str, Any]) -> dict:
     if name == "search_parks":
         return search_parks(**arguments)
     if name == "search_restaurants":
-        return search_restaurants(**arguments)
+        kwargs = {
+            "district": arguments["district"],
+            "limit": int(arguments.get("limit", 5)),
+        }
+        if arguments.get("cuisine"):
+            kwargs["cuisine"] = arguments["cuisine"]
+        return search_restaurants(**kwargs)
     return {"error": "unknown_tool", "name": name}
 
 
@@ -27,8 +33,9 @@ def run_agent(user_question: str) -> dict:
     """
     Returns {"reply": str, "mode": "deepseek"|"dev", "tool_trace": list}.
     """
+    force_dev = os.environ.get("PAWPLAN_FORCE_DEV", "").strip() in {"1", "true", "TRUE", "yes"}
     api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
-    if not api_key:
+    if force_dev or not api_key:
         reply, trace = run_dev_fallback(user_question)
         log_event(
             {
@@ -82,10 +89,19 @@ def run_agent(user_question: str) -> dict:
         for call in message.tool_calls:
             args = json.loads(call.function.arguments)
             result = _dispatch_tool(call.function.name, args)
+            if call.function.name == "search_restaurants":
+                used = {
+                    "district": args.get("district"),
+                    "limit": int(args.get("limit", 5)),
+                }
+                if args.get("cuisine"):
+                    used["cuisine"] = args["cuisine"]
+            else:
+                used = args
             tool_trace.append(
                 {
                     "tool": call.function.name,
-                    "arguments": args,
+                    "arguments": used,
                     "result_count": result.get("count"),
                 }
             )

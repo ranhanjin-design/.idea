@@ -65,8 +65,10 @@ TOOLS = [
         "function": {
             "name": "search_restaurants",
             "description": (
-                "Search dog-permitted restaurants in the PawPlan database. "
-                "Use only for dining place recommendation requests with a district."
+                "Search FEHD dog-permitted food premises by district. "
+                "Pass cuisine only when the user names a food type (点心/咖啡/菜系). "
+                "Cuisine matches are name/curated labels, not official FEHD cuisine. "
+                "If cuisine_confirmed is false, do not list unmatched venues as recommendations."
             ),
             "parameters": {
                 "type": "object",
@@ -77,7 +79,10 @@ TOOLS = [
                     },
                     "cuisine": {
                         "type": "string",
-                        "description": "Optional cuisine code, e.g. dim_sum, cafe",
+                        "description": (
+                            "Optional food type, e.g. dim_sum, cafe, japanese, french. "
+                            "Omit for permission-only search."
+                        ),
                     },
                     "limit": {
                         "type": "integer",

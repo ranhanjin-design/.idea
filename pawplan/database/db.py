@@ -1,3 +1,4 @@
+import json
 import os
 import sqlite3
 from pathlib import Path
@@ -53,6 +54,28 @@ CREATE TABLE IF NOT EXISTS parks (
 
 CREATE INDEX IF NOT EXISTS idx_parks_district ON parks(district);
 CREATE INDEX IF NOT EXISTS idx_parks_type ON parks(park_type);
+
+CREATE TABLE IF NOT EXISTS places (
+    place_id            TEXT PRIMARY KEY,
+    place_type          TEXT NOT NULL,
+    name_en             TEXT,
+    name_zh             TEXT,
+    district            TEXT NOT NULL,
+    address             TEXT,
+    phone               TEXT,
+    website             TEXT,
+    latitude            REAL,
+    longitude           REAL,
+    opening_hours_json  TEXT,
+    amenities_json      TEXT,
+    pet_policy_json     TEXT,
+    source_url          TEXT NOT NULL,
+    source_name         TEXT NOT NULL,
+    last_verified_at    TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_places_district ON places(district);
+CREATE INDEX IF NOT EXISTS idx_places_type ON places(place_type);
 """
 
 # Demo rows used only when DB is empty (before FEHD pipeline).
@@ -174,7 +197,7 @@ def seed_demo_rows(conn: sqlite3.Connection) -> None:
         )
 
 
-def init_database(force_seed: bool = False) -> None:
+def init_database(force_seed: bool = False, apply_second_source: bool = True) -> None:
     conn = get_connection()
     try:
         conn.executescript(SCHEMA_SQL)
@@ -188,6 +211,13 @@ def init_database(force_seed: bool = False) -> None:
         conn.commit()
     finally:
         conn.close()
+    if apply_second_source:
+        try:
+            from pawplan.ingestion.enrich_cuisine import apply_second_source_to_db
+
+            apply_second_source_to_db()
+        except (OSError, ValueError, json.JSONDecodeError, sqlite3.Error) as exc:
+            print(f"[pawplan] second-source cuisine patch skipped: {exc}")
 
 
 def db_stats() -> dict:
@@ -208,6 +238,19 @@ def db_stats() -> dict:
             ).fetchone()[0]
         except sqlite3.OperationalError:
             parks = pet_gardens = inclusive = 0
+        try:
+            places = conn.execute("SELECT COUNT(*) FROM places").fetchone()[0]
+            malls = conn.execute(
+                "SELECT COUNT(*) FROM places WHERE place_type = 'mall'"
+            ).fetchone()[0]
+            vets = conn.execute(
+                "SELECT COUNT(*) FROM places WHERE place_type IN ('vet', 'dental', 'emergency')"
+            ).fetchone()[0]
+            groomers = conn.execute(
+                "SELECT COUNT(*) FROM places WHERE place_type = 'groomer'"
+            ).fetchone()[0]
+        except sqlite3.OperationalError:
+            places = malls = vets = groomers = 0
         return {
             "restaurants": restaurants,
             "cuisine_rows": cuisines,
@@ -215,6 +258,10 @@ def db_stats() -> dict:
             "parks": parks,
             "pet_gardens": pet_gardens,
             "inclusive_parks": inclusive,
+            "places": places,
+            "malls": malls,
+            "vets": vets,
+            "groomers": groomers,
             "db_path": str(get_db_path()),
         }
     finally:

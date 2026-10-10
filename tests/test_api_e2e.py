@@ -144,6 +144,35 @@ class ApiE2ETests(unittest.TestCase):
         self.assertEqual(data["tool_trace"][0]["tool"], "search_parks")
         self.assertIn("来源", data["reply"])
 
+    def test_chat_followup_with_history(self):
+        res = self.client.post(
+            "/api/chat",
+            json={
+                "message": "1",
+                "history": [
+                    {"role": "user", "content": "旺角茶餐厅"},
+                    {
+                        "role": "assistant",
+                        "content": (
+                            "无法确认「旺角」是否有宠物友好的茶餐厅。"
+                            "是否愿意改查获准带狗进入的食肆？\n1. 改查获准带狗食肆"
+                        ),
+                    },
+                ],
+            },
+        )
+        self.assertEqual(res.status_code, 200)
+        data = res.json()
+        self.assertIn(data["mode"], {"followup", "dev"})
+        self.assertTrue(data["tool_trace"])
+        self.assertEqual(data["tool_trace"][0]["tool"], "search_restaurants")
+        self.assertIn(
+            data["tool_trace"][0]["arguments"]["district"],
+            {"Mong Kok", "Yau Tsim Mong"},
+        )
+        self.assertNotIn("cuisine", data["tool_trace"][0]["arguments"])
+        self.assertGreater(data["tool_trace"][0]["result_count"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()

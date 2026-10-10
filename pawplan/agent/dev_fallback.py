@@ -2,13 +2,112 @@
 
 from __future__ import annotations
 
+import json
 import re
 
-from pawplan.agent.intent import classify_intent, is_park_query, is_restaurant_query
+from pawplan.agent.intent import (
+    classify_intent,
+    complementary_place_type,
+    is_park_query,
+    is_restaurant_query,
+)
 from pawplan.normalize import cuisine_label_zh, detect_cuisine_in_text, detect_district_in_text
 from pawplan.tools.search_knowledge import search_knowledge
 from pawplan.tools.search_parks import search_parks
+from pawplan.tools.search_places import search_places
 from pawplan.tools.search_restaurants import search_restaurants
+
+_FOLLOWUP_TOKENS = {
+    "1",
+    "1.",
+    "一",
+    "选项1",
+    "選項1",
+    "选1",
+    "選1",
+    "第一个",
+    "第一個",
+    "愿意",
+    "願意",
+    "好",
+    "好的",
+    "是",
+    "要",
+    "改查",
+    "列出",
+    "列出来",
+    "列出來",
+    "ok",
+    "yes",
+}
+_FOLLOWUP_DIGIT = re.compile(r"^[1１]$")
+_RELAX_CUES = (
+    "无法确认",
+    "無法確認",
+    "改查",
+    "获准",
+    "獲准",
+    "愿意",
+    "願意",
+    "不限定",
+    "茶餐厅",
+    "茶餐廳",
+    "菜系",
+    "点心",
+    "咖啡",
+)
+
+
+def _is_followup(text: str) -> bool:
+    raw = (text or "").strip()
+    if not raw:
+        return False
+    if raw.lower() in _FOLLOWUP_TOKENS:
+        return True
+    return bool(_FOLLOWUP_DIGIT.match(raw))
+
+
+def _history_text(history: list | None) -> str:
+    if not history:
+        return ""
+    parts: list[str] = []
+    for item in history:
+        if isinstance(item, dict):
+            content = item.get("content") or ""
+        else:
+            content = getattr(item, "content", "") or ""
+        text = str(content).strip()
+        if text:
+            parts.append(text)
+    return "\n".join(parts)
+
+
+def _history_offers_relax(history: list | None) -> bool:
+    blob = _history_text(history)
+    return any(cue in blob for cue in _RELAX_CUES)
+
+
+def try_followup_from_history(
+    user_question: str, history: list | None = None
+) -> tuple[str, list[dict]] | None:
+    """Deterministic follow-up: reply '1' after a cuisine miss -> permission-only search.
+
+    Used by both DeepSeek and local-dev paths so short replies never depend on the model.
+    """
+    if not _is_followup(user_question):
+        return None
+    if not history:
+        return None
+    if not _history_offers_relax(history):
+        return None
+    district = detect_district_in_text(_history_text(history))
+    if district:
+        permission_q = f"{district}有没有获准让狗进入的食肆"
+        return _answer_restaurants(permission_q, district)
+    return (
+        "可以帮你改查获准带狗进入的食肆。请告诉我地区（例如沙田、旺角）。",
+        [],
+    )
 
 
 def _guess_unknown_district(text: str) -> str | None:
@@ -179,7 +278,7 @@ def _answer_restaurants(user_question: str, district: str) -> tuple[str, list[di
         if result.get("cuisine_confirmed") and result["count"] > 0:
             lines = [
                 f"按菜系「{label}」筛选到 {result['count']} 间「{district}」获准带狗食肆。",
-                "食环署公开名单**没有官方菜系字段**，以下仅按店名/策展标签匹配，"
+                "食环署公开名单**没有官方菜系字段**，以下仅按互补来源（OSM/人工核实）匹配，"
                 "**非正式官方确认**，不能当作已核实的菜系推荐。",
                 "",
             ]
@@ -220,48 +319,128 @@ def _answer_restaurants(user_question: str, district: str) -> tuple[str, list[di
     return "\n".join(lines), trace
 
 
+def _answer_complementary_places(
+    user_question: str, district: str, place_type: str
+) -> tuple[str, list[dict]]:
+    result = search_places(district=district, place_type=place_type, limit=5)
+    labels = {
+        "mall": "宠物友善商场",
+        "clinic": "宠物诊所/兽医",
+        "vet": "宠物诊所/兽医",
+        "groomer": "宠物美容",
+    }
+    label = labels.get(place_type, "相关地点")
+    trace = [
+        {
+            "tool": "search_places",
+            "arguments": {
+                "district": district,
+                "place_type": place_type,
+                "limit": 5,
+            },
+            "result_count": result["count"],
+        }
+    ]
+    if result["count"] == 0:
+        return (
+            f"目前数据库中暂无「{district}」的{label}记录。"
+            "可以换一个地区，或改查获准带狗食肆 / 宠物公园。",
+            trace,
+        )
+    note = result.get("source_note") or "互补地点目录，非政府名单。"
+    lines = [
+        f"找到 {result['count']} 个「{district}」{label}：",
+        note,
+        "",
+    ]
+    for i, p in enumerate(result["places"], 1):
+        name = p.get("name_zh") or p.get("name_en") or "未命名"
+        en = p.get("name_en")
+        if en and en != name:
+            name = f"{name} / {en}"
+        addr = p.get("address") or "地址待补充"
+        phone = p.get("phone") or ""
+        url = p.get("source_url") or ""
+        tier = p.get("evidence_tier")
+        src = p.get("source_name") or ""
+        lines.append(f"{i}. {name}")
+        lines.append(f"   类型：{p.get('place_type')}｜地址：{addr}")
+        if phone:
+            lines.append(f"   电话：{phone}")
+        if src:
+            tier_label = f"｜证据层级 Tier {tier}" if tier else ""
+            lines.append(f"   来源类型：{src}{tier_label}")
+        if url:
+            lines.append(f"   政策/来源链接：{url}")
+        policy = p.get("pet_policy_json") or ""
+        if policy and "summary_zh" in policy:
+            try:
+                summary = json.loads(policy).get("summary_zh")
+                if summary:
+                    lines.append(f"   准入摘要：{summary}")
+            except Exception:
+                pass
+        lines.append(f"   核实日期：{p.get('last_verified_at')}")
+        lines.append("")
+    lines.append("出发前请打开商场官方政策页再确认最新规则。")
+    return "\n".join(lines), trace
+
+
 def _answer_place(user_question: str) -> tuple[str, list[dict]]:
     district = detect_district_in_text(user_question) or _guess_unknown_district(
         user_question
     )
     park = is_park_query(user_question)
     restaurant = is_restaurant_query(user_question)
+    complementary = complementary_place_type(user_question)
 
     if not district:
+        if complementary:
+            return (
+                f"可以帮你查{complementary}相关地点。请告诉我地区（例如沙田、湾仔）。",
+                [],
+            )
         if park and not restaurant:
             return (
                 "可以帮你查康文署宠物公园/宠物共享公园。请告诉我地区（例如沙田、湾仔）。",
                 [],
             )
         return (
-            "可以帮你查获准带狗食肆，或康文署宠物公园/共享公园。"
-            "请告诉我地区（例如沙田、旺角），并说明要找餐厅还是公园。",
+            "可以帮你查获准带狗食肆、宠物公园、宠物友善商场或诊所。"
+            "请告诉我地区（例如沙田、旺角），并说明地点类型。",
             [],
         )
 
+    if complementary and not park and not restaurant:
+        return _answer_complementary_places(user_question, district, complementary)
     if park and not restaurant:
         return _answer_parks(user_question, district)
     if restaurant and not park:
         return _answer_restaurants(user_question, district)
     if park and restaurant:
-        # Prefer explicit park if both mentioned lightly; otherwise restaurants
         return _answer_parks(user_question, district)
 
-    # Generic "附近地点" — try parks first then mention restaurants
+    if complementary:
+        return _answer_complementary_places(user_question, district, complementary)
+
     park_reply, park_trace = _answer_parks(user_question, district)
     if park_trace and park_trace[0].get("result_count", 0) > 0:
         return park_reply, park_trace
     return _answer_restaurants(user_question, district)
 
 
-def run_dev_fallback(user_question: str) -> tuple[str, list[dict]]:
+def run_dev_fallback(user_question: str, history: list | None = None) -> tuple[str, list[dict]]:
+    followed = try_followup_from_history(user_question, history)
+    if followed is not None:
+        return followed
+
     intent = classify_intent(user_question)
 
     if intent == "out_of_scope":
         return (
             "这个问题超出了 PawPlan 目前的范围。"
-            "我可以回答香港宠物友善相关的护理/规则问题，或查询宠物公园与获准带狗食肆。"
-            "例如：「带狗散步怎样防中暑？」或「沙田有没有宠物公园？」",
+            "我可以回答香港宠物友善相关的护理/规则问题，或查询宠物公园、获准带狗食肆、"
+            "宠物友善商场与诊所。例如：「带狗散步怎样防中暑？」或「沙田有没有宠物公园？」",
             [],
         )
 

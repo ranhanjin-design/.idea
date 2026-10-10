@@ -89,6 +89,39 @@ RESTAURANT_HINTS = (
     "西餐",
 )
 
+MALL_HINTS = (
+    "商场",
+    "商場",
+    "购物中心",
+    "購物中心",
+    "mall",
+    "shopping mall",
+)
+
+CLINIC_HINTS = (
+    "诊所",
+    "診所",
+    "兽医",
+    "獸醫",
+    "宠物医院",
+    "寵物醫院",
+    "动物医院",
+    "動物醫院",
+    "vet",
+    "veterinary",
+    "clinic",
+)
+
+GROOMER_HINTS = (
+    "美容",
+    "洗护",
+    "洗護",
+    "宠物美容",
+    "寵物美容",
+    "groomer",
+    "grooming",
+)
+
 PLACE_HINTS = (
     "找",
     "推荐",
@@ -99,6 +132,9 @@ PLACE_HINTS = (
     "地点",
     *RESTAURANT_HINTS,
     *PARK_HINTS,
+    *MALL_HINTS,
+    *CLINIC_HINTS,
+    *GROOMER_HINTS,
 )
 
 
@@ -136,6 +172,17 @@ def classify_intent(text: str) -> str:
             "公园",
             "pet garden",
             "dog garden",
+            "商场",
+            "商場",
+            "mall",
+            "诊所",
+            "診所",
+            "兽医",
+            "獸醫",
+            "vet",
+            "clinic",
+            "美容",
+            "groom",
         )
     ):
         if any(
@@ -169,3 +216,29 @@ def is_restaurant_query(text: str) -> bool:
     if any(h in text or h in lower for h in RESTAURANT_HINTS):
         return True
     return detect_cuisine_in_text(text) is not None
+
+
+def is_mall_query(text: str) -> bool:
+    lower = text.lower()
+    return any(h in text or h in lower for h in MALL_HINTS)
+
+
+def is_clinic_query(text: str) -> bool:
+    lower = text.lower()
+    return any(h in text or h in lower for h in CLINIC_HINTS)
+
+
+def is_groomer_query(text: str) -> bool:
+    lower = text.lower()
+    return any(h in text or h in lower for h in GROOMER_HINTS)
+
+
+def complementary_place_type(text: str) -> str | None:
+    """Return search_places place_type if the query is mall/clinic/groomer."""
+    if is_mall_query(text):
+        return "mall"
+    if is_clinic_query(text):
+        return "clinic"
+    if is_groomer_query(text):
+        return "groomer"
+    return None

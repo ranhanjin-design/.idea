@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Map · PawPlan HK</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#f97316', 600: '#ea580c' },
+                    },
+                    fontFamily: { sans: ['Quicksand', 'sans-serif'] },
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { height: 100%; margin: 0; overflow: hidden; font-family: Quicksand, sans-serif; }
+        #map { position: absolute; inset: 0; z-index: 0; }
+        .leaflet-container img, .leaflet-tile, .leaflet-marker-icon {
+            max-width: none !important;
+            max-height: none !important;
+        }
+        .leaflet-tile { width: 256px !important; height: 256px !important; }
+        .leaflet-control-attribution { font-size: 10px !important; }
+        .leaflet-control-zoom { display: none !important; }
+
+        .overlay { pointer-events: none; }
+        .overlay > * { pointer-events: auto; }
+
+        .chip {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            white-space: nowrap; border-radius: 9999px;
+            border: 1px solid #e5e7eb; background: #fff;
+            padding: 0.45rem 0.85rem; font-size: 0.8125rem; font-weight: 600;
+            color: #374151; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+            transition: background .15s, color .15s, border-color .15s, transform .15s;
+            cursor: pointer;
+        }
+        .chip:hover { transform: translateY(-1px); border-color: #fdba74; }
+        .chip.active { background: #f97316; color: #fff; border-color: #f97316; }
+        .chip .dot {
+            width: 1.35rem; height: 1.35rem; border-radius: 9999px;
+            display: inline-flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .chip .dot svg { width: 0.8rem; height: 0.8rem; }
+
+        .dchip {
+            display: inline-flex; align-items: center;
+            white-space: nowrap; border-radius: 9999px;
+            border: 1px solid #e5e7eb; background: #fff;
+            padding: 0.35rem 0.75rem; font-size: 0.75rem; font-weight: 600;
+            color: #4b5563; box-shadow: 0 1px 2px rgba(0,0,0,.06);
+            cursor: pointer; transition: background .15s, color .15s;
+        }
+        .dchip.active { background: #f97316; color: #fff; border-color: #f97316; }
+
+        .scroll-x {
+            display: flex; gap: 0.5rem; overflow-x: auto; padding: 0 1rem 0.15rem;
+            scrollbar-width: none; -ms-overflow-style: none;
+        }
+        .scroll-x::-webkit-scrollbar { display: none; }
+
+        .paw-div-icon {
+            background: transparent !important;
+            border: none !important;
+        }
+        .paw-marker {
+            width: 34px; height: 34px; border-radius: 9999px;
+            border: 2.5px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.25);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+        }
+        .paw-marker svg { width: 16px; height: 16px; stroke-width: 2.2; }
+        .paw-marker.selected {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 3px rgba(249,115,22,.35), 0 4px 12px rgba(0,0,0,.3);
+        }
+
+        #sheet {
+            position: absolute; left: 0; right: 0; bottom: 0; z-index: 20;
+            background: #fff; border-radius: 1.25rem 1.25rem 0 0;
+            box-shadow: 0 -8px 30px rgba(0,0,0,.12);
+            max-height: 42vh; display: flex; flex-direction: column;
+            transform: translateY(calc(100% - 3.25rem));
+            transition: transform .28s cubic-bezier(.16,1,.3,1);
+        }
+        #sheet.open { transform: translateY(0); }
+        #sheet-handle {
+            width: 2.5rem; height: 0.28rem; border-radius: 9999px;
+            background: #d1d5db; margin: 0.55rem auto 0.35rem;
+        }
+        #detail-card {
+            position: absolute; left: 1rem; right: 1rem;
+            bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 30;
+            background: #fff; border-radius: 1.1rem;
+            box-shadow: 0 8px 28px rgba(0,0,0,.16);
+            padding: 1rem 1.1rem; display: none;
+            max-width: 28rem; margin: 0 auto;
+        }
+        #detail-card.show { display: block; animation: slideUp .25s ease; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fab {
+            width: 2.75rem; height: 2.75rem; border-radius: 9999px;
+            background: #fff; border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,.12);
+            display: flex; align-items: center; justify-content: center;
+            color: #374151; cursor: pointer;
+        }
+        .fab.brand { background: #f97316; color: #fff; border-color: #f97316; }
+        .fab:active { transform: scale(.96); }
+
+        .list-item {
+            padding: 0.75rem 1rem; border-bottom: 1px solid #f3f4f6;
+            cursor: pointer; transition: background .12s;
+        }
+        .list-item:hover, .list-item.active { background: #fff7ed; }
+        .list-item:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Top floating chrome -->
+    <div class="overlay absolute inset-x-0 top-0 z-30 pt-3">
+        <div class="px-3 flex items-center gap-2 mb-2">
+            <a href="/" class="fab shrink-0" title="Chat">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <div class="flex-1 flex items-center gap-2 bg-white rounded-full shadow-md border border-gray-100 px-3.5 py-2.5">
+                <i data-lucide="search" class="w-4 h-4 text-gray-400 shrink-0"></i>
+                <input id="search-input" type="search" enterkeyhint="search"
+                       placeholder="搜索宠物友好地点…"
+                       class="flex-1 bg-transparent outline-none text-sm text-gray-800 placeholder:text-gray-400 min-w-0">
+                <button id="search-clear" type="button" class="hidden text-gray-300 hover:text-gray-500">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="cat-row" class="scroll-x mb-2"></div>
+        <div id="dist-row" class="scroll-x mb-2"></div>
+
+        <div class="px-4">
+            <div id="count-badge" class="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur rounded-full px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-md border border-gray-100">
+                <span>🐾</span>
+                <span id="count-text">加载中…</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map controls -->
+    <div class="overlay absolute right-3 bottom-[calc(3.5rem+env(safe-area-inset-bottom))] z-30 flex flex-col gap-2">
+        <button type="button" class="fab" id="btn-zoom-in" title="放大"><i data-lucide="plus" class="w-4 h-4"></i></button>
+        <button type="button" class="fab" id="btn-zoom-out" title="缩小"><i data-lucide="minus" class="w-4 h-4"></i></button>
+        <button type="button" class="fab brand" id="btn-locate" title="定位"><i data-lucide="crosshair" class="w-4 h-4"></i></button>
+    </div>
+
+    <!-- Selected place card -->
+    <div id="detail-card">
+        <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                    <span id="detail-cat" class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full bg-orange-50 text-brand-600"></span>
+                    <span id="detail-dist" class="text-[11px] text-gray-400"></span>
+                </div>
+                <h3 id="detail-name" class="font-bold text-gray-900 text-base leading-snug"></h3>
+                <p id="detail-addr" class="text-sm text-gray-500 mt-1 line-clamp-2"></p>
+                <p id="detail-note" class="text-[11px] text-amber-600 mt-1 hidden"></p>
+            </div>
+            <button type="button" id="detail-close" class="text-gray-300 hover:text-gray-500 p-1">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+        <div class="flex gap-2 mt-3">
+            <button type="button" id="detail-ask" class="flex-1 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold py-2.5">问 Agent</button>
+            <button type="button" id="detail-list" class="rounded-xl border border-gray-200 text-gray-600 text-sm font-semibold px-3 py-2.5">列表</button>
+        </div>
+    </div>
+
+    <!-- Bottom sheet list -->
+    <div id="sheet">
+        <div id="sheet-handle"></div>
+        <button type="button" id="sheet-toggle" class="w-full px-4 pb-2 text-left">
+            <div class="font-bold text-gray-800 text-sm">地点列表</div>
+            <div id="sheet-sub" class="text-xs text-gray-400">上滑查看结果</div>
+        </button>
+        <div id="list" class="overflow-y-auto flex-1 overscroll-contain"></div>
+    </div>
+
+<script>
+const HK_CENTER = [22.3193, 114.1694];
+const CAT_META = {
+    all:         { label: '全部',   icon: 'map-pin',     color: '#ef4444', bg: '#fef2f2' },
+    restaurants: { label: '餐厅',   icon: 'utensils',    color: '#22c55e', bg: '#f0fdf4' },
+    parks:       { label: '宠物公园', icon: 'trees',      color: '#16a34a', bg: '#ecfdf5' },
+    malls:       { label: '商场',   icon: 'shopping-bag', color: '#3b82f6', bg: '#eff6ff' },
+    vets:        { label: '兽医',   icon: 'stethoscope', color: '#a855f7', bg: '#faf5ff' },
+    groomers:    { label: '美容',   icon: 'scissors',    color: '#ec4899', bg: '#fdf2f8' },
+};
+const CAT_ORDER = ['all', 'restaurants', 'parks', 'malls', 'vets', 'groomers'];
+
+const state = {
+    category: 'all',
+    district: null,
+    q: '',
+    map: null,
+    layer: null,
+    markers: {},
+    points: [],
+    selected: null,
+    catalog: null,
+    userMarker: null,
+    debounce: null,
+};
+
+function apiBase() {
+    return (location.port === '8000' || location.pathname.startsWith('/explore'))
+        ? location.origin : 'http://127.0.0.1:8000';
+}
+
+function displayName(p) {
+    if (p.name_zh && p.name_en && p.name_zh !== p.name_en) return `${p.name_zh} · ${p.name_en}`;
+    return p.name_zh || p.name_en || p.id;
+}
+
+function catOf(p) {
+    return p.category || (
+        p.place_type === 'mall' ? 'malls' :
+        p.place_type === 'groomer' ? 'groomers' :
+        ['vet','dental','emergency'].includes(p.place_type) ? 'vets' :
+        (p.place_type === 'restaurant' ? 'restaurants' :
+        (String(p.place_type||'').includes('park') ? 'parks' : 'all'))
+    );
+}
+
+function esc(s) {
+    return String(s || '').replace(/[&<>"']/g, c => (
+        {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+}
+
+/* ---------- marker icon ---------- */
+function markerHtml(cat, selected) {
+    const m = CAT_META[cat] || CAT_META.all;
+    return `<div class="paw-marker ${selected ? 'selected' : ''}" style="background:${m.color}">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${iconPath(m.icon)}</svg>
+    </div>`;
+}
+function iconPath(name) {
+    const paths = {
+        'map-pin': '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+        utensils: '<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+        trees: '<path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.7A3 3 0 0 1 8 5a3 3 0 0 1 5 1.3"/><path d="M14.5 10.5a3 3 0 0 1 4.5 2.6A3 3 0 0 1 17 18h-2.5"/><path d="M12 13v9"/><path d="M8 22h8"/>',
+        'shopping-bag': '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+        stethoscope: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+        scissors: '<circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/>',
+    };
+    return paths[name] || paths['map-pin'];
+}
+function makeIcon(cat, selected) {
+    return L.divIcon({
+        className: 'paw-div-icon',
+        html: markerHtml(cat, selected),
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -18],
+    });
+}
+
+/* ---------- map ---------- */
+function initMap() {
+    state.map = L.map('map', {
+        zoomControl: false,
+        attributionControl: true,
+    }).setView(HK_CENTER, 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap',
+    }).addTo(state.map);
+    state.layer = L.layerGroup().addTo(state.map);
+    state.map.on('click', () => closeDetail());
+    setTimeout(() => state.map.invalidateSize(), 100);
+}
+
+function renderMarkers(points) {
+    state.layer.clearLayers();
+    state.markers = {};
+    state.points = points;
+    const bounds = [];
+    points.forEach(p => {
+        const cat = catOf(p);
+        const m = L.marker([p.latitude, p.longitude], {
+            icon: makeIcon(cat, false),
+            riseOnHover: true,
+        });
+        m.on('click', (e) => {
+            L.DomEvent.stopPropagation(e);
+            selectPlace(p.id);
+        });
+        m.addTo(state.layer);
+        state.markers[p.id] = m;
+        bounds.push([p.latitude, p.longitude]);
+    });
+    if (bounds.length === 1) {
+        state.map.setView(bounds[0], 15);
+    } else if (bounds.length > 1) {
+        state.map.fitBounds(bounds, { padding: [80, 80], maxZoom: 14 });
+    }
+    document.getElementById('count-text').textContent =
+        `${points.length.toLocaleString()} 个宠物友好地点`;
+    renderList(points);
+}
+
+function selectPlace(id) {
+    const p = state.points.find(x => x.id === id);
+    if (!p) return;
+    // reset previous marker
+    if (state.selected && state.markers[state.selected]) {
+        const prev = state.points.find(x => x.id === state.selected);
+        state.markers[state.selected].setIcon(makeIcon(catOf(prev || {}), false));
+    }
+    state.selected = id;
+    const m = state.markers[id];
+    if (m) {
+        m.setIcon(makeIcon(catOf(p), true));
+        state.map.setView(m.getLatLng(), Math.max(state.map.getZoom(), 14), { animate: true });
+    }
+    showDetail(p);
+    highlightList(id);
+}
+
+function showDetail(p) {
+    const cat = catOf(p);
+    const meta = CAT_META[cat] || CAT_META.all;
+    document.getElementById('detail-cat').textContent = meta.label;
+    document.getElementById('detail-cat').style.background = meta.bg;
+    document.getElementById('detail-cat').style.color = meta.color;
+    document.getElementById('detail-dist').textContent = p.district || '';
+    document.getElementById('detail-name').textContent = displayName(p);
+    document.getElementById('detail-addr').textContent = p.address || '';
+    const note = document.getElementById('detail-note');
+    if (p.precision === 'district_centroid') {
+        note.textContent = '位置为分区中心近似坐标';
+        note.classList.remove('hidden');
+    } else {
+        note.classList.add('hidden');
+    }
+    document.getElementById('detail-card').classList.add('show');
+    document.getElementById('sheet').classList.remove('open');
+    document.getElementById('detail-ask').onclick = () => {
+        const q = `Tell me about ${p.name_zh || p.name_en || ''} in ${p.district || ''} — can I bring my dog?`;
+        location.href = `/?q=${encodeURIComponent(q)}`;
+    };
+    lucide.createIcons();
+}
+
+function closeDetail() {
+    document.getElementById('detail-card').classList.remove('show');
+    if (state.selected && state.markers[state.selected]) {
+        const prev = state.points.find(x => x.id === state.selected);
+        if (prev) state.markers[state.selected].setIcon(makeIcon(catOf(prev), false));
+    }
+    state.selected = null;
+    document.querySelectorAll('.list-item').forEach(el => el.classList.remove('active'));
+}
+
+/* ---------- list ---------- */
+function renderList(points) {
+    const list = document.getElementById('list');
+    document.getElementById('sheet-sub').textContent =
+        points.length ? `${points.length} 个结果 · 点击查看` : '没有匹配地点';
+    if (!points.length) {
+        list.innerHTML = `<div class="px-4 py-8 text-center text-sm text-gray-400">换个分类或地区试试</div>`;
+        return;
+    }
+    list.innerHTML = points.slice(0, 80).map(p => {
+        const cat = catOf(p);
+        const meta = CAT_META[cat] || CAT_META.all;
+        return `<div class="list-item" data-id="${esc(p.id)}">
+            <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white" style="background:${meta.color}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${iconPath(meta.icon)}</svg>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="font-semibold text-sm text-gray-900 truncate">${esc(displayName(p))}</div>
+                    <div class="text-xs text-gray-400 truncate mt-0.5">${esc(p.address || p.district || '')}</div>
+                    <div class="text-[10px] mt-1" style="color:${meta.color}">${esc(meta.label)} · ${esc(p.district || '')}</div>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+    list.querySelectorAll('.list-item').forEach(el => {
+        el.onclick = () => selectPlace(el.dataset.id);
+    });
+}
+
+function highlightList(id) {
+    document.querySelectorAll('.list-item').forEach(el => {
+        el.classList.toggle('active', el.dataset.id === id);
+    });
+    const row = document.querySelector(`.list-item[data-id="${CSS.escape(id)}"]`);
+    if (row) row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+/* ---------- filters ---------- */
+function renderCatChips() {
+    const row = document.getElementById('cat-row');
+    row.innerHTML = CAT_ORDER.map(id => {
+        const m = CAT_META[id];
+        const active = state.category === id ? 'active' : '';
+        const count = id === 'all'
+            ? (state.catalog?.total_venues ?? '')
+            : (state.catalog?.categories?.find(c => c.id === id)?.count ?? '');
+        return `<button type="button" class="chip ${active}" data-cat="${id}">
+            <span class="dot" style="background:${active ? 'rgba(255,255,255,.25)' : m.bg};color:${active ? '#fff' : m.color}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${iconPath(m.icon)}</svg>
+            </span>
+            ${m.label}${count !== '' ? ` <span class="opacity-70 text-[11px]">${Number(count).toLocaleString()}</span>` : ''}
+        </button>`;
+    }).join('');
+    row.querySelectorAll('[data-cat]').forEach(btn => {
+        btn.onclick = () => {
+            state.category = btn.dataset.cat;
+            renderCatChips();
+            loadMap();
+        };
+    });
+}
+
+function renderDistChips() {
+    const row = document.getElementById('dist-row');
+    const districts = state.catalog?.districts || [];
+    const allActive = !state.district ? 'active' : '';
+    row.innerHTML = `<button type="button" class="dchip ${allActive}" data-dist="">全部</button>` +
+        districts.map(d => {
+            const active = state.district === d.id ? 'active' : '';
+            return `<button type="button" class="dchip ${active}" data-dist="${esc(d.id)}">${esc(d.label_zh || d.label_en)}</button>`;
+        }).join('');
+    row.querySelectorAll('[data-dist]').forEach(btn => {
+        btn.onclick = () => {
+            state.district = btn.dataset.dist || null;
+            renderDistChips();
+            loadMap();
+        };
+    });
+}
+
+/* ---------- data ---------- */
+async function loadCatalog() {
+    const res = await fetch(`${apiBase()}/api/explore/catalog`);
+    if (!res.ok) throw new Error('catalog');
+    state.catalog = await res.json();
+    renderCatChips();
+    renderDistChips();
+}
+
+async function loadMap() {
+    document.getElementById('count-text').textContent = '加载中…';
+    closeDetail();
+    const params = new URLSearchParams({
+        category: state.category,
+        limit: state.category === 'all' ? '500' : '400',
+    });
+    if (state.district) params.set('district', state.district);
+    if (state.q) params.set('q', state.q);
+    const res = await fetch(`${apiBase()}/api/explore/map?${params}`);
+    if (!res.ok) {
+        document.getElementById('count-text').textContent = '加载失败';
+        return;
+    }
+    const data = await res.json();
+    renderMarkers(data.points || []);
+    // keep URL in sync
+    const u = new URL(location.href);
+    u.searchParams.set('category', state.category);
+    if (state.district) u.searchParams.set('district', state.district);
+    else u.searchParams.delete('district');
+    if (state.q) u.searchParams.set('q', state.q);
+    else u.searchParams.delete('q');
+    history.replaceState(null, '', u);
+}
+
+/* ---------- controls ---------- */
+document.getElementById('btn-zoom-in').onclick = () => state.map.zoomIn();
+document.getElementById('btn-zoom-out').onclick = () => state.map.zoomOut();
+document.getElementById('btn-locate').onclick = () => {
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(pos => {
+        const ll = [pos.coords.latitude, pos.coords.longitude];
+        if (state.userMarker) state.map.removeLayer(state.userMarker);
+        state.userMarker = L.circleMarker(ll, {
+            radius: 9, color: '#fff', weight: 3,
+            fillColor: '#3b82f6', fillOpacity: 1,
+        }).addTo(state.map);
+        state.map.setView(ll, 14);
+    }, () => {
+        state.map.setView(HK_CENTER, 12);
+    }, { enableHighAccuracy: true, timeout: 8000 });
+};
+
+document.getElementById('sheet-toggle').onclick = () => {
+    document.getElementById('sheet').classList.toggle('open');
+    closeDetail();
+};
+document.getElementById('detail-close').onclick = () => closeDetail();
+document.getElementById('detail-list').onclick = () => {
+    closeDetail();
+    document.getElementById('sheet').classList.add('open');
+};
+
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
+searchInput.addEventListener('input', () => {
+    searchClear.classList.toggle('hidden', !searchInput.value);
+    clearTimeout(state.debounce);
+    state.debounce = setTimeout(() => {
+        state.q = searchInput.value.trim();
+        loadMap();
+    }, 320);
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        clearTimeout(state.debounce);
+        state.q = searchInput.value.trim();
+        loadMap();
+    }
+});
+searchClear.onclick = () => {
+    searchInput.value = '';
+    searchClear.classList.add('hidden');
+    state.q = '';
+    loadMap();
+};
+
+/* ---------- boot ---------- */
+(async function boot() {
+    initMap();
+    const params = new URLSearchParams(location.search);
+    if (params.get('category')) state.category = params.get('category');
+    if (params.get('district')) state.district = params.get('district');
+    if (params.get('q')) {
+        state.q = params.get('q');
+        searchInput.value = state.q;
+        searchClear.classList.remove('hidden');
+    }
+    try {
+        await loadCatalog();
+    } catch {
+        document.getElementById('count-text').textContent = 'API 未连接';
+    }
+    await loadMap();
+    lucide.createIcons();
+})();
+</script>
+</body>
+</html>

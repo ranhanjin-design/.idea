@@ -227,6 +227,34 @@ class DataQualityTests(unittest.TestCase):
         self.assertGreaterEqual(p_geo / p_total, 0.95)
         self.assertGreaterEqual(r_geo / r_total, 0.95)
 
+    def test_mall_official_tier2_minimum(self):
+        path = ROOT / "data" / "knowledge" / "mall_pet_policies.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        entries = payload.get("entries") or []
+        self.assertGreaterEqual(len(entries), 24)
+        for entry in entries:
+            url = entry.get("policy_url") or ""
+            self.assertTrue(url.startswith("http"), entry.get("place_id"))
+            self.assertTrue(entry.get("name_en") or entry.get("name_zh"))
+        conn = self._conn()
+        n = conn.execute(
+            "SELECT COUNT(*) FROM places WHERE place_type='mall' AND source_name='mall_official'"
+        ).fetchone()[0]
+        conn.close()
+        self.assertGreaterEqual(n, 24)
+
+    def test_groomers_and_vets_present(self):
+        conn = self._conn()
+        groomers = conn.execute(
+            "SELECT COUNT(*) FROM places WHERE place_type='groomer'"
+        ).fetchone()[0]
+        vets = conn.execute(
+            "SELECT COUNT(*) FROM places WHERE place_type IN ('vet','dental','emergency')"
+        ).fetchone()[0]
+        conn.close()
+        self.assertGreaterEqual(groomers, 80)
+        self.assertGreaterEqual(vets, 50)
+
 
 if __name__ == "__main__":
     unittest.main()

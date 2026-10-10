@@ -4,13 +4,38 @@ from typing import Any
 
 from openai import OpenAI
 
-from pawplan.agent.dev_fallback import run_dev_fallback
+from pawplan.agent.dev_fallback import run_dev_fallback, try_followup_from_history
 from pawplan.agent.logutil import log_event
 from pawplan.agent.prompts import SYSTEM_PROMPT
 from pawplan.agent.tools_schema import TOOLS
 from pawplan.tools.search_knowledge import search_knowledge
 from pawplan.tools.search_parks import search_parks
+from pawplan.tools.search_places import search_places
 from pawplan.tools.search_restaurants import search_restaurants
+
+_ALLOWED_HISTORY_ROLES = {"user", "assistant"}
+_HISTORY_TURN_CAP = 12
+_HISTORY_CONTENT_MAX = 4000
+
+
+def _sanitize_history(history: list | None) -> list[dict[str, str]]:
+    if not history:
+        return []
+    cleaned: list[dict[str, str]] = []
+    for item in history:
+        if isinstance(item, dict):
+            role = item.get("role")
+            content = item.get("content")
+        else:
+            role = getattr(item, "role", None)
+            content = getattr(item, "content", None)
+        if role not in _ALLOWED_HISTORY_ROLES:
+            continue
+        text = str(content or "").strip()
+        if not text:
+            continue
+        cleaned.append({"role": role, "content": text[:_HISTORY_CONTENT_MAX]})
+    return cleaned[-_HISTORY_TURN_CAP:]
 
 
 def _dispatch_tool(name: str, arguments: dict[str, Any]) -> dict:
@@ -18,6 +43,14 @@ def _dispatch_tool(name: str, arguments: dict[str, Any]) -> dict:
         return search_knowledge(**arguments)
     if name == "search_parks":
         return search_parks(**arguments)
+    if name == "search_places":
+        kwargs = {
+            "district": arguments["district"],
+            "limit": int(arguments.get("limit", 5)),
+        }
+        if arguments.get("place_type"):
+            kwargs["place_type"] = arguments["place_type"]
+        return search_places(**kwargs)
     if name == "search_restaurants":
         kwargs = {
             "district": arguments["district"],
@@ -29,14 +62,30 @@ def _dispatch_tool(name: str, arguments: dict[str, Any]) -> dict:
     return {"error": "unknown_tool", "name": name}
 
 
-def run_agent(user_question: str) -> dict:
+def run_agent(user_question: str, history: list | None = None) -> dict:
     """
     Returns {"reply": str, "mode": "deepseek"|"dev", "tool_trace": list}.
     """
+    sanitized = _sanitize_history(history)
+
+    # Short replies like "1" must not depend on the model remembering options.
+    followed = try_followup_from_history(user_question, sanitized)
+    if followed is not None:
+        reply, trace = followed
+        log_event(
+            {
+                "mode": "followup",
+                "user": user_question,
+                "tool_trace": trace,
+                "reply_preview": reply[:240],
+            }
+        )
+        return {"reply": reply, "mode": "followup", "tool_trace": trace}
+
     force_dev = os.environ.get("PAWPLAN_FORCE_DEV", "").strip() in {"1", "true", "TRUE", "yes"}
     api_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
     if force_dev or not api_key:
-        reply, trace = run_dev_fallback(user_question)
+        reply, trace = run_dev_fallback(user_question, history=sanitized)
         log_event(
             {
                 "mode": "dev",
@@ -56,6 +105,7 @@ def run_agent(user_question: str) -> dict:
 
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": SYSTEM_PROMPT},
+        *sanitized,
         {"role": "user", "content": user_question},
     ]
     tool_trace: list[dict] = []

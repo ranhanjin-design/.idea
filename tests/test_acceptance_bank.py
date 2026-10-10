@@ -11,6 +11,7 @@ from pawplan.agent.dev_fallback import run_dev_fallback
 from pawplan.database.db import init_database
 from pawplan.tools.search_knowledge import search_knowledge
 from pawplan.tools.search_parks import search_parks
+from pawplan.tools.search_places import search_places
 from pawplan.tools.search_restaurants import search_restaurants
 
 
@@ -205,6 +206,24 @@ class MidtermAcceptanceBank(unittest.TestCase):
 
     # --- 18 knowledge empty / insufficient ---
 
+    def test_17b_followup_one_after_unconfirmed_cuisine(self):
+        history = [
+            {"role": "user", "content": "旺角茶餐厅"},
+            {
+                "role": "assistant",
+                "content": (
+                    "无法确认「旺角」是否有宠物友好的茶餐厅。"
+                    "是否愿意改查获准带狗进入的食肆？\n1. 改查获准带狗食肆"
+                ),
+            },
+        ]
+        reply, trace = run_dev_fallback("1", history)
+        self.assertEqual(trace[0]["tool"], "search_restaurants")
+        self.assertIn(trace[0]["arguments"]["district"], {"Mong Kok", "Yau Tsim Mong"})
+        self.assertNotIn("cuisine", trace[0]["arguments"])
+        self.assertGreater(trace[0]["result_count"], 0)
+        self.assertIn("核实日期", reply)
+
     def test_18_knowledge_insufficient_basis(self):
         result = search_knowledge("xyzzy_nonexistent_pet_topic_999", limit=3)
         # Either zero hits, or if score noise, agent path should still cite only tool docs
@@ -216,6 +235,51 @@ class MidtermAcceptanceBank(unittest.TestCase):
         else:
             self.assertEqual(trace[0]["tool"], "search_knowledge")
             self.assertIn("来源", reply)
+
+    # --- 19–21 mall / clinic / groomer ---
+
+    def test_19_sha_tin_pet_friendly_mall(self):
+        reply, trace = self._chat("沙田有没有宠物友善商场？")
+        self.assertEqual(trace[0]["tool"], "search_places")
+        self.assertEqual(trace[0]["arguments"]["district"], "Sha Tin")
+        self.assertEqual(trace[0]["arguments"].get("place_type"), "mall")
+        self.assertGreater(trace[0]["result_count"], 0)
+        self.assertTrue("来源" in reply or "政策" in reply or "GoPaw" in reply or "官网" in reply)
+        self.assertIn("核实日期", reply)
+        result = search_places("Sha Tin", "mall", limit=5)
+        self.assertGreater(result["count"], 0)
+        self.assertTrue(
+            any(p.get("source_name") == "mall_official" for p in result["places"])
+            or any(p.get("evidence_tier") in {2, 3} for p in result["places"])
+        )
+
+    def test_20_wan_chai_vet_clinic(self):
+        reply, trace = self._chat("湾仔附近的宠物诊所")
+        self.assertEqual(trace[0]["tool"], "search_places")
+        self.assertEqual(trace[0]["arguments"]["district"], "Wan Chai")
+        self.assertEqual(trace[0]["arguments"].get("place_type"), "clinic")
+        if trace[0]["result_count"] == 0:
+            self.assertTrue("暂无" in reply or "没有" in reply)
+        else:
+            self.assertIn("核实日期", reply)
+            self.assertTrue("诊所" in reply or "vet" in reply.lower() or "兽医" in reply or "獸醫" in reply)
+
+    def test_21_central_groomer(self):
+        reply, trace = self._chat("中西区有没有宠物美容？")
+        self.assertEqual(trace[0]["tool"], "search_places")
+        self.assertIn(trace[0]["arguments"]["district"], {"Central/Western", "Central"})
+        self.assertEqual(trace[0]["arguments"].get("place_type"), "groomer")
+        self.assertGreater(trace[0]["result_count"], 0)
+        self.assertIn("核实日期", reply)
+        self.assertTrue("PetCircle" in reply or "GoPaw" in reply or "美容" in reply or "来源" in reply)
+
+    def test_22_places_have_source_url(self):
+        for place_type in ("mall", "clinic", "groomer"):
+            result = search_places("Sha Tin", place_type, limit=3)
+            for row in result.get("places") or []:
+                self.assertTrue(row.get("source_url"))
+                self.assertTrue(row.get("last_verified_at"))
+                self.assertTrue(row.get("name_en") or row.get("name_zh"))
 
 
 if __name__ == "__main__":

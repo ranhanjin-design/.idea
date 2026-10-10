@@ -19,7 +19,7 @@ def load_enriched(path: Path) -> list[dict]:
 def import_restaurants(rows: list[dict], replace: bool = True) -> int:
     conn = get_connection()
     try:
-        init_database()  # ensure schema
+        init_database(apply_second_source=False)  # schema only; cuisine already enriched
         if replace:
             conn.execute("DELETE FROM restaurant_cuisines")
             conn.execute("DELETE FROM restaurants")

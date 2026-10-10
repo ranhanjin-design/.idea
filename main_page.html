@@ -185,6 +185,11 @@
                     New chat
                 </span>
             </button>
+
+            <a href="/explore" class="w-full flex items-center gap-2 px-4 py-2.5 rounded-2xl border border-soft-border bg-white hover:bg-orange-50 text-brand-600 font-medium text-sm transition-all">
+                <i data-lucide="compass" class="w-4 h-4"></i>
+                Explore places
+            </a>
         </div>
 
         <!-- 2. 历史会话 -->
@@ -542,6 +547,29 @@
         }
     }
 
+    const LOCAL_DEMO_FOOTNOTE = '（当前为本地演示模式：配置 DEEPSEEK_API_KEY 后启用完整 Agent）';
+
+    function stripLocalDemoFootnote(text) {
+        let s = String(text || '');
+        const idx = s.lastIndexOf(LOCAL_DEMO_FOOTNOTE);
+        if (idx !== -1) {
+            s = s.slice(0, idx) + s.slice(idx + LOCAL_DEMO_FOOTNOTE.length);
+        }
+        return s.trim();
+    }
+
+    function buildChatHistory(currentChat) {
+        // Exclude the just-appended current user turn; keep last 12 prior messages.
+        return currentChat.messages
+            .slice(0, -1)
+            .slice(-12)
+            .map((m) => ({
+                role: m.sender === 'user' ? 'user' : 'assistant',
+                content: m.sender === 'ai' ? stripLocalDemoFootnote(m.text) : String(m.text || ''),
+            }))
+            .filter((m) => m.content && String(m.content).trim());
+    }
+
     // 6. 发送消息 —— 如果没有活跃会话，则自动创建新会话
     async function sendMessage() {
         const input = document.getElementById('user-input');
@@ -568,6 +596,8 @@
         }
         renderSidebarHistory();
 
+        const history = buildChatHistory(currentChat);
+
         setSendLoading(true);
         try {
             let data = null;
@@ -577,7 +607,7 @@
                     const res = await fetch(url, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ message: text })
+                        body: JSON.stringify({ message: text, history })
                     });
                     if (!res.ok) {
                         lastError = new Error(`HTTP ${res.status}`);
@@ -740,6 +770,16 @@
     // 同时确保lucide图标渲染
     window.addEventListener('load', () => {
         lucide.createIcons();
+        const params = new URLSearchParams(window.location.search);
+        const q = (params.get('q') || '').trim();
+        if (q) {
+            const input = document.getElementById('user-input');
+            if (input) {
+                input.value = q;
+                autoResizeTextarea(input);
+                input.focus();
+            }
+        }
     });
 </script>
 </body>

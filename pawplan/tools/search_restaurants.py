@@ -1,4 +1,5 @@
 from pawplan.database.db import get_connection
+from pawplan.ingestion.enrich_cuisine import is_second_source_url
 from pawplan.normalize import cuisine_label_zh, normalize_cuisine, normalize_district
 
 MIN_CUISINE_CONFIDENCE = 0.7
@@ -24,9 +25,10 @@ def search_restaurants(
     """Parameterized restaurant search. Never accepts raw SQL from the model.
 
     District + dog-permission is always required.
-    Optional cuisine filter uses restaurant_cuisines (name/curated overlay),
-    not an official FEHD cuisine field. Unmatched permission-only rows are
-    never returned as cuisine hits.
+    Optional cuisine filter uses complementary second-source labels
+    (OSM / human review) with confidence >= 0.7. FEHD has no official
+    cuisine field. Heuristic name guesses are not cuisine_confirmed.
+    Unmatched permission-only rows are never returned as cuisine hits.
     """
     limit = max(1, min(int(limit), 5))
     district_norm = normalize_district(district) or district
@@ -52,6 +54,11 @@ def search_restaurants(
                   AND r.dog_permission = 1
                   AND c.cuisine_code = :cuisine
                   AND c.cuisine_confidence >= :min_conf
+                  AND (
+                    LOWER(c.cuisine_source_url) LIKE '%openstreetmap.org%'
+                    OR LOWER(c.cuisine_source_url) LIKE 'human_review://%'
+                    OR LOWER(c.cuisine_source_url) LIKE 'human://pawplan%'
+                  )
                 ORDER BY c.cuisine_confidence DESC, r.name_en ASC
                 LIMIT :limit
                 """,
@@ -102,17 +109,23 @@ def search_restaurants(
     if cuisine_code:
         query["cuisine"] = cuisine_code
 
-    confirmed = bool(cuisine_code) and bool(restaurants)
+    confirmed = bool(cuisine_code) and bool(restaurants) and all(
+        is_second_source_url(item.get("cuisine_source_url"))
+        and float(item.get("cuisine_confidence") or 0) >= MIN_CUISINE_CONFIDENCE
+        for item in restaurants
+    )
     if cuisine_code:
         scope_note = (
-            "Cuisine filter applied on name/curated labels; FEHD has no official "
-            "cuisine field. Unmatched dog-permitted venues are not returned as "
+            "Cuisine filter applied on complementary source labels (OSM / human "
+            "review); FEHD has no official cuisine field. Heuristic name guesses "
+            "are not confirmed. Unmatched dog-permitted venues are not returned as "
             f"{cuisine_label_zh(cuisine_code)} recommendations."
         )
     else:
         scope_note = (
             "Restaurant search is district + dog-permission. Pass cuisine to filter "
-            "by overlay labels; unmatched permission-only rows are not cuisine hits."
+            "by complementary OSM/human-review labels; unmatched permission-only "
+            "rows are not cuisine hits."
         )
 
     result = {

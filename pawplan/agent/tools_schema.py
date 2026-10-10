@@ -63,11 +63,47 @@ TOOLS = [
     {
         "type": "function",
         "function": {
+            "name": "search_places",
+            "description": (
+                "Search complementary pet-friendly places by district: "
+                "pet-friendly malls, veterinary clinics/hospitals, and groomers. "
+                "Data comes from the GoPaw directory (authorized student fetch), "
+                "not an official government list. Use for mall / clinic / groomer "
+                "requests; keep restaurants on search_restaurants and parks on search_parks."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "district": {
+                        "type": "string",
+                        "description": "Hong Kong district, e.g. Sha Tin, Wan Chai",
+                    },
+                    "place_type": {
+                        "type": "string",
+                        "description": (
+                            "Optional: mall, clinic/vet, or groomer. "
+                            "Omit to return mixed complementary places."
+                        ),
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 5,
+                    },
+                },
+                "required": ["district", "limit"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
             "name": "search_restaurants",
             "description": (
                 "Search FEHD dog-permitted food premises by district. "
                 "Pass cuisine only when the user names a food type (点心/咖啡/菜系). "
-                "Cuisine matches are name/curated labels, not official FEHD cuisine. "
+                "Cuisine matches are complementary OSM/human-review labels, not official FEHD cuisine. "
                 "If cuisine_confirmed is false, do not list unmatched venues as recommendations."
             ),
             "parameters": {

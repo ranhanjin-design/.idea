@@ -27,6 +27,9 @@ class IntentTests(unittest.TestCase):
         self.assertEqual(classify_intent("找一家旺角获准让狗进入的食肆"), "place")
         self.assertEqual(classify_intent("沙田有没有宠物公园？"), "place")
         self.assertEqual(classify_intent("找一家沙田附近的点心店"), "place")
+        self.assertEqual(classify_intent("沙田有没有宠物友善商场？"), "place")
+        self.assertEqual(classify_intent("湾仔附近的宠物诊所"), "place")
+        self.assertEqual(classify_intent("中西区有没有宠物美容？"), "place")
 
     def test_detect_cuisine_from_food_shop_request(self):
         self.assertEqual(detect_cuisine_in_text("找一家沙田附近的点心店"), "dim_sum")
@@ -96,6 +99,47 @@ class AgentFallbackTests(unittest.TestCase):
         reply, trace = run_dev_fallback("沙田有没有宠物公园？")
         self.assertTrue(any(t["tool"] == "search_parks" for t in trace))
         self.assertIn("来源", reply)
+
+    def test_followup_one_relaxes_cuisine_from_history(self):
+        history = [
+            {"role": "user", "content": "旺角茶餐厅"},
+            {
+                "role": "assistant",
+                "content": (
+                    "无法确认「旺角」是否有宠物友好的茶餐厅。"
+                    "是否愿意改查获准带狗进入的食肆？\n1. 改查获准带狗食肆"
+                ),
+            },
+        ]
+        reply, trace = run_dev_fallback("1", history=history)
+        self.assertTrue(any(t["tool"] == "search_restaurants" for t in trace))
+        self.assertIn(trace[0]["arguments"]["district"], {"Mong Kok", "Yau Tsim Mong"})
+        self.assertNotIn("cuisine", trace[0]["arguments"])
+        self.assertGreater(trace[0]["result_count"], 0)
+        self.assertTrue(len(reply) > 10)
+
+    def test_followup_short_circuits_deepseek_path(self):
+        from pawplan.agent.loop import run_agent
+
+        history = [
+            {"role": "user", "content": "旺角附近的可以带狗进入的茶餐厅"},
+            {
+                "role": "assistant",
+                "content": (
+                    "无法确认旺角茶餐厅/咖啡店类型。\n"
+                    "1. 只按可带狗进入筛选获准食肆\n"
+                    "2. 换一个地区"
+                ),
+            },
+        ]
+        result = run_agent("1", history=history)
+        self.assertEqual(result["mode"], "followup")
+        self.assertTrue(any(t["tool"] == "search_restaurants" for t in result["tool_trace"]))
+        self.assertIn(
+            result["tool_trace"][0]["arguments"]["district"],
+            {"Mong Kok", "Yau Tsim Mong"},
+        )
+        self.assertNotIn("cuisine", result["tool_trace"][0]["arguments"])
 
 
 if __name__ == "__main__":

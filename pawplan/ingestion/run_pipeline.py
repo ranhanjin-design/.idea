@@ -8,7 +8,7 @@ from pathlib import Path
 from pawplan.ingestion.build_db import build_from_enriched
 from pawplan.ingestion.enrich_cuisine import apply_second_source_to_db, enrich_restaurants
 from pawplan.ingestion.fetch_cuisine_osm import refresh_second_source
-from pawplan.ingestion.fetch_fehd import fetch_fehd_pdf
+from pawplan.ingestion.fetch_fehd import fetch_fehd_directory, fetch_fehd_pdf
 from pawplan.ingestion.fetch_gopaw import refresh_gopaw_second_source
 from pawplan.ingestion.parse_fehd_pdf import parse_fehd_pdf
 
@@ -17,6 +17,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def run_pipeline(skip_fetch: bool = False) -> None:
     pdf = ROOT / "data" / "raw" / "fehd_dog_restaurants_fulllist.pdf"
+    web = ROOT / "data/raw/fehd_dog_restaurants_current.json"
+    if not skip_fetch or not web.exists():
+        fetch_fehd_directory()
     if not skip_fetch or not pdf.exists():
         pdf = fetch_fehd_pdf()
         print(f"[1/6] fetched {pdf}")

@@ -70,6 +70,7 @@ def format_chat_markdown(text: str) -> str:
             ]
             for cell in header:
                 parts.append(f"<th>{_format_inline(cell)}</th>")
+
             parts.append("</tr></thead><tbody>")
             for row in body:
                 parts.append("<tr>")

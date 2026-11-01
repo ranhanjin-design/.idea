@@ -1,0 +1,5707 @@
+{
+  "fetched_at_utc": "2026-11-01T15:58:02.409655+00:00",
+  "district_count": 18,
+  "page_count": 36,
+  "downloaded_page_count": 72,
+  "pages": [
+    {
+      "district": "Central/Western",
+      "district_zh": "中西區",
+      "district_id": 1,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=1",
+      "venue_count": 5,
+      "venues": [
+        "加多近街花園",
+        "中西區海濱長廊 – 中環段",
+        "中西區海濱長廊 – 上環段",
+        "豐物道休憩處",
+        "屋蘭士街休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "加多近街花園",
+            "map_id": "BD1t0Q26uQ",
+            "地址": "加多近街與域多利道交界",
+            "面積(平方米)": "200",
+            "設施": "寵物角",
+            "配套設施": "草坪、公園座椅、狗糞收集箱和洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2575 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Cadogan Street Garden",
+            "map_id": "BD1t0Q26uQ",
+            "Address": "J/O Cadogan Street and Victoria Road",
+            "Area(M2)": "200",
+            "Facilities": "Pet Corner",
+            "Ancillary Facilities": "Turf area, garden benches, dog excreta collection bin and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2575 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中西區海濱長廊 – 中環段",
+            "map_id": "IPCkWrHSYn",
+            "地址": "金鐘龍和道",
+            "面積(平方米)": "4 700",
+            "設施": "寵物公園及寵物通道",
+            "配套設施": "洗手間 (設有暢通易達洗手間)、草坪、避雨亭、狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "其他（如適用）": "文化廣場、快餐亭、觀景台及園景花園",
+            "查詢電話": "2520 2321 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Central and Western District Promenade – Central Section",
+            "map_id": "IPCkWrHSYn",
+            "Address": "Lung Wo Road, Admiralty",
+            "Area(M2)": "4 700",
+            "Facilities": "Pet Garden and pet access",
+            "Ancillary Facilities": "Toilets facilities (including accessible toilets), turf area, rain shelter, dog excreta collection bin and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Others": "Culture Plaza, fast food kiosk, viewing platforms and landscaped area",
+            "Enquiry No.": "2520 2321 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中西區海濱長廊 – 上環段",
+            "map_id": "BX99za303g",
+            "地址": "上環中港道",
+            "面積(平方米)": "1 500",
+            "設施": "寵物角",
+            "配套設施": "草坪、公園座椅、狗廁所、狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2566 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Central and Western District Promenade – Sheung Wan Section",
+            "map_id": "BX99za303g",
+            "Address": "Chung Kong Road Sheung Wan",
+            "Area(M2)": "1 500",
+            "Facilities": "Pet Corner",
+            "Ancillary Facilities": "Turf area, garden benches, dog excreta collection bins, dog latrine and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2566 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "豐物道休憩處",
+            "map_id": "KInlClafv3",
+            "地址": "西營盤豐物道",
+            "面積(平方米)": "150",
+            "設施": "寵物角",
+            "配套設施": "草坪、公園座椅、避雨亭、狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "其他（如適用）": "棋檯",
+            "查詢電話": "2853 2575 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Fung Mat Road Sitting-out Area",
+            "map_id": "KInlClafv3",
+            "Address": "Fung Mat Road, Sai Ying Pun",
+            "Area(M2)": "150",
+            "Facilities": "Pet Corner",
+            "Ancillary Facilities": "Turf area, garden benches, rain shelter, dog excreta collection bin and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Others": "Chess table",
+            "Enquiry No.": "2853 2575 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "屋蘭士街休憩處",
+            "map_id": "DAEFP2BcP4",
+            "地址": "半山屋蘭士街",
+            "面積(平方米)": "125",
+            "設施": "寵物角",
+            "配套設施": "公園座椅、避雨亭、狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2684 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Oaklands Avenue Sitting-out Area",
+            "map_id": "DAEFP2BcP4",
+            "Address": "Oaklands Avenue, Mid-level",
+            "Area(M2)": "125",
+            "Facilities": "Pet Corner",
+            "Ancillary Facilities": "Garden benches, rain shelter, dog excreta collection bins and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2684 (office hours)"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Central/Western",
+      "district_zh": "中西區",
+      "district_id": 1,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=1",
+      "venue_count": 16,
+      "venues": [
+        "加多近街花園 (指定位置)",
+        "堅巷花園 (指定位置)",
+        "中西區海濱長廊－上環段",
+        "中西區海濱長廊 - 中環段 (指定位置)",
+        "中西區海濱長廊 – 西區副食品批發市場段 (指定位置)",
+        "中環碼頭海濱長廊",
+        "干德道兒童遊樂場 (指定位置)",
+        "山頂道花園 (指定位置)",
+        "二號碼頭花園",
+        "三號碼頭花園",
+        "西營盤海濱公園",
+        "中山紀念公園 (指定位置)",
+        "山頂花園",
+        "城西公園 (指定位置)",
+        "永利街休憩花園",
+        "永利街休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "加多近街花園 (指定位置)",
+            "map_id": "PS7BW9LQw1",
+            "地址": "堅尼地城，加多近街及域多利道交界",
+            "配套設施": "涼亭, 陰棚 ,公園座椅 場地另設寵物角，設施包括: 狗糞收集箱 , 洗手設施 ,寵物供水設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2575"
+          },
+          "en": {
+            "Name of Venue": "Cadogan Street Garden (Designated Areas)",
+            "map_id": "PS7BW9LQw1",
+            "Address": "Cadogan Street j/o Victoria Road, Kennedy Town",
+            "Ancillary Facilities": "Pavilion , Arbour , Park bench Pet Corner's facilities:Dog excreta collection bin,Hand-washing facilities,Water point for pets",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2575"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "堅巷花園 (指定位置)",
+            "map_id": "JUQVbUh6ST",
+            "地址": "上環堅巷",
+            "設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2684"
+          },
+          "en": {
+            "Name of Venue": "Caine Lane Garden (Designated Areas)",
+            "map_id": "JUQVbUh6ST",
+            "Address": "Caine Lane, Sheung Wan",
+            "Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2684"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中西區海濱長廊－上環段",
+            "map_id": "9bT38toYBW",
+            "地址": "上環中港道",
+            "面積(平方米)": "6,160",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2540 9704"
+          },
+          "en": {
+            "Name of Venue": "Central & Western District Promenade-Sheung Wan Section",
+            "map_id": "9bT38toYBW",
+            "Address": "Chung Kong Road, Sheung Wan",
+            "Area(M2)": "6,160",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2540 9704"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中西區海濱長廊 - 中環段 (指定位置)",
+            "map_id": "kkpo6aeVNa",
+            "地址": "龍和道",
+            "面積(平方米)": "5784",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2520 2530"
+          },
+          "en": {
+            "Name of Venue": "Central and Western District Promenade - Central Section (Designated Areas)",
+            "map_id": "kkpo6aeVNa",
+            "Address": "Lung Wo Road, Hong Kong",
+            "Area(M2)": "5784",
+            "Ancillary Facilities": "Toilet facilities(including accessible toilets), Dog excreta collection bins and Hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2520 2530"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中西區海濱長廊 – 西區副食品批發市場段 (指定位置)",
+            "map_id": "WfnZOXWGqb",
+            "地址": "西環豐物道 8 號",
+            "面積(平方米)": "5,230",
+            "配套設施": "洗手間(設有暢通易達洗手間)、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2575"
+          },
+          "en": {
+            "Name of Venue": "Central and Western District Promenade - Western Wholesale Food Market Section (Designated Areas)",
+            "map_id": "WfnZOXWGqb",
+            "Address": "8 Fung Mat Road, Sai Wan",
+            "Area(M2)": "5,230",
+            "Ancillary Facilities": "Toilets (with accessible toilets), Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2575"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中環碼頭海濱長廊",
+            "map_id": "TPu7RCTHRC",
+            "地址": "中環碼頭海濱長廊",
+            "面積(平方米)": "8,760",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2573"
+          },
+          "en": {
+            "Name of Venue": "Central Pier Waterfront",
+            "map_id": "TPu7RCTHRC",
+            "Address": "Man Kwong Street, Central",
+            "Area(M2)": "8,760",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2573"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "干德道兒童遊樂場 (指定位置)",
+            "map_id": "D1zcHH1Q65",
+            "地址": "中半山，干德道",
+            "配套設施": "涼亭, 陰棚,公園座椅,狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2684"
+          },
+          "en": {
+            "Name of Venue": "Conduit Road Children's Playground (Designated Areas)",
+            "map_id": "D1zcHH1Q65",
+            "Address": "Conduit Road, Mid-level",
+            "Ancillary Facilities": "Pavilion , Arbour, Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2684"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "山頂道花園 (指定位置)",
+            "map_id": "qtjBQfuhw3",
+            "地址": "香港山頂",
+            "配套設施": "公園座椅,狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2605"
+          },
+          "en": {
+            "Name of Venue": "Peak Road Garden (Designated Areas)",
+            "map_id": "qtjBQfuhw3",
+            "Address": "Peak Road, The Peak, Hong Kong",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2605"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "二號碼頭花園",
+            "map_id": "PRxBFoAOA0",
+            "地址": "中環民光街2號碼頭天台",
+            "面積(平方米)": "1,318",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2573"
+          },
+          "en": {
+            "Name of Venue": "Pier 2 Garden",
+            "map_id": "PRxBFoAOA0",
+            "Address": "Roof, Central Pier No. 2, Man Kwong Street, Central",
+            "Area(M2)": "1,318",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2573"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "三號碼頭花園",
+            "map_id": "n2PeJ6LLSX",
+            "地址": "中環民光街3號碼頭天台",
+            "面積(平方米)": "1,720",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2573"
+          },
+          "en": {
+            "Name of Venue": "Pier 3 Garden",
+            "map_id": "n2PeJ6LLSX",
+            "Address": "Roof, Central Pier No. 3, Man Kwong Street, Central",
+            "Area(M2)": "1,720",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2573"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "西營盤海濱公園",
+            "map_id": "fhKvufpBDu",
+            "地址": "香港西營盤東邊街北",
+            "配套設施": "洗手間(設有暢通易達洗手間) , 狗糞收集箱及洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2855 0036"
+          },
+          "en": {
+            "Name of Venue": "Sai Ying Pun Harbourfront Park",
+            "map_id": "fhKvufpBDu",
+            "Address": "Eastern Street North, Sai Ying Pun, Hong Kong",
+            "Ancillary Facilities": "Toilet facilities(including accessible toilets), Dog excreta collection bins and Hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2855 0036"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "中山紀念公園 (指定位置)",
+            "map_id": "z3BerwV4yS",
+            "地址": "香港西營盤東邊街北",
+            "面積(平方米)": "42,200",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2540 9704"
+          },
+          "en": {
+            "Name of Venue": "Sun Yat Sen Memorial Park (Designated Areas)",
+            "map_id": "z3BerwV4yS",
+            "Address": "Eastern Street North, Sai Ying Pun",
+            "Area(M2)": "42,200",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2540 9704"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "山頂花園",
+            "map_id": "S5C9JuRJYp",
+            "地址": "柯士甸山道40號對面",
+            "面積(平方米)": "96400",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗廁所",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2605"
+          },
+          "en": {
+            "Name of Venue": "Victoria Peak Garden",
+            "map_id": "S5C9JuRJYp",
+            "Address": "Opposite at No. 40 Mount Austin Road",
+            "Area(M2)": "96400",
+            "Ancillary Facilities": "Toilet facilities(including accessible toilets), Dog latrine",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2605"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "城西公園 (指定位置)",
+            "map_id": "S3DVKw3KoF",
+            "地址": "中半山，列堤頓道及屋蘭士里交界",
+            "配套設施": "涼亭,陰棚,公園座椅,飲水設施,狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2684"
+          },
+          "en": {
+            "Name of Venue": "West End Park (Designated Areas)",
+            "map_id": "S3DVKw3KoF",
+            "Address": "J/O Lyttelton Road and Oaklands Path, Mid-level",
+            "Ancillary Facilities": "Pavilion, Arbour , Park bench, Water Dispenser, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2684"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "永利街休憩花園",
+            "map_id": "4UKuAS3nhw",
+            "地址": "上環永利街",
+            "面積(平方米)": "764",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2605"
+          },
+          "en": {
+            "Name of Venue": "Wing Lee Street Rest Garden",
+            "map_id": "4UKuAS3nhw",
+            "Address": "Wing Lee Street, Sheung Wan",
+            "Area(M2)": "764",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2605"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "永利街休憩處",
+            "map_id": "tMr3wEN3ps",
+            "地址": "上環永利街",
+            "面積(平方米)": "834",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2853 2605"
+          },
+          "en": {
+            "Name of Venue": "Wing Lee Street Sitting-out Area",
+            "map_id": "tMr3wEN3ps",
+            "Address": "Wing Lee Street, Sheung Wan",
+            "Area(M2)": "834",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2853 2605"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Eastern",
+      "district_zh": "東區",
+      "district_id": 2,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=2",
+      "venue_count": 8,
+      "venues": [
+        "富康街寵物公園",
+        "康祥街休憩處",
+        "樂民道寵物公園",
+        "民康街寵物公園",
+        "北角海濱花園(一期)",
+        "鰂魚涌海濱花園",
+        "常安街寵物公園",
+        "東喜道休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "富康街寵物公園",
+            "map_id": "J2ZY57g3vp",
+            "地址": "富康街十號",
+            "面積(平方米)": "851.5",
+            "設施": "寵物公園",
+            "配套設施": "避雨亭、座椅及狗廁所",
+            "開放時間": "每日24小時",
+            "查詢電話": "2564 2539"
+          },
+          "en": {
+            "Name of Venue": "Fu Hong Street Pet Garden",
+            "map_id": "J2ZY57g3vp",
+            "Address": "10 Fu Hong Street",
+            "Area(M2)": "851.5",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Rain shelters, garden benches and dog latrine",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2539"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "康祥街休憩處",
+            "map_id": "xynqBnDlUt",
+            "地址": "西灣河康祥街",
+            "面積(平方米)": "750",
+            "設施": "寵物公園",
+            "配套設施": "寵物遊戲設施、座椅、狗廁所及狗糞收集箱",
+            "開放時間": "每日24小時",
+            "查詢電話": "2633 5655"
+          },
+          "en": {
+            "Name of Venue": "Hong Cheung Street Sitting-out Area",
+            "map_id": "xynqBnDlUt",
+            "Address": "Hong Cheung Street, Sai Wan Ho",
+            "Area(M2)": "750",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet's play equipment, garden benches, dog latrine and dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2633 5655"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "樂民道寵物公園",
+            "map_id": "voeg0DQUD4",
+            "地址": "樂民道四號",
+            "面積(平方米)": "450",
+            "設施": "寵物公園",
+            "配套設施": "避雨亭、座椅及狗廁所",
+            "開放時間": "每日24小時",
+            "查詢電話": "2564 2539"
+          },
+          "en": {
+            "Name of Venue": "Lok Man Road Pet Garden",
+            "map_id": "voeg0DQUD4",
+            "Address": "4 Lok Man Road",
+            "Area(M2)": "450",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Rain shelters, garden benches and dog latrine",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2539"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "民康街寵物公園",
+            "map_id": "pW3ZYoEnir",
+            "地址": "北角渣華道",
+            "面積(平方米)": "1 024",
+            "設施": "寵物公園",
+            "配套設施": "避雨亭、座椅及狗糞收集箱",
+            "開放時間": "每日24小時",
+            "查詢電話": "2564 2673"
+          },
+          "en": {
+            "Name of Venue": "Man Hong Street Pet Garden",
+            "map_id": "pW3ZYoEnir",
+            "Address": "Java Road, North Point",
+            "Area(M2)": "1 024",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Rain shelters, garden benches and dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2673"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "北角海濱花園(一期)",
+            "map_id": "ObSxLIbrvs",
+            "地址": "北角琴行街",
+            "面積(平方米)": "526",
+            "設施": "寵物公園",
+            "配套設施": "避雨亭、座椅及狗糞收集箱",
+            "開放時間": "每日上午7時至凌晨12時",
+            "查詢電話": "2564 2673"
+          },
+          "en": {
+            "Name of Venue": "North Point Promenade (Phase I)",
+            "map_id": "ObSxLIbrvs",
+            "Address": "Kam Hong Street, North Point",
+            "Area(M2)": "526",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbours, garden benches and dog excreta collection bins",
+            "Opening Hours": "7 am to 12 midnight",
+            "Enquiry No.": "2564 2673"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鰂魚涌海濱花園",
+            "map_id": "h1hx3a7yf6",
+            "地址": "鰂魚涌海裕街",
+            "面積(平方米)": "3 000",
+            "設施": "寵物公園",
+            "配套設施": "涼亭、座椅及狗糞收集箱",
+            "開放時間": "每日24小時",
+            "查詢電話": "2513 8499"
+          },
+          "en": {
+            "Name of Venue": "Quarry Bay Promenade",
+            "map_id": "h1hx3a7yf6",
+            "Address": "Hoi Yu Street, Quarry Bay",
+            "Area(M2)": "3 000",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbour, garden benches and dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2513 8499"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "常安街寵物公園",
+            "map_id": "KmORE0ZhXE",
+            "地址": "柴灣常安街",
+            "面積(平方米)": "358",
+            "設施": "寵物公園",
+            "配套設施": "避雨亭、座椅及狗廁所",
+            "開放時間": "每日24小時",
+            "查詢電話": "2564 2539"
+          },
+          "en": {
+            "Name of Venue": "Sheung On Street Pet Garden",
+            "map_id": "KmORE0ZhXE",
+            "Address": "Sheung On Street, Chai Wan",
+            "Area(M2)": "358",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbour, garden benches and dog latrine",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2539"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "東喜道休憩處",
+            "map_id": "veQbTmIpAc",
+            "地址": "筲箕灣東喜道80號",
+            "面積(平方米)": "1 500",
+            "設施": "寵物公園",
+            "配套設施": "寵物遊戲設施、座椅及狗糞收集箱",
+            "開放時間": "每日24小時",
+            "查詢電話": "2564 2116"
+          },
+          "en": {
+            "Name of Venue": "Tung Hei Road Sitting-out Area",
+            "map_id": "veQbTmIpAc",
+            "Address": "80 Tung Hei Road, Shau Kei Wan",
+            "Area(M2)": "1 500",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet’s play equipment, garden benches and dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2116"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Eastern",
+      "district_zh": "東區",
+      "district_id": 2,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=2",
+      "venue_count": 7,
+      "venues": [
+        "柴灣公園 (指定位置)",
+        "富康街休憩處 (指定位置)",
+        "北角渡海輪碼頭廣場海濱花園",
+        "北角海濱花園(一期) - 海濱長廊 (指定位置)",
+        "油街休憩處",
+        "鰂魚涌公園 (指定位置)",
+        "小西灣海濱花園 (指定位置)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "柴灣公園 (指定位置)",
+            "map_id": "E9afheUi77",
+            "地址": "柴灣公園近祥民道休憩花園",
+            "配套設施": "狗糞收集箱,洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2898 7560"
+          },
+          "en": {
+            "Name of Venue": "Chai Wan Park (Designated Areas)",
+            "map_id": "E9afheUi77",
+            "Address": "Chai Wan Park near Cheung Man Road Rest Garden",
+            "Ancillary Facilities": "Dog excreta collection bin, Pavilion, Arbour, Park bench, Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2898 7560"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "富康街休憩處 (指定位置)",
+            "map_id": "DKPDo1Sg8Q",
+            "地址": "富康街十號",
+            "面積(平方米)": "563",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2564 2539"
+          },
+          "en": {
+            "Name of Venue": "Fu Hong Street Sitting-out Area (Designated Areas)",
+            "map_id": "DKPDo1Sg8Q",
+            "Address": "10 Fu Hong Street",
+            "Area(M2)": "563",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2539"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "北角渡海輪碼頭廣場海濱花園",
+            "map_id": "M0qRYgSKZI",
+            "地址": "北角渣華道及健康西街",
+            "面積(平方米)": "1,642",
+            "配套設施": "蔭棚、公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2564 2673"
+          },
+          "en": {
+            "Name of Venue": "North Point Ferry Concourse Promenade",
+            "map_id": "M0qRYgSKZI",
+            "Address": "Java Road/Healthy Street West, North Point",
+            "Area(M2)": "1,642",
+            "Ancillary Facilities": "Arbours, Park Benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2673"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "北角海濱花園(一期) - 海濱長廊 (指定位置)",
+            "map_id": "UbXy469edC",
+            "地址": "北角電照街",
+            "面積(平方米)": "450",
+            "配套設施": "狗糞收集箱及寵物公園",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2564 2673"
+          },
+          "en": {
+            "Name of Venue": "North Point Promenade (Phase I) - Waterfront Area (Designated Areas)",
+            "map_id": "UbXy469edC",
+            "Address": "Tin Chiu Street, North Point",
+            "Area(M2)": "450",
+            "Ancillary Facilities": "Dog excreta collection bins and pet garden",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2673"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "油街休憩處",
+            "map_id": "1df0UAlkzx",
+            "地址": "北角油街",
+            "面積(平方米)": "3,800",
+            "配套設施": "花床、涼亭、公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2564 2673"
+          },
+          "en": {
+            "Name of Venue": "Oil Street Sitting-out Area",
+            "map_id": "1df0UAlkzx",
+            "Address": "Oil Street, North Point",
+            "Area(M2)": "3,800",
+            "Ancillary Facilities": "Arbours, Park Benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2564 2673"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鰂魚涌公園 (指定位置)",
+            "map_id": "4zsh5U5br3",
+            "地址": "鰂魚涌公園(二期) 近海澤街",
+            "配套設施": "狗糞收集箱, 狗隻停泊位置, 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2513 8499"
+          },
+          "en": {
+            "Name of Venue": "Quarry Bay Park (Designated Areas)",
+            "map_id": "4zsh5U5br3",
+            "Address": "Quarry Bay Park (Phase II) near Hoi Chak street",
+            "Ancillary Facilities": "Dog Excreta collection Bin, Dog Parking, Toilets (with accessible toilet)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2513 8499"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "小西灣海濱花園 (指定位置)",
+            "map_id": "yKWBWuZ5fm",
+            "地址": "小西灣道28號",
+            "面積(平方米)": "7134",
+            "配套設施": "座椅及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2187 2261"
+          },
+          "en": {
+            "Name of Venue": "Siu Sai Wan Promenade (Designated Areas)",
+            "map_id": "yKWBWuZ5fm",
+            "Address": "28 Siu Sai Wan Road",
+            "Area(M2)": "7134",
+            "Ancillary Facilities": "Garden benches and dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2187 2261"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Islands",
+      "district_zh": "離島區",
+      "district_id": 3,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=3",
+      "venue_count": 2,
+      "venues": [
+        "東涌小炮台公園",
+        "東涌北公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "東涌小炮台公園",
+            "地址": "新界東涌東涌道北26 號",
+            "面積(平方米)": "1 185",
+            "配套設施": "狗廁所 狗隻遊樂設施 狗帶固定柱 休憩草坪",
+            "開放時間": "上午7時至晚上11時",
+            "其他（如適用）": "蔭棚連坐椅 洗手設備",
+            "查詢電話": "2109 3423"
+          },
+          "en": {
+            "Name of Venue": "Tung Chung Battery Park",
+            "Address": "26 Tung Chung Road North, Tung Chung, New Territories",
+            "Area(M2)": "1 185",
+            "Ancillary Facilities": "Dog's latrine Play equipment for dogs Leash Post Amenity Lawn for pets",
+            "Opening Hours": "7:00 am – 11:00 pm",
+            "Others": "Arbours with benches Hand-washing facility",
+            "Enquiry No.": "2109 3423"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "東涌北公園",
+            "map_id": "Xz2jgzopVt",
+            "地址": "新界東涌文東路29號",
+            "面積(平方米)": "2 180",
+            "配套設施": "寵物廁所 寵物遊樂設施 狗帶固定柱 狗糞收集箱",
+            "開放時間": "上午7時至晚上11時",
+            "其他（如適用）": "蔭棚連坐椅 飲水器",
+            "查詢電話": "2109 3423"
+          },
+          "en": {
+            "Name of Venue": "Tung Chung North Park",
+            "map_id": "Xz2jgzopVt",
+            "Address": "29 Man Tung Road, Tung Chung, New Territories",
+            "Area(M2)": "2 180",
+            "Ancillary Facilities": "Pet latrine Pet Play Equipment Leash Post Dropping collection box",
+            "Opening Hours": "7:00 am – 11:00 pm",
+            "Others": "Arbours with benches Drinking fountain",
+            "Enquiry No.": "2109 3423"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Islands",
+      "district_zh": "離島區",
+      "district_id": 3,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=3",
+      "venue_count": 7,
+      "venues": [
+        "思高路花園",
+        "梅窩銀河花園 (2區) (指定位置)",
+        "長洲體育館旁休憩用地(指定位置)",
+        "坪利路休憩處",
+        "索罟灣遊樂場",
+        "大嶼山大澳遊樂場",
+        "東涌北公園 (A2區) (指定位置)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "思高路花園",
+            "map_id": "BhRV8CTqYp",
+            "地址": "長洲思高路",
+            "面積(平方米)": "2,090",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2852 3220"
+          },
+          "en": {
+            "Name of Venue": "Don Bosco Road Garden",
+            "map_id": "BhRV8CTqYp",
+            "Address": "Don Bosco Road, Cheung Chau",
+            "Area(M2)": "2,090",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2852 3220"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "梅窩銀河花園 (2區) (指定位置)",
+            "map_id": "uptxx55uqG",
+            "地址": "大嶼山梅窩銀石街",
+            "面積(平方米)": "650",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2542 4347"
+          },
+          "en": {
+            "Name of Venue": "Mui Wo River Silver Garden (Area 2) (Designated Areas)",
+            "map_id": "uptxx55uqG",
+            "Address": "Ngan Shek Street, Mui Wo, Lantau Island",
+            "Area(M2)": "650",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2542 4347"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "長洲體育館旁休憩用地(指定位置)",
+            "map_id": "CxaAucxVh7",
+            "地址": "長洲醫院路三號",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2981 6243"
+          },
+          "en": {
+            "Name of Venue": "Open Space next to Cheung Chau Sports Centre (Designated Areas)",
+            "map_id": "CxaAucxVh7",
+            "Address": "No.3,Cheung Chau Hospital Road, Cheung Chau",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2981 6243"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "坪利路休憩處",
+            "map_id": "Rai40RPTlD",
+            "地址": "坪洲坪利路",
+            "面積(平方米)": "1,860",
+            "配套設施": "狗糞收集箱 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2852 3220"
+          },
+          "en": {
+            "Name of Venue": "Peng Lei Road Sitting-out Area",
+            "map_id": "Rai40RPTlD",
+            "Address": "Peng Lei Road, Peng Chau",
+            "Area(M2)": "1,860",
+            "Ancillary Facilities": "Dog excreta collection bin Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2852 3220"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "索罟灣遊樂場",
+            "map_id": "gPWZMKi1sT",
+            "地址": "南丫島索罟灣",
+            "面積(平方米)": "4,150",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2852 3220"
+          },
+          "en": {
+            "Name of Venue": "Sok Kwu Wan Playground",
+            "map_id": "gPWZMKi1sT",
+            "Address": "Sok Kwu Wan, Lamma",
+            "Area(M2)": "4,150",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2852 3220"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大嶼山大澳遊樂場",
+            "map_id": "qyvrighsPf",
+            "地址": "大嶼山大澳遊樂場",
+            "面積(平方米)": "5,576",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2852 3220"
+          },
+          "en": {
+            "Name of Venue": "Tai O Recreation Ground, Lantau",
+            "map_id": "qyvrighsPf",
+            "Address": "Tai O Recreation Ground, Lantau",
+            "Area(M2)": "5,576",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2852 3220"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "東涌北公園 (A2區) (指定位置)",
+            "map_id": "tKY9UtDJXv",
+            "地址": "新界東涌文東路29號",
+            "面積(平方米)": "2690",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2109 3423"
+          },
+          "en": {
+            "Name of Venue": "Tung Chung North Park (Area A2) (Designated Areas)",
+            "map_id": "tKY9UtDJXv",
+            "Address": "29 Man Tung Road, Tung Chung, New Territories",
+            "Area(M2)": "2690",
+            "Ancillary Facilities": "Toilet facilities(including accessible toilets), Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2109 3423"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kowloon City",
+      "district_zh": "九龍城區",
+      "district_id": 4,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=4",
+      "venue_count": 5,
+      "venues": [
+        "紅菱街休憩處",
+        "啟德車站廣場",
+        "九龍仔公園",
+        "常盛街公園",
+        "宋王臺遊樂場"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "紅菱街休憩處",
+            "map_id": "zFG2Qu9TqK",
+            "地址": "九龍紅磡紅菱街",
+            "面積(平方米)": "1 060",
+            "設施": "寵物公園",
+            "配套設施": "寵物廁所 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2762 2062"
+          },
+          "en": {
+            "Name of Venue": "Hung Ling Street Sitting-out Area",
+            "map_id": "zFG2Qu9TqK",
+            "Address": "Hung Ling Street, Hung Hom, Kowloon",
+            "Area(M2)": "1 060",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet Latrine Dog Excreta Collection Bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2762 2062"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "啟德車站廣場",
+            "地址": "九龍城沐安街20號",
+            "面積(平方米)": "450",
+            "設施": "寵物公園",
+            "配套設施": "狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2709 6322"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak Station Square",
+            "Address": "20 Muk On Street, Kowloon City",
+            "Area(M2)": "450",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Dog Excreta Collection Bin Toilet are provided in the Park",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2709 6322"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "九龍仔公園",
+            "map_id": "dADdAXDB4D",
+            "地址": "九龍城延文禮士道13號",
+            "面積(平方米)": "390",
+            "設施": "寵物公園",
+            "配套設施": "寵物廁所 狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日24小時開放",
+            "其他（如適用）": "寵物公園位於九龍仔公園車路入口旁",
+            "查詢電話": "2336 7878"
+          },
+          "en": {
+            "Name of Venue": "Kowloon Tsai Park",
+            "map_id": "dADdAXDB4D",
+            "Address": "13 Inverness Road, Kowloon City, Kowloon.",
+            "Area(M2)": "390",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet Latrine Dog Excreta Collection Bin Toilets are provided in the Park",
+            "Opening Hours": "24 hours daily",
+            "Others": "The pet garden is located at the entrance to the driveway in Kowloon Tsai Park",
+            "Enquiry No.": "2336 7878"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "常盛街公園",
+            "map_id": "p1T40RtrIk",
+            "地址": "九龍何文田公主道",
+            "面積(平方米)": "665",
+            "設施": "寵物公園",
+            "配套設施": "寵物公園內設有狗糞收集箱 公園內設有洗手間 狗隻飲水器",
+            "開放時間": "0900 - 2300",
+            "查詢電話": "2762 2062 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Sheung Shing Street Park",
+            "map_id": "p1T40RtrIk",
+            "Address": "Princess Margaret Road, Homantin, Kowloon",
+            "Area(M2)": "665",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Dog excreta collection bins are provided in Pet Garden Toilets are provided in the Park Drinking fountain for dogs",
+            "Opening Hours": "0900 - 2300",
+            "Enquiry No.": "2762 2062 (Office Hour)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "宋王臺遊樂場",
+            "map_id": "7urLfaumpH",
+            "地址": "九龍城世運道",
+            "面積(平方米)": "1880",
+            "設施": "寵物公園",
+            "配套設施": "狗糞收集箱、洗手盆、飲水機",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2760 0581 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Sung Wong Toi Playground",
+            "map_id": "7urLfaumpH",
+            "Address": "Olympic Avenue, Kowloon City",
+            "Area(M2)": "1880",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Dog Excreta Collection Bins、Wash-hand Basins、Drinking Fountain",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2760 0581 (Office Hour)"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kowloon City",
+      "district_zh": "九龍城區",
+      "district_id": 4,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=4",
+      "venue_count": 8,
+      "venues": [
+        "紅磡海濱花園",
+        "啟德郵輪碼頭公園",
+        "啟德海濱花園",
+        "啟德空中花園",
+        "啟德車站廣場",
+        "樂富公園",
+        "龍翔道公園",
+        "承豐道公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "紅磡海濱花園",
+            "地址": "紅磡海濱長廊, 紅磡灣",
+            "面積(平方米)": "6 310",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2762 2094"
+          },
+          "en": {
+            "Name of Venue": "Hung Hom Promenade",
+            "Address": "Hung Hom Waterfront, Hung Hom Bay",
+            "Area(M2)": "6 310",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2762 2094"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "啟德郵輪碼頭公園",
+            "地址": "啟德承豐道33號啟德郵輪碼頭頂層平台",
+            "配套設施": "狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日上午七時至晚上十一時",
+            "查詢電話": "2806 3155"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak Cruise Terminal Park",
+            "Address": "the flat roof of the Kai Tak Cruise Terminal Building at 33 Shing Fung Road, Kai Tak",
+            "Ancillary Facilities": "Dog excreta collection bins Toilets are provided in the Park",
+            "Opening Hours": "From 7am to 11pm daily",
+            "Enquiry No.": "2806 3155"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "啟德海濱花園",
+            "地址": "啟德承豐道",
+            "配套設施": "狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2436 4208"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak Promenade",
+            "Address": "Shing Fung Road, Kai Tak",
+            "Ancillary Facilities": "Dog excreta collection bins Toilets are provided in the Park",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2436 4208"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "啟德空中花園",
+            "map_id": "Vs0hSGx8Cp",
+            "地址": "九龍啟德承豐道",
+            "面積(平方米)": "20,800",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2436 4108"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak Sky Garden",
+            "map_id": "Vs0hSGx8Cp",
+            "Address": "Shing Fung Road, Kai Tak",
+            "Area(M2)": "20,800",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2436 4108"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "啟德車站廣場",
+            "map_id": "0b90X5w3S6",
+            "地址": "九龍城沐安街20號",
+            "面積(平方米)": "120 000",
+            "配套設施": "• 狗糞收集箱 • 公園內設有洗手間 • 無障礙設施：暢通易達洗手間、觸覺引路帶、觸覺點字及觸覺平面圖。",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2709 6322"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak Station Square",
+            "map_id": "0b90X5w3S6",
+            "Address": "20 Muk On Street, Kowloon City",
+            "Area(M2)": "120 000",
+            "Ancillary Facilities": "• Dog excreta collection bins • Toilets are provided in the Park • Barrier Free Facilities: Accessible Toilet, Tactile Guide Path, Braille Directory Map/Floor Plan",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2709 6322"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "樂富公園",
+            "map_id": "nwrpDnXDiE",
+            "地址": "九龍城聯合道195號",
+            "配套設施": "涼亭、狗糞收集箱、公園座椅、洗手間",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2304 5585"
+          },
+          "en": {
+            "Name of Venue": "Lok Fu Park",
+            "map_id": "nwrpDnXDiE",
+            "Address": "195 Junction Road, Kowloon City",
+            "Ancillary Facilities": "Pavilion, Dog excreta collection bin, Park bench, Hand-washing facilities, Toilets",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2304 5585"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "龍翔道公園",
+            "map_id": "XkoIn6Ttwb",
+            "地址": "九龍龍翔道",
+            "面積(平方米)": "14 100",
+            "配套設施": "狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2760 0581"
+          },
+          "en": {
+            "Name of Venue": "Lung Cheung Road Park",
+            "map_id": "XkoIn6Ttwb",
+            "Address": "Lung Cheung Road, Kowloon",
+            "Area(M2)": "14 100",
+            "Ancillary Facilities": "Dog excreta collection bins Toilets are provided in the Park",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2760 0581"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "承豐道公園",
+            "地址": "啟德承豐道13號",
+            "設施": "狗糞收集箱 公園內設有洗手間",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2312 2922"
+          },
+          "en": {
+            "Name of Venue": "Shing Fung Road Park",
+            "Address": "13, Shing Fung Road, Kai Tak",
+            "Ancillary Facilities": "Dog excreta collection bins Toilets are provided in the Park",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2312 2922"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kwai Tsing",
+      "district_zh": "葵青區",
+      "district_id": 5,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=5",
+      "venue_count": 6,
+      "venues": [
+        "長環街休憩花園",
+        "賽馬會興盛路遊樂場",
+        "葵涌青山公路休憩處",
+        "葵涌公園",
+        "大窩口道遊樂場",
+        "清譽街花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "長環街休憩花園",
+            "map_id": "9pOsJLw0kX",
+            "地址": "青衣長環街",
+            "面積(平方米)": "2 400",
+            "設施": "寵物公園 1個大狗活動區 1個小狗活動區 1個寵物廁所 狗糞收集箱 洗手設備",
+            "配套設施": "兒童遊樂設施 3個涼亭 9個蔭棚 健體設施",
+            "開放時間": "全日開放",
+            "查詢電話": "2619 9200 (辦公時間︰星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Cheung Wan Street Rest Garden",
+            "map_id": "9pOsJLw0kX",
+            "Address": "Cheung Wan Street, Tsing Yi",
+            "Area(M2)": "2 400",
+            "Facilities": "Pet Garden 1 Big Dog Area 1 Small Dog Area 1 Pet Lavatory Dog Excreta Collection Bin Hand-washing Facility",
+            "Ancillary Facilities": "Children's Play Area 3 Pavilions 9 Arbours Fitness Area",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2619 9200 (Office Hours: 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "賽馬會興盛路遊樂場",
+            "map_id": "KuLR0S4A4i",
+            "地址": "葵涌興盛路",
+            "面積(平方米)": "1 290",
+            "設施": "寵物公園 狗糞收集箱",
+            "配套設施": "兒童遊樂設施",
+            "開放時間": "全日開放",
+            "查詢電話": "2619 9200 (辦公時間︰星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Jockey Club Hing Shing Road Playground",
+            "map_id": "KuLR0S4A4i",
+            "Address": "Hing Shing Road, Kwai Chung, New Territories",
+            "Area(M2)": "1 290",
+            "Facilities": "Pet Garden Dog Excreta Collection Bin",
+            "Ancillary Facilities": "Children's Play Area",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2619 9200 (Office Hours: 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "葵涌青山公路休憩處",
+            "map_id": "Y3XH7DBwMm",
+            "地址": "新界葵涌青山公路",
+            "面積(平方米)": "2 546",
+            "設施": "寵物公園 狗糞收集箱",
+            "配套設施": "休憩設施",
+            "開放時間": "全日開放",
+            "查詢電話": "2619 9200 (辦公時間︰星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Kwai Chung Castle Peak Road Sitting-out Area",
+            "map_id": "Y3XH7DBwMm",
+            "Address": "Castle Peak Road, Kwai Chung, New Territories",
+            "Area(M2)": "2 546",
+            "Facilities": "Pet Garden Dog Excreta Collection Bin",
+            "Ancillary Facilities": "Sitting-out Area",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2619 9200 (Office Hours: 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "葵涌公園",
+            "map_id": "aNS7JSZaWJ",
+            "地址": "新界葵涌葵裕街18號",
+            "面積(平方米)": "822",
+            "設施": "寵物公園 1個大狗活動區 1個小狗活動區 狗糞收集箱 洗手設備及飲水機",
+            "配套設施": "男、女洗手間 暢通易達洗手間 休憩設施",
+            "開放時間": "每日上午七時至晚上十一時",
+            "查詢電話": "2278 1338"
+          },
+          "en": {
+            "Name of Venue": "Kwai Chung Park",
+            "map_id": "aNS7JSZaWJ",
+            "Address": "18 Kwai Yue Street, Kwai Chung, New Territories",
+            "Area(M2)": "822",
+            "Facilities": "Pet Garden 1 Big Dog Area 1 Small Dog Area Dog Excreta Collection Bin Hand-washing Facility & Drinking Fountain",
+            "Ancillary Facilities": "Mens' and Ladies' Toilets Accessible Toilet Sitting-out Area",
+            "Opening Hours": "From 7am to 11pm daily",
+            "Enquiry No.": "2278 1338"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大窩口道遊樂場",
+            "map_id": "p1YzFFa3oO",
+            "地址": "新界葵涌大窩口道",
+            "面積(平方米)": "400",
+            "設施": "寵物公園 狗糞收集箱",
+            "配套設施": "1個涼亭 5個避雨亭 男、女洗手間（設有暢通易達洗手間）",
+            "開放時間": "全日開放",
+            "查詢電話": "2619 9200 (辦公時間︰星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Tai Wo Hau Road Playground",
+            "map_id": "p1YzFFa3oO",
+            "Address": "Tai Wo Hau Road, Kwai Chung, New Territories",
+            "Area(M2)": "400",
+            "Facilities": "Pet Garden Dog Excreta Collection Bin",
+            "Ancillary Facilities": "1 Pavilion 5 Rain Shelters Mens' and Ladies' Toilets(including Accessible Toilet)",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2619 9200 (Office Hours: 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "清譽街花園",
+            "map_id": "8zeRHsgiwz",
+            "地址": "青衣清譽街",
+            "面積(平方米)": "10 300",
+            "設施": "寵物公園 狗糞收集箱",
+            "配套設施": "1個涼亭 休憩設施",
+            "開放時間": "全日開放",
+            "查詢電話": "2619 9200 (辦公時間︰星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Tsing Yu Street Garden",
+            "map_id": "8zeRHsgiwz",
+            "Address": "Tsing Yu Street, Tsing Yi",
+            "Area(M2)": "10 300",
+            "Facilities": "Pet Garden Dog Excreta Collection Bin",
+            "Ancillary Facilities": "1 Pavilion Sitting-out area",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2619 9200 (Office Hours: 8:30 A.M. to 6:15 P.M.)"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kwai Tsing",
+      "district_zh": "葵青區",
+      "district_id": 5,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=5",
+      "venue_count": 10,
+      "venues": [
+        "長輝路海濱花園",
+        "賽馬會葵盛圍休憩處",
+        "葵涌公園",
+        "葵喜街休憩處",
+        "葵德街休憩花園",
+        "石貝街花園",
+        "大窩口道遊樂場",
+        "青敬路花園",
+        "青衣海濱公園 - 海欣花園段 (指定位置)",
+        "青衣西路公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "長輝路海濱花園",
+            "map_id": "bkI191vmbj",
+            "地址": "新界青衣長輝路",
+            "面積(平方米)": "4200",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2481 5435"
+          },
+          "en": {
+            "Name of Venue": "Cheung Fai Road Promenade",
+            "map_id": "bkI191vmbj",
+            "Address": "Cheung Fai Raod, Tsing Yi, New Territories",
+            "Area(M2)": "4200",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2481 5435"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "賽馬會葵盛圍休憩處",
+            "map_id": "asVppBIx9N",
+            "地址": "葵涌葵盛圍",
+            "面積(平方米)": "900",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2423 3408"
+          },
+          "en": {
+            "Name of Venue": "Jockey Club Kwai Shing Circuit Sitting-out Area",
+            "map_id": "asVppBIx9N",
+            "Address": "Kwai Shing Circuit, Kwai Chung",
+            "Area(M2)": "900",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2423 3408"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "葵涌公園",
+            "地址": "新界葵涌葵裕街18號",
+            "面積(平方米)": "30200",
+            "配套設施": "涼亭、蔭棚、公園座椅及狗糞收集箱",
+            "開放時間": "每日上午七時至晚上十一時",
+            "查詢電話": "2278 1338"
+          },
+          "en": {
+            "Name of Venue": "Kwai Chung Park",
+            "Address": "18 Kwai Yue Street, Kwai Chung, New Territories",
+            "Area(M2)": "30200",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench and Dog excreta collection bin",
+            "Opening Hours": "From 7am to 11pm daily",
+            "Enquiry No.": "2278 1338"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "葵喜街休憩處",
+            "map_id": "Q8hgygtl6M",
+            "地址": "葵涌葵福路",
+            "面積(平方米)": "707",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2423 3408"
+          },
+          "en": {
+            "Name of Venue": "Kwai Hei Street Sitting-out Area",
+            "map_id": "Q8hgygtl6M",
+            "Address": "Kwai Fuk Road, Kwai Chung",
+            "Area(M2)": "707",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2423 3408"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "葵德街休憩花園",
+            "map_id": "uHICdalNQ0",
+            "地址": "新界葵涌葵德街",
+            "面積(平方米)": "700",
+            "配套設施": "涼亭、蔭棚、公園座椅及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2423 3408"
+          },
+          "en": {
+            "Name of Venue": "Kwai Tak Street Rest Garden",
+            "map_id": "uHICdalNQ0",
+            "Address": "Kwai Tak Street, Kwai Chung, N.T.",
+            "Area(M2)": "700",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench and Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2423 3408"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "石貝街花園",
+            "map_id": "2BbkTebvgE",
+            "地址": "葵涌石貝街",
+            "面積(平方米)": "280",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2425 0691"
+          },
+          "en": {
+            "Name of Venue": "Shek Pui Street Garden",
+            "map_id": "2BbkTebvgE",
+            "Address": "Shek Pui Street, Kwai Chung",
+            "Area(M2)": "280",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2425 0691"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大窩口道遊樂場",
+            "map_id": "a7NzXy87Mu",
+            "地址": "新界葵涌大窩口道",
+            "面積(平方米)": "9639",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗廁所, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2423 3408"
+          },
+          "en": {
+            "Name of Venue": "Tai Wo Hau Road Playground",
+            "map_id": "a7NzXy87Mu",
+            "Address": "Tai Wo Hau Road, Kwai Chung, New Territories",
+            "Area(M2)": "9639",
+            "Ancillary Facilities": "Toilet facilities(including accessible toilets), Dog latrine, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2423 3408"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "青敬路花園",
+            "map_id": "Kviz4vRYQv",
+            "地址": "新界青衣楓樹窩路",
+            "面積(平方米)": "1300",
+            "配套設施": "涼亭、蔭棚、公園座椅及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2481 5435"
+          },
+          "en": {
+            "Name of Venue": "Tsing King Road Garden",
+            "map_id": "Kviz4vRYQv",
+            "Address": "Fung Shue Wo Road, Tsing Yi",
+            "Area(M2)": "1300",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench and Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2481 5435"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "青衣海濱公園 - 海欣花園段 (指定位置)",
+            "map_id": "KvZVeX5Fga",
+            "地址": "新界青衣楓樹窩路",
+            "面積(平方米)": "3480",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2481 5435"
+          },
+          "en": {
+            "Name of Venue": "Tsing Yi Promenade - Grand Horizon Portion (Designated Areas)",
+            "map_id": "KvZVeX5Fga",
+            "Address": "Fung Shue Wo Road, Tsing Yi, New Territories",
+            "Area(M2)": "3480",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2481 5435"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "青衣西路公園",
+            "map_id": "KBQIdJzqrH",
+            "地址": "新界青衣西路",
+            "配套設施": "涼亭、蔭棚、公園座椅及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2481 5435"
+          },
+          "en": {
+            "Name of Venue": "Tsing Yi Road West Park",
+            "map_id": "KBQIdJzqrH",
+            "Address": "Tsing Yi Road West, Tsing Yi , N.T.",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench and Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2481 5435"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kwun Tong",
+      "district_zh": "觀塘區",
+      "district_id": 6,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=6",
+      "venue_count": 1,
+      "venues": [
+        "大業街花園 (寵物區)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "大業街花園 (寵物區)",
+            "map_id": "NqN95fW8DY",
+            "地址": "觀塘大業街",
+            "面積(平方米)": "300",
+            "配套設施": "休憩草坪 公園座椅 狗糞收集箱 飲水器 洗手設備",
+            "開放時間": "全日開放",
+            "查詢電話": "2343 6123"
+          },
+          "en": {
+            "Name of Venue": "Tai Yip Street Garden (Pet Area)",
+            "map_id": "NqN95fW8DY",
+            "Address": "Tai Yip Street, Kwun Tong",
+            "Area(M2)": "300",
+            "Ancillary Facilities": "Amenity Lawn for pets Garden benches Dog excreta collection bins Drinking fountain Hand-washing facility",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2343 6123"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Kwun Tong",
+      "district_zh": "觀塘區",
+      "district_id": 6,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=6",
+      "venue_count": 12,
+      "venues": [
+        "茶果嶺海濱公園 (指定位置)",
+        "曉光街休憩花園 (指定位置)",
+        "觀塘海濱花園 (指定位置)",
+        "觀塘道休憩花園 (指定位置)",
+        "鯉魚門休憩花園",
+        "鯉魚門避風塘防波堤休憩處",
+        "鯉魚門海濱休憩處",
+        "三家村遊樂場 (指定位置)",
+        "定富街休憩處",
+        "翠屏河花園",
+        "駿業街遊樂場(指定位置)",
+        "月華街遊樂場 (指定位置)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "茶果嶺海濱公園 (指定位置)",
+            "map_id": "2HE7MMlcag",
+            "地址": "九龍觀塘偉業街",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3848"
+          },
+          "en": {
+            "Name of Venue": "Cha Kwo Ling Promenade (Designated Areas)",
+            "map_id": "2HE7MMlcag",
+            "Address": "Wai Yip Street, Kwun Tong, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3848"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "曉光街休憩花園 (指定位置)",
+            "map_id": "fDtkFeoVdP",
+            "地址": "觀塘曉光街(曉麗苑對面)",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2341 0043"
+          },
+          "en": {
+            "Name of Venue": "Hiu Kwong Street Rest Garden (Designated Areas)",
+            "map_id": "fDtkFeoVdP",
+            "Address": "Opposite at Hiu Lai Court, Hiu Kwong Street, Kwun Tong",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2341 0043"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "觀塘海濱花園 (指定位置)",
+            "map_id": "1juqPjpRUu",
+            "地址": "九龍觀塘海濱道80號",
+            "面積(平方米)": "41,340",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2346 8538"
+          },
+          "en": {
+            "Name of Venue": "Kwun Tong Promenade (Designated Areas)",
+            "map_id": "1juqPjpRUu",
+            "Address": "80 Hoi Bun Road, Kwun Tong, Kowloon",
+            "Area(M2)": "41,340",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2346 8538"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "觀塘道休憩花園 (指定位置)",
+            "map_id": "w19vrRj7rC",
+            "地址": "觀塘馬蹄徑",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3928"
+          },
+          "en": {
+            "Name of Venue": "Kwun Tong Road Rest Garden (Designated Areas)",
+            "map_id": "w19vrRj7rC",
+            "Address": "Horse Shoe Lane, Kwun Tong",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3928"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鯉魚門休憩花園",
+            "map_id": "oHJHdbGPNp",
+            "地址": "九龍鯉魚門海傍道東",
+            "面積(平方米)": "1,374",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3848"
+          },
+          "en": {
+            "Name of Venue": "Lei Yue Mun Rest Garden",
+            "map_id": "oHJHdbGPNp",
+            "Address": "Lei Yue Mun Hoi Pong Road East, Kowloon",
+            "Area(M2)": "1,374",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3848"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鯉魚門避風塘防波堤休憩處",
+            "map_id": "9I9TGgMK2f",
+            "地址": "九龍崇信街",
+            "面積(平方米)": "2,013",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3848"
+          },
+          "en": {
+            "Name of Venue": "Lei Yue Mun Typhoon Shelter Breakwater Sitting-out Area",
+            "map_id": "9I9TGgMK2f",
+            "Address": "Shung Shun Street, Kowloon",
+            "Area(M2)": "2,013",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3848"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鯉魚門海濱休憩處",
+            "map_id": "o120my71Tz",
+            "地址": "鯉魚門鯉魚門海傍道",
+            "面積(平方米)": "1395",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3848"
+          },
+          "en": {
+            "Name of Venue": "Lei Yue Mun Waterfront Sitting-out Area",
+            "map_id": "o120my71Tz",
+            "Address": "Lei Yue Mun Praya Road, Lei Yue Mun",
+            "Area(M2)": "1395",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3848"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "三家村遊樂場 (指定位置)",
+            "map_id": "ZDgoVAhx3r",
+            "地址": "九龍三家村茶果嶺道四山街交界",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2379 5369"
+          },
+          "en": {
+            "Name of Venue": "Sam Ka Tsuen Recreation Ground (Designated Areas)",
+            "map_id": "ZDgoVAhx3r",
+            "Address": "Junction of Cha Kwo Ling Road & Sze Shan Street, Sam Ka Tsuen, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2379 5369"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "定富街休憩處",
+            "map_id": "PjA1xTNW0i",
+            "地址": "觀塘定富街",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3928"
+          },
+          "en": {
+            "Name of Venue": "Ting Fu Street Sitting-out Area",
+            "map_id": "PjA1xTNW0i",
+            "Address": "Ting Fu Street, Kwun Tong",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3928"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "翠屏河花園",
+            "map_id": "NQthwYK9dd",
+            "地址": "觀塘成業街與敬業街交界",
+            "配套設施": "狗糞收集箱, 洗手設施, 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2797 3848"
+          },
+          "en": {
+            "Name of Venue": "Tsui Ping River Garden",
+            "map_id": "NQthwYK9dd",
+            "Address": "Junction of Shing Yip Street and King Yip Street, Kwun Tong",
+            "Ancillary Facilities": "Dog excreta collection bin, Hand-washing facilities, Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2797 3848"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "駿業街遊樂場(指定位置)",
+            "map_id": "0pNhFjkU5P",
+            "地址": "九龍觀塘駿業街",
+            "面積(平方米)": "8,435",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2346 8538"
+          },
+          "en": {
+            "Name of Venue": "Tsun Yip Street Playground (InPARK) (Designated Areas)",
+            "map_id": "0pNhFjkU5P",
+            "Address": "Tsun Yip Street, Kwun Tong, Kowloon",
+            "Area(M2)": "8,435",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2346 8538"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "月華街遊樂場 (指定位置)",
+            "map_id": "Nlr9dF0fqQ",
+            "地址": "觀塘月華街",
+            "面積(平方米)": "13,000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2763 6400"
+          },
+          "en": {
+            "Name of Venue": "Yuet Wah Street Playground (Designated Areas)",
+            "map_id": "Nlr9dF0fqQ",
+            "Address": "Yuet Wah Street, Kwun Tong",
+            "Area(M2)": "13,000",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2763 6400"
+          }
+        }
+      ]
+    },
+    {
+      "district": "North",
+      "district_zh": "北區",
+      "district_id": 7,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=7",
+      "venue_count": 3,
+      "venues": [
+        "保榮路休憩處",
+        "上水鄉籃球場",
+        "一鳴路公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "保榮路休憩處",
+            "map_id": "yt92tY6mlS",
+            "地址": "新界上水保榮路",
+            "面積(平方米)": "2 300",
+            "配套設施": "狗隻遊樂設施 休憩草坪 洗手設備 公園座椅 狗廁所",
+            "開放時間": "每日上午7時至晚上12時",
+            "查詢電話": "2679 2818 (辦公時間：星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Po Wing Road Sitting-out Area",
+            "map_id": "yt92tY6mlS",
+            "Address": "Po Wing Road, Sheung Shui, N.T.",
+            "Area(M2)": "2 300",
+            "Ancillary Facilities": "Play equipment for dogs Amenity Lawn for pets Hand-washing facility Garden benches Dog's latrine",
+            "Opening Hours": "7 am to 12 pm daily",
+            "Enquiry No.": "2679 2818 (Office Hours: Monday to Friday at 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "上水鄉籃球場",
+            "map_id": "cjrjd8dyD4",
+            "地址": "新界上水鄉",
+            "面積(平方米)": "250",
+            "配套設施": "狗廁所 公園座椅 沙池 洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2818 (辦公時間：星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Sheung Shui Heung Basketball Court",
+            "map_id": "cjrjd8dyD4",
+            "Address": "Sheung Shui Heung, N.T.",
+            "Area(M2)": "250",
+            "Ancillary Facilities": "Dogs' latrine Garden Benches Sand Pool Hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2818 (Office Hours: Monday to Friday at 8:30 A.M. to 6:15 P.M.)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "一鳴路公園",
+            "map_id": "awQKxL2Zkx",
+            "地址": "粉嶺一鳴路與百和路交界",
+            "面積(平方米)": "628",
+            "配套設施": "狗隻遊樂設施 休憩草坪 洗手設備 公園座椅 狗糞收集箱",
+            "開放時間": "每日上午6時至晚上11時",
+            "查詢電話": "2679 2818 (辦公時間：星期一至五上午8時30分至下午6時15分)"
+          },
+          "en": {
+            "Name of Venue": "Yat Ming Road Park",
+            "map_id": "awQKxL2Zkx",
+            "Address": "Junction of Yat Ming Road and Pak Wo Road",
+            "Area(M2)": "628",
+            "Ancillary Facilities": "Play equipment for dogs Amenity Lawn for pets Hand-washing facility Garden benches Dog excreta collection bins",
+            "Opening Hours": "6 am to 11 pm daily",
+            "Enquiry No.": "2679 2818 (Office Hours: Monday to Friday at 8:30 A.M. to 6:15 P.M.)"
+          }
+        }
+      ]
+    },
+    {
+      "district": "North",
+      "district_zh": "北區",
+      "district_id": 7,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=7",
+      "venue_count": 8,
+      "venues": [
+        "粉嶺火車站休憩處",
+        "聯和墟遊樂場 (指定位置)",
+        "麻雀嶺兒童遊樂場",
+        "安樂村休憩處(四號)",
+        "百和路遊樂場 (指定位置)",
+        "沙頭角海濱休憩處",
+        "天平路花園",
+        "禾徑山路花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "粉嶺火車站休憩處",
+            "map_id": "LNRZOpnhf1",
+            "地址": "新界粉嶺站旁",
+            "面積(平方米)": "1530",
+            "配套設施": "狗糞收集箱、 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2838"
+          },
+          "en": {
+            "Name of Venue": "Fanling Station Sitting-out Area",
+            "map_id": "LNRZOpnhf1",
+            "Address": "Next to Fanling Station",
+            "Area(M2)": "1530",
+            "Ancillary Facilities": "Dog excreta collection bins, Toilet facilities(including accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2838"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "聯和墟遊樂場 (指定位置)",
+            "map_id": "OmYPZKLO3c",
+            "地址": "新界粉嶺聯和墟聯和道",
+            "面積(平方米)": "1,800",
+            "配套設施": "涼亭、陰棚、公園座椅、狗糞收集箱、洗手設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2838"
+          },
+          "en": {
+            "Name of Venue": "Luen Wo Hui Playground (Designated Areas)",
+            "map_id": "OmYPZKLO3c",
+            "Address": "Luen Wo Road, Luen Wo Hui, Fanling, N.T.",
+            "Area(M2)": "1,800",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin, Hand-washing facilities",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2838"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "麻雀嶺兒童遊樂場",
+            "map_id": "wefPPcYAb6",
+            "地址": "新界沙頭角麻雀嶺村",
+            "配套設施": "涼亭、公園座椅、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2826"
+          },
+          "en": {
+            "Name of Venue": "Ma Tseuk Leng Children's Playground",
+            "map_id": "wefPPcYAb6",
+            "Address": "Ma Tseuk Leng Village, Sha Tau Kok, N.T.",
+            "Ancillary Facilities": "Pavilion, Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2826"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "安樂村休憩處(四號)",
+            "map_id": "176mzKT7wL",
+            "地址": "粉嶺樂業路及居達街交界",
+            "面積(平方米)": "2900",
+            "配套設施": "狗糞收集箱、洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2838"
+          },
+          "en": {
+            "Name of Venue": "On Lok Tsuen (No. 4) Sitting-out Area",
+            "map_id": "176mzKT7wL",
+            "Address": "Junction of Lok Yip Road and Kui Tat Street, Fanling",
+            "Area(M2)": "2900",
+            "Ancillary Facilities": "Dog excreta collection bins, Hands-washing facilities",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2838"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "百和路遊樂場 (指定位置)",
+            "map_id": "SKg8rtaxSk",
+            "地址": "新界粉嶺百和路",
+            "配套設施": "涼亭、公園座椅、狗糞收集箱、洗手設施、飲水設施、洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2838"
+          },
+          "en": {
+            "Name of Venue": "Pak Wo Road Playground (Designated Areas)",
+            "map_id": "SKg8rtaxSk",
+            "Address": "Pak Wo Road, Fanling, N.T.",
+            "Ancillary Facilities": "Pavilion, Park bench, Dog excreta collection bin, Hand-washing facilities, Water dispenser, Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2838"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "沙頭角海濱休憩處",
+            "map_id": "gkZedunBPr",
+            "地址": "新界沙頭角順興街",
+            "配套設施": "涼亭、蔭棚、公園座椅、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2826"
+          },
+          "en": {
+            "Name of Venue": "Sha Tau Kok Promenade SOA",
+            "map_id": "gkZedunBPr",
+            "Address": "Shun Hing Street, Sha Tau Kok, N.T.",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin,",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2826"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "天平路花園",
+            "map_id": "IQuupw0hts",
+            "地址": "上水天平路",
+            "面積(平方米)": "2,500",
+            "配套設施": "涼亭、陰棚、公園座椅、狗糞收集箱、洗手設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2826"
+          },
+          "en": {
+            "Name of Venue": "Tin Ping Road Garden",
+            "map_id": "IQuupw0hts",
+            "Address": "Tin Ping Road, Sheung Shui, N.T.",
+            "Area(M2)": "2,500",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin, Hand-washing facilities",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2826"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "禾徑山路花園",
+            "map_id": "guVpsFJ9cV",
+            "地址": "新界粉嶺沙頭角路禾徑山路",
+            "面積(平方米)": "1,250",
+            "配套設施": "涼亭、陰棚、公園座椅、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2679 2826"
+          },
+          "en": {
+            "Name of Venue": "Wo Keng Shan Road Garden",
+            "map_id": "guVpsFJ9cV",
+            "Address": "Wo Keng Shan Road, Sha Tau Kok Road, Fanling, N.T",
+            "Area(M2)": "1,250",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2679 2826"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sai Kung",
+      "district_zh": "西貢區",
+      "district_id": 8,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=8",
+      "venue_count": 3,
+      "venues": [
+        "寶琳休憩處",
+        "將軍澳南公園",
+        "環保大道寵物公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "寶琳休憩處",
+            "map_id": "h5Lw8KieRK",
+            "地址": "西貢將軍澳寶琳北路",
+            "面積(平方米)": "1 248",
+            "設施": "寵物公園",
+            "配套設施": "寵物廁所、狗糞收集箱、餐桌坐椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Po Lam Sitting-out Area",
+            "map_id": "h5Lw8KieRK",
+            "Address": "Po Lam Road North, Tseung Kwan O, Sai Kung",
+            "Area(M2)": "1 248",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet latrines, dog excrete collection bins, dining set",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3100"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "將軍澳南公園",
+            "map_id": "POn7TqTEv3",
+            "地址": "西貢將軍澳至善街15號",
+            "面積(平方米)": "1 142",
+            "設施": "草坪（寵物活動區）",
+            "配套設施": "蔭棚連坐椅和狗糞收集箱",
+            "開放時間": "上午7時至晚上11時",
+            "查詢電話": "2392 3518"
+          },
+          "en": {
+            "Name of Venue": "Tseung Kwan O South Park",
+            "map_id": "POn7TqTEv3",
+            "Address": "15 Chi Shin Street, Tseung Kwan O, Sai Kung",
+            "Area(M2)": "1 142",
+            "Facilities": "Turf area for pet",
+            "Ancillary Facilities": "Arbours with benches and dog excreta collection bin",
+            "Opening Hours": "7 am to 11 pm daily",
+            "Enquiry No.": "2392 3518"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "環保大道寵物公園",
+            "map_id": "gvVaeHpRAr",
+            "地址": "西貢將軍澳環保大道",
+            "面積(平方米)": "12 800",
+            "設施": "寵物活動區",
+            "配套設施": "停車場、洗手間、寵物廁所、狗糞收集箱、寵物沖洗間、蔭棚連長椅、休憩草地",
+            "開放時間": "上午7時至晚上10時30分",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Wan Po Road Pet Garden",
+            "map_id": "gvVaeHpRAr",
+            "Address": "Wan Po Road, Tseung Kwan O, Sai Kung",
+            "Area(M2)": "12 800",
+            "Facilities": "Pet activity areas",
+            "Ancillary Facilities": "Car park, toilet, pet latrines, dog excrete collection bins, pet shower area, rain shelters with benches and lawns",
+            "Opening Hours": "7 am to 10:30 pm",
+            "Enquiry No.": "2791 3100"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sai Kung",
+      "district_zh": "西貢區",
+      "district_id": 8,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=8",
+      "venue_count": 16,
+      "venues": [
+        "安達臣道石礦公園",
+        "福民花園",
+        "坑口花園",
+        "香港單車館公園 (指定位置)",
+        "林盛路休憩處",
+        "康城路休憩處",
+        "萬宜遊樂場",
+        "培成花園",
+        "西貢海濱公園",
+        "沙咀遊樂場",
+        "大網仔郊遊區及亭",
+        "調景嶺花園",
+        "將軍澳南公園（指定位置）",
+        "將軍澳海濱公園",
+        "將藍公路花園",
+        "窩尾休憩花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "安達臣道石礦公園",
+            "map_id": "86oPW1MLXX",
+            "地址": "西貢安禧街19號",
+            "面積(平方米)": "13,232",
+            "配套設施": "狗糞收集箱、蔭棚",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 4211"
+          },
+          "en": {
+            "Name of Venue": "Anderson Road Quarry Park",
+            "map_id": "86oPW1MLXX",
+            "Address": "19 On Hei Street, Sai Kung",
+            "Area(M2)": "13,232",
+            "Ancillary Facilities": "Dog excreta collection bin, arbour",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 4211"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "福民花園",
+            "map_id": "SvWeYbGAuz",
+            "地址": "西貢福民路",
+            "面積(平方米)": "4000",
+            "配套設施": "狗糞收集箱、蔭棚、休憩草地",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 0158"
+          },
+          "en": {
+            "Name of Venue": "Fuk Man Garden",
+            "map_id": "SvWeYbGAuz",
+            "Address": "Fuk Man Road, Sai Kung",
+            "Area(M2)": "4000",
+            "Ancillary Facilities": "Dog excreta collection bin, arbour, lawn",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 0158"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "坑口花園",
+            "map_id": "6M93lra2bR",
+            "地址": "新界將軍澳坑口田洲路",
+            "面積(平方米)": "1,744",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3112"
+          },
+          "en": {
+            "Name of Venue": "Hang Hau Garden",
+            "map_id": "6M93lra2bR",
+            "Address": "Tin Chau Road, Hang Hau, Tseung Kwan O. N.T.",
+            "Area(M2)": "1,744",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3112"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "香港單車館公園 (指定位置)",
+            "map_id": "bvTUBXCIGa",
+            "地址": "將軍澳寶康路105-107號",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2878 8638"
+          },
+          "en": {
+            "Name of Venue": "Hong Kong Velodrome Park (Designated Areas)",
+            "map_id": "bvTUBXCIGa",
+            "Address": "105-107 Po Hong Road, Tseung Kwan O",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2878 8638"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "林盛路休憩處",
+            "地址": "將軍澳林盛路",
+            "面積(平方米)": "171",
+            "配套設施": "狗糞收集箱、蔭棚",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Lam Shing Road Sitting-out Area",
+            "Address": "Lam Shing Road, Tseung Kwan O",
+            "Area(M2)": "171",
+            "Ancillary Facilities": "Dog excreta collection bin, arbour",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3100"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "康城路休憩處",
+            "地址": "將軍澳南海濱長廊",
+            "面積(平方米)": "551",
+            "配套設施": "狗糞收集箱、蔭棚",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Lohas Park Road Sitting-out Area",
+            "Address": "Tseung Kwan O South Waterfront Promenade",
+            "Area(M2)": "551",
+            "Ancillary Facilities": "Dog excreta collection bin, arbour",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3100"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "萬宜遊樂場",
+            "map_id": "a0Q5Z23ZnC",
+            "地址": "新界西貢萬年街",
+            "面積(平方米)": "2,900",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 0158"
+          },
+          "en": {
+            "Name of Venue": "Man Yee Playground",
+            "map_id": "a0Q5Z23ZnC",
+            "Address": "Man Nin Street, Sai Kung, N.T.",
+            "Area(M2)": "2,900",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 0158"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "培成花園",
+            "map_id": "0AcPL53uR4",
+            "地址": "將軍澳坑口培成路38號",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2623 2589"
+          },
+          "en": {
+            "Name of Venue": "Pui Shing Garden",
+            "map_id": "0AcPL53uR4",
+            "Address": "38 Pui Shing Road, Hang Hau, Tseung Kwan O",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2623 2589"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "西貢海濱公園",
+            "map_id": "MVEJfAwQy0",
+            "地址": "新界西貢惠民路",
+            "面積(平方米)": "8,390",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 0158"
+          },
+          "en": {
+            "Name of Venue": "Sai Kung Waterfront Park",
+            "map_id": "MVEJfAwQy0",
+            "Address": "Wai Man Road, Sai Kung, N.T.",
+            "Area(M2)": "8,390",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 0158"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "沙咀遊樂場",
+            "map_id": "eXM8MjB5Dp",
+            "地址": "西貢萬年街, 敬民街",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3120"
+          },
+          "en": {
+            "Name of Venue": "Sha Tsui Playground",
+            "map_id": "eXM8MjB5Dp",
+            "Address": "Man Nin Street, King Man Street, Sai Kung",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3120"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大網仔郊遊區及亭",
+            "map_id": "C9Tbl5NSp1",
+            "地址": "西貢大網仔路",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2791 3120"
+          },
+          "en": {
+            "Name of Venue": "Tai Mong Tsai Picnic Area and Pavilion",
+            "map_id": "C9Tbl5NSp1",
+            "Address": "Tai Mong Tsai Road, Sai Kung",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2791 3120"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "調景嶺花園",
+            "map_id": "P6jut85Gqb",
+            "地址": "新界將軍澳唐賢街",
+            "面積(平方米)": "405",
+            "配套設施": "狗糞收集箱",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Tiu Keng Leng Garden",
+            "map_id": "P6jut85Gqb",
+            "Address": "Tong Yin Street, Tseung Kwan O, N.T.",
+            "Area(M2)": "405",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Enquiry No.": "2791 3100"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "將軍澳南公園（指定位置）",
+            "地址": "將軍澳至善街15號",
+            "面積(平方米)": "31,871",
+            "配套設施": "狗糞收集箱",
+            "查詢電話": "2392 3518"
+          },
+          "en": {
+            "Name of Venue": "Tseung Kwan O South Park (Designated Areas)",
+            "Address": "15 Chi Shin Street, Tseung Kwan O",
+            "Area(M2)": "31,871",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Enquiry No.": "2392 3518"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "將軍澳海濱公園",
+            "map_id": "lYa0OaivxV",
+            "地址": "新界將軍澳唐俊街",
+            "面積(平方米)": "16,000",
+            "配套設施": "狗糞收集箱",
+            "查詢電話": "2346 2844"
+          },
+          "en": {
+            "Name of Venue": "Tseung Kwan O Waterfront Park",
+            "map_id": "lYa0OaivxV",
+            "Address": "Tong Chun Street, Tseung Kwan O, N.T.",
+            "Area(M2)": "16,000",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Enquiry No.": "2346 2844"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "將藍公路花園",
+            "map_id": "EYsf0J70Dz",
+            "地址": "新界將軍澳唐賢街45號",
+            "面積(平方米)": "6,880",
+            "配套設施": "狗糞收集箱",
+            "查詢電話": "2791 3100"
+          },
+          "en": {
+            "Name of Venue": "Tseung Lam Highway Garden",
+            "map_id": "EYsf0J70Dz",
+            "Address": "45 Tong Yin Street, Tseung Kwan O, N.T.",
+            "Area(M2)": "6,880",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Enquiry No.": "2791 3100"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "窩尾休憩花園",
+            "map_id": "gFkES6zaz9",
+            "地址": "西貢公路51號",
+            "面積(平方米)": "630",
+            "配套設施": "狗糞收集箱、蔭棚、休憩草地",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2792 7665"
+          },
+          "en": {
+            "Name of Venue": "Wo Mei Rest Garden",
+            "map_id": "gFkES6zaz9",
+            "Address": "51 Hiram's Highway",
+            "Area(M2)": "630",
+            "Ancillary Facilities": "Dog excreta collection bin, arbour, lawn",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2792 7665"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sham Shui Po",
+      "district_zh": "深水埗區",
+      "district_id": 9,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=9",
+      "venue_count": 3,
+      "venues": [
+        "蝴蝶谷道寵物公園",
+        "興華街西遊樂場",
+        "荔枝角公園第一期"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "蝴蝶谷道寵物公園",
+            "map_id": "iqZ1GX3jkL",
+            "地址": "深水埗蝴蝶谷道2號",
+            "面積(平方米)": "7 000",
+            "設施": "寵物活動區、寵物遊戲設施、狗糞收集箱和臨時洗手間",
+            "開放時間": "星期一至日及公眾假期早上7時至凌晨12時",
+            "查詢電話": "2386 0945"
+          },
+          "en": {
+            "Name of Venue": "Butterfly Valley Road Pet Garden",
+            "map_id": "iqZ1GX3jkL",
+            "Address": "No. 2 Butterfly Valley Road, Sham Shui Po",
+            "Area(M2)": "7 000",
+            "Facilities": "Pets' Activity Area, Pets' Play Equipment, Dog Excreta Collection Bin and Temporary Mobile Toilet",
+            "Opening Hours": "Mondays to Sundays and Public Holidays: from 7:00am to 12:00mn",
+            "Enquiry No.": "2386 0945"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "興華街西遊樂場",
+            "map_id": "MCHQFBK5c3",
+            "地址": "九龍深水埗興華街西5號",
+            "面積(平方米)": "1011",
+            "設施": "寵物活動區、育嬰室、狗糞收集箱和洗手設備",
+            "開放時間": "上午7時至晚上11時",
+            "其他（如適用）": "請使用通州街入口",
+            "查詢電話": "2728 6455"
+          },
+          "en": {
+            "Name of Venue": "Hing Wah Street West Playground",
+            "map_id": "MCHQFBK5c3",
+            "Address": "5 Hing Wah Street West, Sham Shui Po, Kowloon",
+            "Area(M2)": "1011",
+            "Facilities": "Pets’ Activity Area, Baby Care Room, Dog Excreta Collection Bin and Hand-washing Facility",
+            "Opening Hours": "From 7:00am to 11:00pm",
+            "Others": "Entrance from Tung Chau Street",
+            "Enquiry No.": "2728 6455"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荔枝角公園第一期",
+            "map_id": "21pvun5hiT",
+            "地址": "九龍荔枝角荔灣道1號",
+            "面積(平方米)": "370",
+            "設施": "寵物活動區、狗糞收集箱和洗手設備",
+            "開放時間": "(荔枝角公園第一期寵物活動區將於2026年10月2日至11月30日暫停開放，以進行安裝圍欄工程。設施關閉期間，市民可使用本區興華街西遊樂場寵物公園或蝴蝶谷道寵物公園。) 星期一至五下午3時至翌日上午7時；及 星期六、日及公眾假期全日24小時開放",
+            "查詢電話": "2307 0429"
+          },
+          "en": {
+            "Name of Venue": "Lai Chi Kok Park Stage I",
+            "map_id": "21pvun5hiT",
+            "Address": "1 Lai Wan Road, Lai Chi Kok, Kowloon",
+            "Area(M2)": "370",
+            "Facilities": "Pets’ Activity Area, Dog Excreta Collection Bin and Hand-washing Facility",
+            "Opening Hours": "(Pets’ Activity Area of Lai Chi Kok Park (Stage I) will be temporarily closed from 2 October 2026 to 30 November 2026 for installation work of fencing. During the closure period, you may visit the Pet Garden at Hing Wah Street West Playground or Butterfly Valley Road.) Mondays to Fridays: from 3:00 pm to 7:00 am on the following day, and Saturdays, Sundays and Public holidays: 24 hours",
+            "Enquiry No.": "2307 0429"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sham Shui Po",
+      "district_zh": "深水埗區",
+      "district_id": 9,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=9",
+      "venue_count": 11,
+      "venues": [
+        "長沙灣海濱花園",
+        "長沙灣道/長順街遊樂場",
+        "荔枝角公園 (指定位置)",
+        "李鄭屋泳池休憩花園",
+        "龍翔道眺望處",
+        "丹桂路休憩花園",
+        "石硤尾公園 (指定位置)",
+        "上李屋花園",
+        "棠蔭街山邊休憩處",
+        "雀橋街休憩處",
+        "永康街休憩花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "長沙灣海濱花園",
+            "map_id": "aO5ZWDPx2e",
+            "地址": "長沙灣荔盈街",
+            "配套設施": "蔭棚, 公園座椅, 狗糞收集箱, 洗手設施, 飲水設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9193"
+          },
+          "en": {
+            "Name of Venue": "Cheung Sha Wan Promenade",
+            "map_id": "aO5ZWDPx2e",
+            "Address": "Lai Ying Street, Cheung Sha Wan",
+            "Ancillary Facilities": "Arbour, Park bench, Dog excreta collection bin, Hand washing facilities, Water dispenser",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9193"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "長沙灣道/長順街遊樂場",
+            "map_id": "WQbiEFo58x",
+            "地址": "長順街",
+            "面積(平方米)": "1,500",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9193"
+          },
+          "en": {
+            "Name of Venue": "Cheung Sha Wan Road/Cheung Shun Street Playground",
+            "map_id": "WQbiEFo58x",
+            "Address": "Cheung Shun Street",
+            "Area(M2)": "1,500",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9193"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荔枝角公園 (指定位置)",
+            "map_id": "x6HuBB7yhv",
+            "地址": "九龍荔枝角荔灣道1號",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2307 0429"
+          },
+          "en": {
+            "Name of Venue": "Lai Chi Kok Park (Designated Areas)",
+            "map_id": "x6HuBB7yhv",
+            "Address": "No.1 Lai Wan Road, Lai Chi Kok, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2307 0429"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "李鄭屋泳池休憩花園",
+            "map_id": "ouZTJa8zoA",
+            "地址": "長沙灣廣利道",
+            "設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9193"
+          },
+          "en": {
+            "Name of Venue": "Lei Cheng Uk Swimming Pool Rest Garden",
+            "map_id": "ouZTJa8zoA",
+            "Address": "Kwong Lee Road, Cheung Sha Wan",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9193"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "龍翔道眺望處",
+            "map_id": "r2KedAaY4b",
+            "地址": "龍翔道",
+            "面積(平方米)": "3,000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9954"
+          },
+          "en": {
+            "Name of Venue": "Lung Cheung Road Lookout",
+            "map_id": "r2KedAaY4b",
+            "Address": "Lung Cheung Road",
+            "Area(M2)": "3,000",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9954"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "丹桂路休憩花園",
+            "map_id": "dFzOAyQyVh",
+            "地址": "丹桂路",
+            "面積(平方米)": "1533",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9954"
+          },
+          "en": {
+            "Name of Venue": "Osmanthus Road Rest Garden",
+            "map_id": "dFzOAyQyVh",
+            "Address": "Osmanthus Road",
+            "Area(M2)": "1533",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9954"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "石硤尾公園 (指定位置)",
+            "map_id": "eL0VVSKx6R",
+            "地址": "九龍深水埗歌和老街石硤尾公園(第二期)",
+            "配套設施": "狗糞收集箱，公園座椅，飲水設施，洗手間(設有暢通易達洗手間) (為配合渠務署「 石硤尾蓄洪計劃」，石硤尾公園（第二期）部份位置將關閉至2029年8月，以便進行有關工程。 )",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9160"
+          },
+          "en": {
+            "Name of Venue": "Shek Kip Mei Park (Designated Areas)",
+            "map_id": "eL0VVSKx6R",
+            "Address": "Shek Kip Mei Park (Stage II), Cornwall Street, Sham Shui Po, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin, Park bench, Water dispenser, Toilets (with accessible toilets) (Partial areas of Shek Kip Mei Park Stage II will be closed to facilitate the Shek Kip Mei Stormwater Storage Scheme until August 2029 )",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9160"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "上李屋花園",
+            "map_id": "ZTPOlvG6gY",
+            "地址": "大埔道",
+            "面積(平方米)": "11,160",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9193"
+          },
+          "en": {
+            "Name of Venue": "Sheung Li Uk Garden",
+            "map_id": "ZTPOlvG6gY",
+            "Address": "Tai Po Road",
+            "Area(M2)": "11,160",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9193"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "棠蔭街山邊休憩處",
+            "map_id": "O6GyczICP2",
+            "地址": "石硤尾棠蔭街",
+            "面積(平方米)": "702",
+            "配套設施": "洗手盆, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9954"
+          },
+          "en": {
+            "Name of Venue": "Tong Yam Street Hillside Sitting-out Area",
+            "map_id": "O6GyczICP2",
+            "Address": "Tong Yam Street, Shek Kip Mei",
+            "Area(M2)": "702",
+            "Ancillary Facilities": "Wash basin, dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9954"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "雀橋街休憩處",
+            "map_id": "2Zw5x4z4W7",
+            "地址": "九龍塘雀橋街",
+            "設施": "蔭棚, 公園座椅, 狗糞收集箱, 洗手設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9954"
+          },
+          "en": {
+            "Name of Venue": "Tseuk Kiu Street Sitting-out Area",
+            "map_id": "2Zw5x4z4W7",
+            "Address": "Tseuk Kiu Street, Kowloon Tong",
+            "Ancillary Facilities": "Arbour, Park bench, Dog excreta collection bin, Hand-washing facilities",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9954"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "永康街休憩花園",
+            "map_id": "raNZ6wQ6jW",
+            "地址": "永康街",
+            "面積(平方米)": "2,500",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2370 9193"
+          },
+          "en": {
+            "Name of Venue": "Wing Hong Street Rest Garden",
+            "map_id": "raNZ6wQ6jW",
+            "Address": "Wing Hong Street",
+            "Area(M2)": "2,500",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2370 9193"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sha Tin",
+      "district_zh": "沙田區",
+      "district_id": 10,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=10",
+      "venue_count": 1,
+      "venues": [
+        "馬鞍山西沙路寵物公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "馬鞍山西沙路寵物公園",
+            "map_id": "ZfxFqWO9ZT",
+            "地址": "馬鞍山西沙路與恆輝街交界港鐵橋底",
+            "面積(平方米)": "2 360",
+            "設施": "兩個狗糞收集箱 一個狗廁所 兩幅草坪(狗隻活動區)",
+            "配套設施": "三套蔭棚連坐椅",
+            "開放時間": "全日開放",
+            "查詢電話": "2634 0143"
+          },
+          "en": {
+            "Name of Venue": "Ma On Shan Sai Sha Road Pet Garden",
+            "map_id": "ZfxFqWO9ZT",
+            "Address": "At the junction of Sai Sha Road and Hang Fai Street underneath MTRC via duct in Ma On Shan",
+            "Area(M2)": "2 360",
+            "Facilities": "2 dog/pet dropping collection boxes 1 dog/pet latrine 2 turf areas for dogs/pets",
+            "Ancillary Facilities": "3 sets of arbours with benches",
+            "Opening Hours": "24 hours",
+            "Enquiry No.": "2634 0143"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Sha Tin",
+      "district_zh": "沙田區",
+      "district_id": 10,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=10",
+      "venue_count": 13,
+      "venues": [
+        "車公廟路遊樂場",
+        "馬鞍山海濱長廊 (指定位置)",
+        "馬鞍山西沙路花園",
+        "美田路休憩處",
+        "梅子林路花園",
+        "白石角海濱長廊——沙田段",
+        "沙田公園(指定位置)",
+        "石門遊樂場",
+        "城門河第一海濱花園",
+        "城門河第二海濱花園",
+        "城門河第三海濱花園",
+        "大水坑第一、二、三及四避雨亭",
+        "黃泥頭花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "車公廟路遊樂場",
+            "map_id": "r7NMUh2PHz",
+            "地址": "沙田大圍車公廟路",
+            "面積(平方米)": "25,800",
+            "配套設施": "狗糞收集箱 洗手間(設有暢通易達洗手間)",
+            "查詢電話": "2634 0147"
+          },
+          "en": {
+            "Name of Venue": "Che Kung Miu Road Playground",
+            "map_id": "r7NMUh2PHz",
+            "Address": "Che Kung Miu Road Playground",
+            "Area(M2)": "25,800",
+            "Ancillary Facilities": "Dog excreta collection bin Toilets (with accessible toilets)",
+            "Enquiry No.": "2634 0147"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "馬鞍山海濱長廊 (指定位置)",
+            "map_id": "dn4KszFj6J",
+            "地址": "馬鞍山寧泰路",
+            "配套設施": "狗糞收集箱、蔭棚、公園座椅、飲水設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2633 0142"
+          },
+          "en": {
+            "Name of Venue": "Ma On Shan Promenade (Designated Areas)",
+            "map_id": "dn4KszFj6J",
+            "Address": "Ning Tai Road, Ma On Shan",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bench, Water dispenser",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2633 0142"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "馬鞍山西沙路花園",
+            "map_id": "3kKGmuEmOf",
+            "地址": "馬鞍山西沙路",
+            "面積(平方米)": "13,000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0143"
+          },
+          "en": {
+            "Name of Venue": "Ma On Shan Sai Sha Road Garden",
+            "map_id": "3kKGmuEmOf",
+            "Address": "Sai Sha Road, Ma On Shan",
+            "Area(M2)": "13,000",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0143"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "美田路休憩處",
+            "map_id": "66m8S2GQSp",
+            "地址": "大圍美田路",
+            "面積(平方米)": "3,300",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0147"
+          },
+          "en": {
+            "Name of Venue": "Mei Tin Road Sitting-out Area",
+            "map_id": "66m8S2GQSp",
+            "Address": "Mei Tin Road, Tai Wai",
+            "Area(M2)": "3,300",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0147"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "梅子林路花園",
+            "map_id": "X1ixRtrVfN",
+            "地址": "馬鞍山梅子林路",
+            "設施": "狗糞收集箱、蔭棚、公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Mui Tsz Lam Road Garden",
+            "map_id": "X1ixRtrVfN",
+            "Address": "Mui Tsz Lam Road, Ma On Shan",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bemch",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0119"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "白石角海濱長廊——沙田段",
+            "map_id": "zMKAXu4uZZ",
+            "地址": "白石角海濱長廊——沙田段",
+            "面積(平方米)": "25000",
+            "配套設施": "由食環署管理的洗手間(設有暢通易達洗手間), 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Pak Shek Kok Promenade - Sha Tin Section",
+            "map_id": "zMKAXu4uZZ",
+            "Address": "Pak Shek Kok Promenade—Sha Tin Section",
+            "Area(M2)": "25000",
+            "Ancillary Facilities": "Toilet facilities managed by FEHD (including accessible toilets), Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0119"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "沙田公園(指定位置)",
+            "map_id": "zbg2eIRCBg",
+            "地址": "沙田源禾路2號",
+            "配套設施": "狗糞收集箱, 蔭棚, 公園座椅, 飲水設施",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2691 3105"
+          },
+          "en": {
+            "Name of Venue": "Sha Tin Park (Designated Areas)",
+            "map_id": "zbg2eIRCBg",
+            "Address": "No. 2 Yuen Wo Road, Sha Tin",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bench, Water dispenser",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2691 3105"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "石門遊樂場",
+            "map_id": "6ifr5yMERE",
+            "地址": "沙田石門安平街",
+            "配套設施": "狗糞收集箱、蔭棚、公園座椅、飲水設施、洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0143"
+          },
+          "en": {
+            "Name of Venue": "Shek Mun Playground",
+            "map_id": "6ifr5yMERE",
+            "Address": "On Ping Street, Shek Mun, Sha Tin",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bemch, Water dispenser, Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0143"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "城門河第一海濱花園",
+            "map_id": "FdsgkqL0kE",
+            "地址": "沙田大涌橋路",
+            "面積(平方米)": "8,153",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0147"
+          },
+          "en": {
+            "Name of Venue": "Shing Mun River Promenade Garden No.1",
+            "map_id": "FdsgkqL0kE",
+            "Address": "Tai Chung Kiu Road, Sha Tin",
+            "Area(M2)": "8,153",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0147"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "城門河第二海濱花園",
+            "map_id": "HUKg4eclP9",
+            "地址": "沙田大涌橋路",
+            "面積(平方米)": "1,630",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Shing Mun River Promenade Garden No.2",
+            "map_id": "HUKg4eclP9",
+            "Address": "Tai Chung Kiu Road, Sha Tin",
+            "Area(M2)": "1,630",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0119"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "城門河第三海濱花園",
+            "map_id": "lE8EI8Af28",
+            "地址": "沙田源禾路",
+            "面積(平方米)": "12,000",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗廁所, 草坪(狗隻活動區), 寵物沖身處, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Shing Mun River Promenade Garden No.3",
+            "map_id": "lE8EI8Af28",
+            "Address": "Yuen Wo Road, Sha Tin",
+            "Area(M2)": "12,000",
+            "Ancillary Facilities": "Toilet facilities (including accessible toilets), dog/pet latrine, turf area for dog/pet, pet shower area, dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0119"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大水坑第一、二、三及四避雨亭",
+            "map_id": "fPu6kZ8doj",
+            "地址": "馬鞍山梅子林路",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Tai Shui Hang Shelters No. 1,2,3&4",
+            "map_id": "fPu6kZ8doj",
+            "Address": "Mui Tsz Lam Road, Ma On Shan",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2634 0119"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "黃泥頭花園",
+            "map_id": "pRl9v2QrI2",
+            "地址": "沙田黃泥頭村",
+            "配套設施": "狗糞收集箱、蔭棚、公園座椅",
+            "查詢電話": "2634 0119"
+          },
+          "en": {
+            "Name of Venue": "Wong Nai Tau Garden",
+            "map_id": "pRl9v2QrI2",
+            "Address": "Wong Nai Tau Village, Sha Tin",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bemch",
+            "Enquiry No.": "2634 0119"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Southern",
+      "district_zh": "南區",
+      "district_id": 11,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=11",
+      "venue_count": 2,
+      "venues": [
+        "鴨脷洲海濱長廊",
+        "香葉徑寵物公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "鴨脷洲海濱長廊",
+            "map_id": "VxOwnEgDtK",
+            "地址": "鴨脷洲平瀾街",
+            "面積(平方米)": "530",
+            "設施": "寵物公園",
+            "配套設施": "座椅、狗糞收集箱、寵物遊樂設施和洗手設備",
+            "開放時間": "每日上午7時至晚上11時30分",
+            "其他（如適用）": "寵物公園位於鴨脷洲海濱長廊的休憩處內",
+            "查詢電話": "2518 0569"
+          },
+          "en": {
+            "Name of Venue": "Ap Lei Chau Waterfront Promenade",
+            "map_id": "VxOwnEgDtK",
+            "Address": "Ping Lan Street, Ap Lei Chau",
+            "Area(M2)": "530",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Benches, dog excreta collection bins, pet play equipment and hand-washing facility",
+            "Opening Hours": "7 am to 11:30 pm daily",
+            "Others": "The pet garden is located inside the sitting-out area of Ap Lei Chau Waterfront Promenade",
+            "Enquiry No.": "2518 0569"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "香葉徑寵物公園",
+            "map_id": "zs9IQjsyIK",
+            "地址": "黃竹坑香葉徑",
+            "面積(平方米)": "1184",
+            "設施": "寵物公園",
+            "配套設施": "座椅、涼亭、狗廁所、寵物遊樂設施和洗手設備",
+            "開放時間": "每日上午7時至晚上11時30分",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Heung Yip Path Pet Garden",
+            "map_id": "zs9IQjsyIK",
+            "Address": "Heung Yip Path, Wong Chuk Hang",
+            "Area(M2)": "1184",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Benches, arbours, dog latrine, pet play equipment and hand-washing facility",
+            "Opening Hours": "7 am to 11:30 pm daily",
+            "Enquiry No.": "2555 1268"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Southern",
+      "district_zh": "南區",
+      "district_id": 11,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=11",
+      "venue_count": 12,
+      "venues": [
+        "香港仔海濱公園",
+        "鴨脷洲公園",
+        "鴨脷洲海濱長廊",
+        "香葉道休憩處",
+        "洪聖街休憩花園",
+        "觀海徑休憩處",
+        "石澳海角郊遊區",
+        "赤柱新街/赤柱村道休憩處",
+        "赤柱海濱長廊",
+        "赤柱村道花園",
+        "新八間休憩處",
+        "瀑布灣公園 (指定位置)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "香港仔海濱公園",
+            "map_id": "VEFxDPjqIf",
+            "地址": "香港仔海傍道",
+            "面積(平方米)": "16,580",
+            "配套設施": "洗手間(設有暢通易達洗手間)、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 0121"
+          },
+          "en": {
+            "Name of Venue": "Aberdeen Promenade",
+            "map_id": "VEFxDPjqIf",
+            "Address": "Aberdeen Praya Road",
+            "Area(M2)": "16,580",
+            "Ancillary Facilities": "Toilet (with accessible toilet), dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 0121"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鴨脷洲公園",
+            "map_id": "QhijsMCrul",
+            "地址": "鴨脷洲鴨脷洲大街",
+            "面積(平方米)": "18,180",
+            "配套設施": "洗手間(設有暢通易達洗手間)、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Ap Lei Chau Park",
+            "map_id": "QhijsMCrul",
+            "Address": "Ap Lei Chau Main Street, Ap Lei Chau",
+            "Area(M2)": "18,180",
+            "Ancillary Facilities": "Toilet (with accessible toilet), dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "鴨脷洲海濱長廊",
+            "map_id": "S4zPTRRRsn",
+            "地址": "鴨脷洲鴨脷洲大街",
+            "面積(平方米)": "7,300",
+            "配套設施": "洗手間(設有暢通易達洗手間)、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Ap Lei Chau Waterfront Promenade",
+            "map_id": "S4zPTRRRsn",
+            "Address": "Ap Lei Chau Main Street, Ap Lei Chau",
+            "Area(M2)": "7,300",
+            "Ancillary Facilities": "Toilet (with accessible toilet), dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "香葉道休憩處",
+            "map_id": "8NTHVGuhuK",
+            "地址": "香港仔香葉道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 2130"
+          },
+          "en": {
+            "Name of Venue": "Heung Yip Road Sitting-out Area",
+            "map_id": "8NTHVGuhuK",
+            "Address": "Heung Yip Road, Aberdeen",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 2130"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "洪聖街休憩花園",
+            "map_id": "et9agZor7i",
+            "地址": "鴨脷洲惠風街",
+            "面積(平方米)": "3,000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Hung Shing Street Rest Garden",
+            "map_id": "et9agZor7i",
+            "Address": "Wai Fung Street, Ap Lei Chau",
+            "Area(M2)": "3,000",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "觀海徑休憩處",
+            "map_id": "256BL5Gw7Y",
+            "地址": "香港仔觀海徑",
+            "面積(平方米)": "1,300",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 0121"
+          },
+          "en": {
+            "Name of Venue": "Kwun Hoi Path Sitting-out Area",
+            "map_id": "256BL5Gw7Y",
+            "Address": "Kwun Hoi Path, Aberdeen",
+            "Area(M2)": "1,300",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 0121"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "石澳海角郊遊區",
+            "map_id": "xDGlYc4Mnc",
+            "地址": "石澳石澳山仔路",
+            "面積(平方米)": "72,800",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Shek O Headland Picnic Area",
+            "map_id": "xDGlYc4Mnc",
+            "Address": "Shek O Headland Road, Shek O",
+            "Area(M2)": "72,800",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "赤柱新街/赤柱村道休憩處",
+            "map_id": "CR6OTEZ9YU",
+            "地址": "赤柱赤柱新街",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2553 0742"
+          },
+          "en": {
+            "Name of Venue": "Stanley New Street / Stanley Village Road Sitting-out Area",
+            "map_id": "CR6OTEZ9YU",
+            "Address": "Stanley New Street, Stanley",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2553 0742"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "赤柱海濱長廊",
+            "map_id": "kPpJk207fV",
+            "地址": "赤柱赤柱大街",
+            "面積(平方米)": "5,890",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Stanley Promenade",
+            "map_id": "kPpJk207fV",
+            "Address": "Stanley Main Street, Stanley",
+            "Area(M2)": "5,890",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "赤柱村道花園",
+            "map_id": "pizre4uu9B",
+            "地址": "赤柱赤柱村道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2553 0742"
+          },
+          "en": {
+            "Name of Venue": "Stanley Village Road Garden",
+            "map_id": "pizre4uu9B",
+            "Address": "Stanley Village Road, Stanley",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2553 0742"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "新八間休憩處",
+            "map_id": "uO5BhqcBKh",
+            "地址": "赤柱黄蔴角道",
+            "面積(平方米)": "384",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Sun Pat Kan Sitting-out Area",
+            "map_id": "uO5BhqcBKh",
+            "Address": "Wong Ma Kok Road, Stanley",
+            "Area(M2)": "384",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "瀑布灣公園 (指定位置)",
+            "map_id": "HwXkoHQuZn",
+            "地址": "華富邨瀑布灣道",
+            "面積(平方米)": "28,000",
+            "配套設施": "洗手間(設有暢通易達洗手間)、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2555 1268"
+          },
+          "en": {
+            "Name of Venue": "Waterfall Bay Park (Designated Areas)",
+            "map_id": "HwXkoHQuZn",
+            "Address": "Waterfall Bay Road, Wah Fu Estate",
+            "Area(M2)": "28,000",
+            "Ancillary Facilities": "Toilet (with accessible toilet), dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2555 1268"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tai Po",
+      "district_zh": "大埔區",
+      "district_id": 12,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=12",
+      "venue_count": 3,
+      "venues": [
+        "頌雅路兒童遊樂場",
+        "廣福公園",
+        "大埔海濱公園 (近大發街公園入口)"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "頌雅路兒童遊樂場",
+            "map_id": "8LIunXMsR1",
+            "地址": "大埔頌雅路",
+            "面積(平方米)": "260",
+            "設施": "寵物公園",
+            "配套設施": "涼亭、座椅、狗廁所、寵物玩樂設施、狗糞收集箱及沖洗設備",
+            "開放時間": "全日開放",
+            "其他（如適用）": "寵物公園須由汀角路的獨立門口進入",
+            "查詢電話": "3183 9020"
+          },
+          "en": {
+            "Name of Venue": "Chung Nga Road Children's Playground",
+            "map_id": "8LIunXMsR1",
+            "Address": "Chung Nga Road, Tai Po",
+            "Area(M2)": "260",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbours, benches, dog's latrine, playground equipment for pets, dog excreta collection bins and washing facility",
+            "Opening Hours": "24 hours daily",
+            "Others": "Pet garden can be accessed from the separated entrance at Ting Kok Road.",
+            "Enquiry No.": "3183 9020"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "廣福公園",
+            "map_id": "upvMrEhlv0",
+            "地址": "大埔廣進街",
+            "面積(平方米)": "2 000",
+            "設施": "寵物公園",
+            "配套設施": "涼亭、座椅、狗廁所、狗糞收集箱及沖洗設備",
+            "開放時間": "全日開放",
+            "其他（如適用）": "寵物公園須由大埔公路(元洲仔段)的獨立門口進入",
+            "查詢電話": "3183 9020"
+          },
+          "en": {
+            "Name of Venue": "Kwong Fuk Park",
+            "map_id": "upvMrEhlv0",
+            "Address": "Kwong Chun Street, Tai Po",
+            "Area(M2)": "2 000",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbours, benches, dog's latrines, dog excreta collection bins and washing facility",
+            "Opening Hours": "24 hours daily",
+            "Others": "Pet garden can be accessed from the separated entrance at Tai Po Road - Yuen Chau Tsai.",
+            "Enquiry No.": "3183 9020"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大埔海濱公園 (近大發街公園入口)",
+            "地址": "新界大埔大發街",
+            "面積(平方米)": "400",
+            "設施": "寵物公園",
+            "配套設施": "狗廁所、狗糞收集箱及沖洗設備",
+            "開放時間": "全日開放",
+            "其他（如適用）": "寵物公園須由大發街的獨立門口進入",
+            "查詢電話": "2667 5489"
+          },
+          "en": {
+            "Name of Venue": "Tai Po Waterfront Park (Near park entrance on Dai Fat Street)",
+            "Address": "Dai Fat Street, Tai Po, New Territories",
+            "Area(M2)": "400",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Dog's latrine, dog excreta collection bins and washing facility",
+            "Opening Hours": "24 hours daily",
+            "Others": "Pet garden can be accessed from the separated entrance at Dai Fat Street.",
+            "Enquiry No.": "2667 5489"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tai Po",
+      "district_zh": "大埔區",
+      "district_id": 12,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=12",
+      "venue_count": 13,
+      "venues": [
+        "下坑村休憩處",
+        "廣福橋花園",
+        "梅樹坑遊樂場",
+        "南運路休憩處",
+        "白石角海濱長廊 - 大埔段",
+        "大埔滘花園",
+        "大埔滘公園",
+        "大埔海濱公園 (指定位置)",
+        "達運道休憩處",
+        "汀太路兒童遊樂場",
+        "吐露港花園",
+        "洞梓山路花園",
+        "元洲仔公園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "下坑村休憩處",
+            "map_id": "2G8f3S323f",
+            "地址": "大埔汀慶路",
+            "面積(平方米)": "3090",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9050"
+          },
+          "en": {
+            "Name of Venue": "Ha Hang Village Sitting-out Area",
+            "map_id": "2G8f3S323f",
+            "Address": "Ting Hing Road, Tai Po",
+            "Area(M2)": "3090",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9050"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "廣福橋花園",
+            "地址": "大埔普益街",
+            "面積(平方米)": "2800",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Kwong Fuk Bridge Garden",
+            "Address": "Po Yick Street, Tai Po",
+            "Area(M2)": "2800",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "梅樹坑遊樂場",
+            "map_id": "GrceHZTTbW",
+            "地址": "大埔梅樹坑路",
+            "配套設施": "狗糞收集箱、洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Mui Shue Hang Playground",
+            "map_id": "GrceHZTTbW",
+            "Address": "Tai Po Mui Shue Hang Road",
+            "Ancillary Facilities": "Dog excreta collection bin, Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "南運路休憩處",
+            "地址": "大埔南運路",
+            "面積(平方米)": "11000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Nam Wan Road Sitting-out Area",
+            "Address": "Nam Wan Road, Tai Po",
+            "Area(M2)": "11000",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "白石角海濱長廊 - 大埔段",
+            "map_id": "iNgjum9tOe",
+            "地址": "白石角海濱長廊",
+            "面積(平方米)": "18000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9050"
+          },
+          "en": {
+            "Name of Venue": "Pak Shek Kok Promenade - Tai Po Section",
+            "map_id": "iNgjum9tOe",
+            "Address": "Pak Shek Kok Promenade",
+            "Area(M2)": "18000",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9050"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大埔滘花園",
+            "map_id": "1qRs6g0xUf",
+            "地址": "大埔大埔公路 大埔滘段",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Tai Po Kau Garden",
+            "map_id": "1qRs6g0xUf",
+            "Address": "Tai Po Road, Tai Po Kau, Tai Po",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大埔滘公園",
+            "map_id": "ObOMtBdjzu",
+            "地址": "大埔滘大埔公路 大埔滘段",
+            "面積(平方米)": "14,200",
+            "配套設施": "洗手間 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Tai Po Kau Park",
+            "map_id": "ObOMtBdjzu",
+            "Address": "Tai Po Road (Tai Po Kau), Tai Po Kau",
+            "Area(M2)": "14,200",
+            "Ancillary Facilities": "Toilet Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大埔海濱公園 (指定位置)",
+            "map_id": "puDHJwM10U",
+            "地址": "新界大埔大發街",
+            "面積(平方米)": "33,000",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2667 5489"
+          },
+          "en": {
+            "Name of Venue": "Tai Po Waterfront Park (Designated Areas)",
+            "map_id": "puDHJwM10U",
+            "Address": "Dai Fat Street, Tai Po, New Territories",
+            "Area(M2)": "33,000",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2667 5489"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "達運道休憩處",
+            "map_id": "3auRV2SbZn",
+            "地址": "大埔達運道",
+            "面積(平方米)": "840",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9050"
+          },
+          "en": {
+            "Name of Venue": "Tat Wan Road Sitting-out Area",
+            "map_id": "3auRV2SbZn",
+            "Address": "Tat Wan Road, Tai Po",
+            "Area(M2)": "840",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9050"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "汀太路兒童遊樂場",
+            "map_id": "f0Voqw9gAO",
+            "地址": "大埔汀太路",
+            "面積(平方米)": "3520",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9050"
+          },
+          "en": {
+            "Name of Venue": "Ting Tai Road Children's Playground",
+            "map_id": "f0Voqw9gAO",
+            "Address": "Ting Tai Road, Tai Po",
+            "Area(M2)": "3520",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9050"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "吐露港花園",
+            "map_id": "GiNn7ufshJ",
+            "地址": "大埔吐露港公路",
+            "面積(平方米)": "7,264",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Tolo Harbour Garden",
+            "map_id": "GiNn7ufshJ",
+            "Address": "Tolo Highway, Tai Po",
+            "Area(M2)": "7,264",
+            "Ancillary Facilities": "Dog Excreta Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "洞梓山路花園",
+            "map_id": "BedIKpVJ86",
+            "地址": "大埔洞梓山路",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9050"
+          },
+          "en": {
+            "Name of Venue": "Tung Tsz Shan Road Garden",
+            "map_id": "BedIKpVJ86",
+            "Address": "Tung Tsz Shan Road, Tai Po",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9050"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "元洲仔公園",
+            "map_id": "k9tXfrEiAn",
+            "地址": "大埔元洲仔里",
+            "面積(平方米)": "20,000",
+            "配套設施": "狗糞收集箱 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "3183 9049"
+          },
+          "en": {
+            "Name of Venue": "Yuen Chau Tsai Park",
+            "map_id": "k9tXfrEiAn",
+            "Address": "Island House Lane, Tai Po",
+            "Area(M2)": "20,000",
+            "Ancillary Facilities": "Dog Excreta Collection Bins Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "3183 9049"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tsuen Wan",
+      "district_zh": "荃灣區",
+      "district_id": 13,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=13",
+      "venue_count": 4,
+      "venues": [
+        "國瑞路公園",
+        "深慈街遊樂場",
+        "荃灣公園",
+        "和宜合道花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "國瑞路公園",
+            "map_id": "AK2xuVDHwi",
+            "地址": "荃灣國瑞路",
+            "面積(平方米)": "400",
+            "配套設施": "供水設施 公園椅 寵物廁所及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9752"
+          },
+          "en": {
+            "Name of Venue": "Kwok Shui Road Park",
+            "map_id": "AK2xuVDHwi",
+            "Address": "Kwok Shui Road, Tsuen Wan",
+            "Area(M2)": "400",
+            "Ancillary Facilities": "Water Point Garden Benches Pet Latrine & Dropping Collection Boxes",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9752"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "深慈街遊樂場",
+            "map_id": "xRc8pkLyfj",
+            "地址": "荃灣深井深慈街",
+            "面積(平方米)": "160",
+            "配套設施": "供水設施 公園椅 寵物廁所及狗糞收集箱",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2212 9702"
+          },
+          "en": {
+            "Name of Venue": "Sham Tsz Street Playground",
+            "map_id": "xRc8pkLyfj",
+            "Address": "Sham Tsz Street, Sham Tseng, Tsuen Wan",
+            "Area(M2)": "160",
+            "Ancillary Facilities": "Water Point Garden Benches Pet Latrine & Dropping Collection Bins",
+            "Opening Hours": "7 am to 11 pm daily",
+            "Enquiry No.": "2212 9702"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荃灣公園",
+            "map_id": "1ZKwI1ziOd",
+            "地址": "新界荃灣永順街59號 (近荃灣西站D出口)",
+            "面積(平方米)": "510",
+            "配套設施": "供水設施 公園椅 寵物廁所及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2408 9592"
+          },
+          "en": {
+            "Name of Venue": "Tsuen Wan Park",
+            "map_id": "1ZKwI1ziOd",
+            "Address": "59 Wing Shun Street, Tsuen Wan, N.T. (Near Exit D of Tsuen Wan West station)",
+            "Area(M2)": "510",
+            "Ancillary Facilities": "Water Point Garden Benches Pet Latrine & Dropping Collection Bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2408 9592"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "和宜合道花園",
+            "map_id": "GcS02GowHQ",
+            "地址": "新界荃灣和宜合道",
+            "面積(平方米)": "106",
+            "配套設施": "寵物廁所及狗糞收集箱 公園椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9752"
+          },
+          "en": {
+            "Name of Venue": "Wo Yi Hop Road Garden",
+            "map_id": "GcS02GowHQ",
+            "Address": "Wo Yi Hop Road, Tsuen Wan",
+            "Area(M2)": "106",
+            "Ancillary Facilities": "Pet Latrine & Dropping Collection Bins Garden Benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9752"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tsuen Wan",
+      "district_zh": "荃灣區",
+      "district_id": 13,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=13",
+      "venue_count": 11,
+      "venues": [
+        "荃灣海濱單車匯合中心 (指定位置)",
+        "照潭徑花園(指定位置)",
+        "圓環公園",
+        "海安路遊樂場 (指定位置)",
+        "國瑞路公園 (指定位置)",
+        "深慈街遊樂場 (指定位置)",
+        "荃景圍花園 (指定位置)",
+        "荃灣公園",
+        "荃灣海濱公園",
+        "蕙荃路休憩花園",
+        "和宜合道花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "荃灣海濱單車匯合中心 (指定位置)",
+            "map_id": "nCW0Oyts4p",
+            "地址": "新界荃灣海興路",
+            "面積(平方米)": "1,690",
+            "配套設施": "狗糞收集箱 飲水設施 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702"
+          },
+          "en": {
+            "Name of Venue": "Tsuen Wan Waterfront Cycling Entry / Exit Hub (Designated areas)",
+            "map_id": "nCW0Oyts4p",
+            "Address": "Hoi Hing Road, Tsuen Wan, N.T.",
+            "Area(M2)": "1,690",
+            "Ancillary Facilities": "Dog excreta collection bin Water dispenser Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "照潭徑花園(指定位置)",
+            "map_id": "hVVhfUhs3m",
+            "地址": "荃灣照潭徑",
+            "面積(平方米)": "217平方米",
+            "配套設施": "狗糞收集箱, 蔭棚, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Chiu Tam Path Garden (Designated areas)",
+            "map_id": "hVVhfUhs3m",
+            "Address": "Chiu Tam Path, Tsuen Wan",
+            "Area(M2)": "217m2",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "圓環公園",
+            "map_id": "KUNiImDxn6",
+            "地址": "荃灣青山公路",
+            "配套設施": "洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Circle Park",
+            "map_id": "KUNiImDxn6",
+            "Address": "Castle Peak Road, Tsuen Wan",
+            "Ancillary Facilities": "Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "海安路遊樂場 (指定位置)",
+            "map_id": "UhmJg7tRcN",
+            "地址": "荃灣海安路",
+            "配套設施": "蔭棚, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Hoi On Road Playground (Designated Areas)",
+            "map_id": "UhmJg7tRcN",
+            "Address": "Hoi On Road, Tsuen Wan",
+            "Ancillary Facilities": "Arbour, Park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "國瑞路公園 (指定位置)",
+            "map_id": "Ey6yPf1Nvh",
+            "地址": "荃灣國瑞路",
+            "配套設施": "狗糞收集箱, 涼亭,公園座椅,飲水設施,洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Kwok Shui Road Park (Designated Areas)",
+            "map_id": "Ey6yPf1Nvh",
+            "Address": "Kwok Shui Road, Tsuen Wan",
+            "Ancillary Facilities": "Dog excreta collection bin, pavilion, park bench, water dispenser, toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "深慈街遊樂場 (指定位置)",
+            "map_id": "5So0BggmtQ",
+            "地址": "荃灣深井深慈街",
+            "面積(平方米)": "2,000",
+            "配套設施": "狗糞收集箱 飲水設施 寵物供水設施 洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702"
+          },
+          "en": {
+            "Name of Venue": "Sham Tsz Street Playground (Designated Areas)",
+            "map_id": "5So0BggmtQ",
+            "Address": "Sham Tsz Street, Sham Tseng, Tsuen Wan",
+            "Area(M2)": "2,000",
+            "Ancillary Facilities": "Dog excreta collection bin Water dispenser Water point for pets Toilets (with accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荃景圍花園 (指定位置)",
+            "map_id": "VDfbrGJWZl",
+            "地址": "新界荃灣美環街",
+            "配套設施": "蔭棚, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2405 6960 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Tsuen King Circuit Garden (Designated Areas)",
+            "map_id": "VDfbrGJWZl",
+            "Address": "Mei Wan Street, Tsuen Wan, N.T.",
+            "Ancillary Facilities": "Arbour, Park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2405 6960 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荃灣公園",
+            "map_id": "4Tru8WYKae",
+            "地址": "永順街59號",
+            "面積(平方米)": "80000",
+            "配套設施": "寵物公園, 洗手間(設有暢通易達洗手間), 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2408 9592"
+          },
+          "en": {
+            "Name of Venue": "Tsuen Wan Park",
+            "map_id": "4Tru8WYKae",
+            "Address": "59 Wing Shun Street",
+            "Area(M2)": "80000",
+            "Ancillary Facilities": "Pet Garden, toilet facilities(including accessible toilets), dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2408 9592"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "荃灣海濱公園",
+            "map_id": "475eWGplH7",
+            "地址": "怡康街2A號",
+            "面積(平方米)": "42600",
+            "設施": "洗手間(設有暢通易達洗手間), 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2406 9145"
+          },
+          "en": {
+            "Name of Venue": "Tsuen Wan Riviera Park",
+            "map_id": "475eWGplH7",
+            "Address": "2A Yi Hong Street",
+            "Area(M2)": "42600",
+            "Facilities": "Toilet facilities(including accessible toilets), dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2406 9145"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "蕙荃路休憩花園",
+            "map_id": "HKiJ3tL785",
+            "地址": "荃灣蕙荃路",
+            "配套設施": "蔭棚, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702 (辦公時間)"
+          },
+          "en": {
+            "Name of Venue": "Wai Tsuen Road Rest Garden",
+            "map_id": "HKiJ3tL785",
+            "Address": "Wai Tsuen Road, Tsuen Wan",
+            "Ancillary Facilities": "Arbour, park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702 (office hours)"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "和宜合道花園",
+            "map_id": "Pd5URrOFJd",
+            "地址": "新界荃灣和宜合道",
+            "面積(平方米)": "308",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2212 9702"
+          },
+          "en": {
+            "Name of Venue": "Wo Yi Hop Road Garden",
+            "map_id": "Pd5URrOFJd",
+            "Address": "Wo Yi Hop Road, Tsuen Wan",
+            "Area(M2)": "308",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2212 9702"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tuen Mun",
+      "district_zh": "屯門區",
+      "district_id": 14,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=14",
+      "venue_count": 3,
+      "venues": [
+        "建豐街寵物公園",
+        "藍地寵物公園",
+        "屯門河(東岸)花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "建豐街寵物公園",
+            "地址": "屯門建豐街8號",
+            "面積(平方米)": "524",
+            "設施": "寵物遊樂設施、狗糞收集箱、休憩草坪及飲水器",
+            "配套設施": "蔭棚及公園椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Kin Fung Circuit Pet Garden",
+            "Address": "8 Kin Fung Circuit, Tuen Mun",
+            "Area(M2)": "524",
+            "Facilities": "Pet Playing Equipment, Dog Excreta Collection Bin, Amenity Lawn for pets and drinking fountain",
+            "Ancillary Facilities": "Rain shelters and garden benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "藍地寵物公園",
+            "map_id": "QCazsqb10G",
+            "地址": "青山公路藍地段與黃崗圍路交界 (港深西部公路橋底)",
+            "面積(平方米)": "2 772",
+            "設施": "寵物遊樂設施、狗糞收集箱、寵物廁所和沙池(寵物活動區)",
+            "配套設施": "公園長椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 0304"
+          },
+          "en": {
+            "Name of Venue": "Lam Tei Pet Garden",
+            "map_id": "QCazsqb10G",
+            "Address": "Junction of Castle Peak Road- Lam Tei and Wong Kong Wai Road (Underneath the Kong Sham Western Highway)",
+            "Area(M2)": "2 772",
+            "Facilities": "Pet Playing Equipment, Dog Excreta Collection Bin, Pet Latrine and Sand area for pet",
+            "Ancillary Facilities": "Garden Benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 0304"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "屯門河(東岸)花園",
+            "地址": "屯門河(東岸)",
+            "面積(平方米)": "622",
+            "設施": "草坪、狗糞收集箱和洗手設備",
+            "配套設施": "公園長椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 0304"
+          },
+          "en": {
+            "Name of Venue": "Tuen Mun River (Eastern Bank) Garden",
+            "Address": "Tuen Mun River (Eastern Bank)",
+            "Area(M2)": "622",
+            "Facilities": "Turf area, dog excreta collection bin and hand-washing facility",
+            "Ancillary Facilities": "Garden benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 0304"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Tuen Mun",
+      "district_zh": "屯門區",
+      "district_id": 14,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=14",
+      "venue_count": 9,
+      "venues": [
+        "舊咖啡灣休憩處",
+        "麒麟崗公眾公園",
+        "三聖街海濱休憩處",
+        "新安休憩處",
+        "掃管笏休憩處",
+        "井頭上村休憩處",
+        "青碧休憩處",
+        "華發遊樂場 (指定位置)",
+        "湖山花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "舊咖啡灣休憩處",
+            "map_id": "jKYEMRZNfh",
+            "地址": "屯門舊咖啡灣",
+            "面積(平方米)": "430",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Cafeteria Old Beach Sitting-out Area",
+            "map_id": "jKYEMRZNfh",
+            "Address": "Cafeteria Old Beach, Tuen Mun",
+            "Area(M2)": "430",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "麒麟崗公眾公園",
+            "map_id": "DBAJuIyb9l",
+            "地址": "屯門青山公路三聖邨對面",
+            "面積(平方米)": "2 804",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3105"
+          },
+          "en": {
+            "Name of Venue": "Ki Lun Kong Public Park",
+            "map_id": "DBAJuIyb9l",
+            "Address": "Opposite to Sam Shing Estate, Castle Peak Road, Tuen Mun.",
+            "Area(M2)": "2 804",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3105"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "三聖街海濱休憩處",
+            "地址": "屯門三聖街9號",
+            "面積(平方米)": "952平方米",
+            "配套設施": "狗糞收集箱、洗手間(設有暢通易達洗手間)、公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Sam Shing Street Waterfront Sitting-out Area",
+            "Address": "9 Sam Shing Street, Tuen Mun",
+            "Area(M2)": "952m2",
+            "Ancillary Facilities": "Dog excreta collection bin, Toilets (with accessible toilets), Park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "新安休憩處",
+            "map_id": "QeL9JagWLP",
+            "地址": "屯門新安街",
+            "面積(平方米)": "692",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "San On Sitting-out Area",
+            "map_id": "QeL9JagWLP",
+            "Address": "San On Street, Tuen Mun",
+            "Area(M2)": "692",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "掃管笏休憩處",
+            "map_id": "FORkQMtw2q",
+            "地址": "屯門掃管笏村",
+            "設施": "狗糞收集箱、公園座椅、蔭棚",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "So Kwun Wat Sitting-out Area",
+            "map_id": "FORkQMtw2q",
+            "Address": "So Kwun Wat Tsuen, Tuen Mun",
+            "Ancillary Facilities": "Dog excreta collection bin, Park bench, Arbour",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "井頭上村休憩處",
+            "map_id": "hZTxeiskDm",
+            "地址": "屯門顯發里",
+            "配套設施": "狗糞收集箱、涼亭",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Tseng Tau Sheung Tsuen Sitting-out Area",
+            "map_id": "hZTxeiskDm",
+            "Address": "Hin Fat Lane, Tuen Mun",
+            "Ancillary Facilities": "Dog excreta collection bin, Pavilion",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "青碧休憩處",
+            "map_id": "HSARPZVDTi",
+            "地址": "屯門青碧街",
+            "面積(平方米)": "300",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Tsing Bik Sitting-out Area",
+            "map_id": "HSARPZVDTi",
+            "Address": "Tsing Bik Street, Tuen Mun",
+            "Area(M2)": "300",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "華發遊樂場 (指定位置)",
+            "map_id": "DS9lZDNjVJ",
+            "地址": "屯門華發街",
+            "配套設施": "狗糞收集箱、洗手間(設有暢通易達洗手間)、公園座椅、蔭棚",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2451 3110"
+          },
+          "en": {
+            "Name of Venue": "Wah Fat Playground (Designated Areas)",
+            "map_id": "DS9lZDNjVJ",
+            "Address": "Wah Fat Street, Tuen Mun",
+            "Ancillary Facilities": "Dog excreta collection bin, Toilets (with accessible toilets), Park bench, Arbour",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2451 3110"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "湖山花園",
+            "map_id": "QEswoDWWcz",
+            "地址": "屯門湖山路與湖翠路",
+            "面積(平方米)": "2350平方米",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2459 1062"
+          },
+          "en": {
+            "Name of Venue": "Wu Shan Garden",
+            "map_id": "QEswoDWWcz",
+            "Address": "Wu Shan Road and Wu Chui Road, Tuen Mun",
+            "Area(M2)": "2350m2",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2459 1062"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Wan Chai",
+      "district_zh": "灣仔區",
+      "district_id": 15,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=15",
+      "venue_count": 2,
+      "venues": [
+        "大坑徑休憩處",
+        "灣仔臨時海濱花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "大坑徑休憩處",
+            "map_id": "fgt6GQPuko",
+            "地址": "香港灣仔大坑徑 (近大坑徑與春輝道交界)",
+            "面積(平方米)": "96",
+            "設施": "寵物公園",
+            "配套設施": "公園長椅",
+            "開放時間": "每日24小時開放",
+            "其他（如適用）": "場地可用面積為96平方米",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Tai Hang Drive Sitting-out Area",
+            "map_id": "fgt6GQPuko",
+            "Address": "Tai Hang Drive, Wan Chai, Hong Kong (adjacent to the junction of Tai Hang Drive and Chun Fai Road)",
+            "Area(M2)": "96",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Garden Benches",
+            "Opening Hours": "24 hours daily",
+            "Others": "Area available is 96m2",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "灣仔臨時海濱花園",
+            "map_id": "bTjyIt9i9z",
+            "地址": "香港龍和道(近灣仔渡輪碼頭)",
+            "面積(平方米)": "360",
+            "配套設施": "公園座椅、草坪、狗糞收集箱、飲水機及洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5617"
+          },
+          "en": {
+            "Name of Venue": "Wan Chai Temporary Promenade",
+            "map_id": "bTjyIt9i9z",
+            "Address": "Lung Wo Road, Hong Kong (near Wan Chai Ferry Pier)",
+            "Area(M2)": "360",
+            "Ancillary Facilities": "Garden benches, turf area for pet, dog excreta collection bins, water dispenser and hand-washing facility",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5617"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Wan Chai",
+      "district_zh": "灣仔區",
+      "district_id": 15,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=15",
+      "venue_count": 14,
+      "venues": [
+        "寶雲道花園",
+        "寶雲道公園",
+        "寶雲道臨時休憩處",
+        "東岸公園 (第一期)",
+        "蓮花宮花園",
+        "蓮花宮東街休憩處",
+        "成和道休憩花園",
+        "大潭水塘道休憩處",
+        "銅鑼灣花園",
+        "維多利亞公園 - 山丘涼亭 (指定位置)",
+        "灣仔峽公園",
+        "灣仔臨時海濱花園",
+        "威非路道休憩花園",
+        "黃泥涌道休憩花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "寶雲道花園",
+            "map_id": "y5iTBUit2B",
+            "地址": "灣仔寶雲道",
+            "面積(平方米)": "4,000",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Bowen Road Garden",
+            "map_id": "y5iTBUit2B",
+            "Address": "Bowen Road, Wan Chai",
+            "Area(M2)": "4,000",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "寶雲道公園",
+            "map_id": "zjmZswl3Xs",
+            "地址": "灣仔寶雲道",
+            "面積(平方米)": "1,164",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Bowen Road Park",
+            "map_id": "zjmZswl3Xs",
+            "Address": "Bowen Road, Wan Chai",
+            "Area(M2)": "1,164",
+            "Ancillary Facilities": "Park benches, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "寶雲道臨時休憩處",
+            "map_id": "c9rUb6svej",
+            "地址": "灣仔寶雲道",
+            "面積(平方米)": "123",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Bowen Road Temporary Sitting-out Area",
+            "map_id": "c9rUb6svej",
+            "Address": "Bowen Road, Wan Chai",
+            "Area(M2)": "123",
+            "Ancillary Facilities": "Park benches, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "東岸公園 (第一期)",
+            "map_id": "AFqc3c8EjQ",
+            "地址": "屈臣道，天后",
+            "面積(平方米)": "8500",
+            "配套設施": "狗糞收集箱, 涼亭, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "East Coast Park (Phase 1)",
+            "map_id": "AFqc3c8EjQ",
+            "Address": "Watson Road, Tin Hau",
+            "Area(M2)": "8500",
+            "Ancillary Facilities": "Dog Excreta Collection Bin, Arbours, Park Benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "蓮花宮花園",
+            "map_id": "UABeDbEdlL",
+            "地址": "蓮花宮，大坑",
+            "面積(平方米)": "3300",
+            "配套設施": "狗糞收集箱, 涼亭, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5617"
+          },
+          "en": {
+            "Name of Venue": "Lin Fa Kung Garden",
+            "map_id": "UABeDbEdlL",
+            "Address": "Lin Fa Kung, Tai Hang",
+            "Area(M2)": "3300",
+            "Ancillary Facilities": "Dog Excreta Collection Bin, Arbours, Park benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5617"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "蓮花宮東街休憩處",
+            "map_id": "UW2oRyb3ta",
+            "地址": "蓮花宮，大坑",
+            "面積(平方米)": "300",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5617"
+          },
+          "en": {
+            "Name of Venue": "Lin Fa Kung Street East Sitting-out Area",
+            "map_id": "UW2oRyb3ta",
+            "Address": "Lin Fa Kung, Tai Hang",
+            "Area(M2)": "300",
+            "Ancillary Facilities": "Dog Excreta Collection Bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5617"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "成和道休憩花園",
+            "map_id": "vNSQwKnBTM",
+            "地址": "跑馬地成和道",
+            "面積(平方米)": "559",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5511"
+          },
+          "en": {
+            "Name of Venue": "Sing Woo Road Rest Garden",
+            "map_id": "vNSQwKnBTM",
+            "Address": "Sing Woo Road, Happy Valley",
+            "Area(M2)": "559",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5511"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "大潭水塘道休憩處",
+            "map_id": "xPS5x1Jazn",
+            "地址": "灣仔大潭水塘道",
+            "面積(平方米)": "3,500",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Tai Tam Reservoir Road Sitting-out Area",
+            "map_id": "xPS5x1Jazn",
+            "Address": "Tai Tam Reservoir Road, Wan Chai",
+            "Area(M2)": "3,500",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "銅鑼灣花園",
+            "map_id": "sRbVsAbsmR",
+            "地址": "銅鑼灣加寧街",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5617"
+          },
+          "en": {
+            "Name of Venue": "Tung Lo Wan Garden",
+            "map_id": "sRbVsAbsmR",
+            "Address": "Cleveland Street, Causeway Bay",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5617"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "維多利亞公園 - 山丘涼亭 (指定位置)",
+            "map_id": "MsqXvZ7aTx",
+            "地址": "香港銅鑼灣興發街一號",
+            "面積(平方米)": "7500",
+            "配套設施": "洗手間(設有暢通易達洗手間), 狗糞收集箱, 蔭棚, 涼亭, 洗手設備",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2890 4355"
+          },
+          "en": {
+            "Name of Venue": "Victoria Park - Hill Knoll Pavilion (Designated Areas)",
+            "map_id": "MsqXvZ7aTx",
+            "Address": "1 Hing Fat Street, Causeway Bay, Hong Kong",
+            "Area(M2)": "7500",
+            "Ancillary Facilities": "Toilets (with accessible toilets), Dog excreta collection bin, Arbour, Pavilion, Hand-washing facilities",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2890 4355"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "灣仔峽公園",
+            "map_id": "SqDgKnHcc8",
+            "地址": "灣仔司徒拔道",
+            "面積(平方米)": "5,297",
+            "配套設施": "公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Wan Chai Gap Park",
+            "map_id": "SqDgKnHcc8",
+            "Address": "Stubbs Road, Wan Chai",
+            "Area(M2)": "5,297",
+            "Ancillary Facilities": "Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "灣仔臨時海濱花園",
+            "map_id": "MIsPuBvxN0",
+            "地址": "灣仔海濱",
+            "面積(平方米)": "8630",
+            "配套設施": "狗糞收集箱, 涼亭, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5617"
+          },
+          "en": {
+            "Name of Venue": "Wan Chai Temporary Promenade",
+            "map_id": "MIsPuBvxN0",
+            "Address": "Waterfront, Wan Chai",
+            "Area(M2)": "8630",
+            "Ancillary Facilities": "Dog Excreta Collection Bin, Arbours, Park benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5617"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "威非路道休憩花園",
+            "map_id": "KQ118mRRJI",
+            "地址": "天后威非路道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5612"
+          },
+          "en": {
+            "Name of Venue": "Whitfield Road Rest Garden",
+            "map_id": "KQ118mRRJI",
+            "Address": "Whitfield Road, Tin Hau",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5612"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "黃泥涌道休憩花園",
+            "map_id": "yRG9aAPo2K",
+            "地址": "跑馬地黃泥涌道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2879 5511"
+          },
+          "en": {
+            "Name of Venue": "Wong Nai Chung Road Rest Garden",
+            "map_id": "yRG9aAPo2K",
+            "Address": "Wong Nai Chung Road, Happy Valley",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2879 5511"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Wong Tai Sin",
+      "district_zh": "黃大仙區",
+      "district_id": 16,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=16",
+      "venue_count": 3,
+      "venues": [
+        "東啟德公園",
+        "牛池灣公園",
+        "蒲崗村道 / 崇華街休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "東啟德公園",
+            "map_id": "l0L3PTStTX",
+            "地址": "新蒲崗四美街東啟德公園",
+            "面積(平方米)": "143",
+            "設施": "寵物公園",
+            "配套設施": "蔭棚連坐椅、 飲水器",
+            "開放時間": "24小時",
+            "查詢電話": "2326 9940"
+          },
+          "en": {
+            "Name of Venue": "Kai Tak East Park",
+            "map_id": "l0L3PTStTX",
+            "Address": "Kai Tak East Park, Sze Mei Street, San Po Kong",
+            "Area(M2)": "143",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbours with benches, Drinking fountain",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2326 9940"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "牛池灣公園",
+            "map_id": "2Q8c8vWUzL",
+            "地址": "黃大仙牛池灣豐盛街71號",
+            "面積(平方米)": "550",
+            "設施": "寵物公園",
+            "配套設施": "蔭棚連座椅、寵物遊戲設施、飲水器、寵物廁所及狗糞收集箱",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2322 9437"
+          },
+          "en": {
+            "Name of Venue": "Ngau Chi Wan Park",
+            "map_id": "2Q8c8vWUzL",
+            "Address": "No.71 Fung Shing Street, Ngau Chi Wan, Wong Tai Sin",
+            "Area(M2)": "550",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Arbours with benches, Pets’ play equipment, Drinking fountain, Pet latrine and Dog excreta collection bin",
+            "Opening Hours": "7am to 11pm daily",
+            "Enquiry No.": "2322 9437"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "蒲崗村道 / 崇華街休憩處",
+            "map_id": "4XSWqBdJGh",
+            "地址": "蒲崗村道 / 崇華街交界",
+            "面積(平方米)": "105",
+            "設施": "寵物角",
+            "配套設施": "蔭棚連坐椅、寵物遊戲設施、 飲水器",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2351 7535"
+          },
+          "en": {
+            "Name of Venue": "Po Kong Village Road / Shung Wah Street Sitting-out Area",
+            "map_id": "4XSWqBdJGh",
+            "Address": "J/O Po Kong Village Road / Shung Wah Street",
+            "Area(M2)": "105",
+            "Facilities": "Pet Corner",
+            "Ancillary Facilities": "Arbours with benches Pets’ play equipment Drinking fountain",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2351 7535"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Wong Tai Sin",
+      "district_zh": "黃大仙區",
+      "district_id": 16,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=16",
+      "venue_count": 7,
+      "venues": [
+        "金鳳街休憩處",
+        "景福街休憩處",
+        "獅子山公園 (棒球場、射箭場及社區園圃(紅色範圍)除外)",
+        "龍翔道洋紫荊花園",
+        "牛池灣村遊樂場",
+        "新蒲崗交匯處休憩花園",
+        "慈雲山道休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "金鳳街休憩處",
+            "map_id": "KqetIqlLkp",
+            "地址": "黃大仙，金鳳街",
+            "面積(平方米)": "1,280",
+            "配套設施": "陰棚 公園座椅 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2328 9262"
+          },
+          "en": {
+            "Name of Venue": "Kam Fung Street Sitting-out Area",
+            "map_id": "KqetIqlLkp",
+            "Address": "Kam Fung Street , Wong Tai Sin",
+            "Area(M2)": "1,280",
+            "Ancillary Facilities": "Arbour Park bench Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2328 9262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "景福街休憩處",
+            "map_id": "NEBNu99kdS",
+            "地址": "黃大仙，景福街",
+            "面積(平方米)": "1,010",
+            "配套設施": "公園座椅 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2328 9262"
+          },
+          "en": {
+            "Name of Venue": "King Fuk Street Sitting-out Area",
+            "map_id": "NEBNu99kdS",
+            "Address": "King Fuk Street, Wong Tai Sin",
+            "Area(M2)": "1,010",
+            "Ancillary Facilities": "Park bench Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2328 9262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "獅子山公園 (棒球場、射箭場及社區園圃(紅色範圍)除外)",
+            "map_id": "P05hIo12Ew",
+            "地址": "九龍黃大仙竹園道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2351 7525"
+          },
+          "en": {
+            "Name of Venue": "Lion Rock Park (Except Baseball Pitch, Archery Range & Community Garden (Red Area))",
+            "map_id": "P05hIo12Ew",
+            "Address": "Chuk Yuen Road, Wong Tai Sin, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2351 7525"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "龍翔道洋紫荊花園",
+            "map_id": "opEaReRXW2",
+            "地址": "九龍橫頭磡龍翔道(天馬苑對面)",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2351 7535"
+          },
+          "en": {
+            "Name of Venue": "Lung Cheung Road Bauhinia Garden",
+            "map_id": "opEaReRXW2",
+            "Address": "Lung Cheung Road, Wang Tau Hom, Kowloon. (Opposite to Tin Ma Court)",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2351 7535"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "牛池灣村遊樂場",
+            "map_id": "XZC9oGcgYs",
+            "地址": "九龍龍翔道牛池灣村",
+            "面積(平方米)": "1300",
+            "配套設施": "陰棚, 座椅, 涼亭, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2328 9262"
+          },
+          "en": {
+            "Name of Venue": "Ngau Chi Wan Village Playground",
+            "map_id": "XZC9oGcgYs",
+            "Address": "Ngau Chi Wan Village, Lung Cheung Road, Kowloon",
+            "Area(M2)": "1300",
+            "Ancillary Facilities": "Arbours, Benches, Pavilion, Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2328 9262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "新蒲崗交匯處休憩花園",
+            "map_id": "TfKO3eWEOf",
+            "地址": "黃大仙新蒲崗太子道東",
+            "面積(平方米)": "3500",
+            "配套設施": "座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2328 9262"
+          },
+          "en": {
+            "Name of Venue": "San Po Kong Interchange Rest Garden",
+            "map_id": "TfKO3eWEOf",
+            "Address": "Prince Edward Road East, San Po Kong, Wong Tai Sin",
+            "Area(M2)": "3500",
+            "Ancillary Facilities": "Benches, Dog excreta collection bins",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2328 9262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "慈雲山道休憩處",
+            "map_id": "CaItQUKL4W",
+            "地址": "九龍慈雲山道",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2351 7535"
+          },
+          "en": {
+            "Name of Venue": "Tsz Wan Shan Road Sitting-Out Area",
+            "map_id": "CaItQUKL4W",
+            "Address": "Tsz Wan Shan Road, Kowloon",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2351 7535"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Yau Tsim Mong",
+      "district_zh": "油尖旺區",
+      "district_id": 17,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=17",
+      "venue_count": 3,
+      "venues": [
+        "海帆道公園",
+        "文昌街公園",
+        "窩打老道／渡船街休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "海帆道公園",
+            "map_id": "2LpWNv25Tc",
+            "地址": "九龍大角咀海帆道18號",
+            "面積(平方米)": "445",
+            "配套設施": "休憩草坪、狗糞收集箱、避雨亭、座椅、寵物遊樂設施、洗手設備及飲水機。",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2216 4677"
+          },
+          "en": {
+            "Name of Venue": "Hoi Fan Road Park",
+            "map_id": "2LpWNv25Tc",
+            "Address": "18 Hoi Fan Road, Tai Kok Tsui, Kowloon",
+            "Area(M2)": "445",
+            "Ancillary Facilities": "Amenity lawn for pets, dog excreta collection bins, rain shelters, garden benches, pet’s play equipment, hand-washing facility, drinking fountains",
+            "Opening Hours": "7 am to 11 pm daily",
+            "Enquiry No.": "2216 4677"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "文昌街公園",
+            "map_id": "0QC9UFhsGd",
+            "地址": "九龍渡船街 / 欣翔道交界",
+            "面積(平方米)": "2 600",
+            "設施": "寵物公園",
+            "配套設施": "公園內設有流動洗手間、流動殘疾人士洗手間、狗廁所、避雨亭和公園長椅",
+            "開放時間": "每日上午7時至凌晨12時",
+            "其他（如適用）": "鄰近公眾停車場",
+            "查詢電話": "2302 1762"
+          },
+          "en": {
+            "Name of Venue": "Man Cheong Street Park",
+            "map_id": "0QC9UFhsGd",
+            "Address": "Junction of Ferry Street / Yan Cheung Road, Kowloon",
+            "Area(M2)": "2 600",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Portable toilets, a portable toilet for persons with disabilities, a dogs' latrine, rain shelters and garden benches are provided in the Garden",
+            "Opening Hours": "7 am to 12 midnight daily",
+            "Others": "Near a public car park",
+            "Enquiry No.": "2302 1762"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "窩打老道／渡船街休憩處",
+            "map_id": "EqVqRyv6DL",
+            "地址": "九龍窩打老道 ／渡船街交界",
+            "面積(平方米)": "953",
+            "設施": "寵物公園",
+            "配套設施": "寵物廁所和公園長椅",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2302 1762"
+          },
+          "en": {
+            "Name of Venue": "Waterloo Road／Ferry Street Sitting-out Area",
+            "map_id": "EqVqRyv6DL",
+            "Address": "Junction of Waterloo Road / Ferry Street, Kowloon",
+            "Area(M2)": "953",
+            "Facilities": "Pet Garden",
+            "Ancillary Facilities": "Pet latrines and garden benches",
+            "Opening Hours": "7 am to 11pm daily",
+            "Enquiry No.": "2302 1762"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Yau Tsim Mong",
+      "district_zh": "油尖旺區",
+      "district_id": 17,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=17",
+      "venue_count": 10,
+      "venues": [
+        "聚魚道休憩花園",
+        "海防道兒童遊樂場",
+        "海帆道公園",
+        "康達徑花園 (指定位置)",
+        "建灣街花園 (指定位置)",
+        "聯運街休憩處",
+        "尖沙咀海濱花園 (指定位置)",
+        "窩打老道／渡船街休憩處",
+        "窩打老道/衛理道休憩處",
+        "衛理道臨時休憩處"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "聚魚道休憩花園",
+            "map_id": "xhTU7Y5FkF",
+            "地址": "深旺道／聚魚道交界處",
+            "面積(平方米)": "4120",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2302 1785"
+          },
+          "en": {
+            "Name of Venue": "Chui Yu Road Rest Garden",
+            "map_id": "xhTU7Y5FkF",
+            "Address": "Junction of Sham Mong Road & Chui Yu Road",
+            "Area(M2)": "4120",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "7am to 11pm daily",
+            "Enquiry No.": "2302 1785"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "海防道兒童遊樂場",
+            "map_id": "jJJhe1W1yy",
+            "地址": "尖沙咀九龍公園徑",
+            "面積(平方米)": "4,470",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1264"
+          },
+          "en": {
+            "Name of Venue": "Haiphong Road Children's Playground",
+            "map_id": "jJJhe1W1yy",
+            "Address": "Kowloon Park Drive, Tsimshatsui.",
+            "Area(M2)": "4,470",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1264"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "海帆道公園",
+            "map_id": "2LpWNv25Tc",
+            "地址": "九龍大角咀海帆道18號",
+            "面積(平方米)": "5 320",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2216 4677"
+          },
+          "en": {
+            "Name of Venue": "Hoi Fan Road Park",
+            "map_id": "2LpWNv25Tc",
+            "Address": "18 Hoi Fan Road, Tai Kok Tsui, Kowloon",
+            "Area(M2)": "5 320",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "7 am to 11 pm daily",
+            "Enquiry No.": "2216 4677"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "康達徑花園 (指定位置)",
+            "map_id": "CYqPIoAcwi",
+            "地址": "九龍科學館道",
+            "面積(平方米)": "230",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1762"
+          },
+          "en": {
+            "Name of Venue": "Hong Tat Path Garden (Designated Area)",
+            "map_id": "CYqPIoAcwi",
+            "Address": "Science Museum Road, Kowloon",
+            "Area(M2)": "230",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1762"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "建灣街花園 (指定位置)",
+            "地址": "紅磡建灣街",
+            "面積(平方米)": "5 557",
+            "配套設施": "狗糞收集箱",
+            "查詢電話": "2302 1762"
+          },
+          "en": {
+            "Name of Venue": "Kin Wan Street Garden (Designated Area)",
+            "Address": "Kin Wan Street, Hung Hom",
+            "Area(M2)": "5 557",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1762"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "聯運街休憩處",
+            "map_id": "8IRc3ip0l2",
+            "地址": "九龍旺角聯運街",
+            "設施": "蔭棚、公園座椅、健體設施、狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1785"
+          },
+          "en": {
+            "Name of Venue": "Luen Wan Street Sitting-out Area",
+            "map_id": "8IRc3ip0l2",
+            "Address": "Luen Wan Street, Mong Kok, Kowloon",
+            "Ancillary Facilities": "Arbour, Garden benches, Fitness Corner, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1785"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "尖沙咀海濱花園 (指定位置)",
+            "map_id": "eSpx2i7sUi",
+            "地址": "九龍尖沙咀梳士巴利道",
+            "面積(平方米)": "14 603",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1762"
+          },
+          "en": {
+            "Name of Venue": "Tsim Sha Tsui Promenade (Designated Area)",
+            "map_id": "eSpx2i7sUi",
+            "Address": "Salisbury Road, Tsimshatsui, Kowloon.",
+            "Area(M2)": "14 603",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1762"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "窩打老道／渡船街休憩處",
+            "map_id": "1517DxNdzI",
+            "地址": "九龍窩打老道／渡船街交界",
+            "面積(平方米)": "92.6",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日上午7時至晚上11時",
+            "查詢電話": "2302 1262"
+          },
+          "en": {
+            "Name of Venue": "Waterloo Road/Ferry Street Sitting-out Area",
+            "map_id": "1517DxNdzI",
+            "Address": "Junction of Waterloo Road / Ferry Street, Kowloon",
+            "Area(M2)": "92.6",
+            "Ancillary Facilities": "Dog excreta collection bins",
+            "Opening Hours": "7am to 11pm daily",
+            "Enquiry No.": "2302 1262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "窩打老道/衛理道休憩處",
+            "map_id": "OsIDoj3Ncf",
+            "地址": "窩打老道/衛理道交界",
+            "面積(平方米)": "292",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1262"
+          },
+          "en": {
+            "Name of Venue": "Waterloo Road/Wylie Road Sitting-out Area",
+            "map_id": "OsIDoj3Ncf",
+            "Address": "J/O Waterloo Road / Wylie Road",
+            "Area(M2)": "292",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1262"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "衛理道臨時休憩處",
+            "map_id": "ym5eGSn0xH",
+            "地址": "衛理道",
+            "面積(平方米)": "1,690",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2302 1262"
+          },
+          "en": {
+            "Name of Venue": "Wylie Road Temporary Sitting-out Area",
+            "map_id": "ym5eGSn0xH",
+            "Address": "Wylie Road",
+            "Area(M2)": "1,690",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2302 1262"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Yuen Long",
+      "district_zh": "元朗區",
+      "district_id": 18,
+      "park_type": "pet_garden",
+      "facility_type_id": 47,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=47&fcid=&did=18",
+      "venue_count": 3,
+      "venues": [
+        "洪德路二號休憩處",
+        "天業路休憩處",
+        "市鎮公園北兒童遊樂場"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "洪德路二號休憩處",
+            "map_id": "QbdsDqKvsz",
+            "地址": "元朗洪水橋洪德路",
+            "面積(平方米)": "500",
+            "配套設施": "寵物沖身處、寵物廁所、公園椅、蔭棚及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2478 4342"
+          },
+          "en": {
+            "Name of Venue": "Hung Tak Road Sitting-out Area No.2",
+            "map_id": "QbdsDqKvsz",
+            "Address": "Hung Tak Road, Hung Shui Kiu, , Yuen Long",
+            "Area(M2)": "500",
+            "Ancillary Facilities": "Pet latrine, Pet shower area, Dropping collection box, Garden benches and Rain shelters",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2478 4342"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "天業路休憩處",
+            "map_id": "v68PG0h7s2",
+            "地址": "元朗天水圍濕地公園路(近天業路)",
+            "面積(平方米)": "805",
+            "配套設施": "寵物沖身處、寵物廁所、公園椅、蔭棚及狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2478 4342"
+          },
+          "en": {
+            "Name of Venue": "Tin Yip Road Sitting-out area",
+            "map_id": "v68PG0h7s2",
+            "Address": "Wetland Park Road (near Tin Yip Road), Tin Shui Wai, Yuen Long",
+            "Area(M2)": "805",
+            "Ancillary Facilities": "Pet latrine, Pet shower area, Dropping collection box, Garden benches and Rain shelters",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2478 4342"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "市鎮公園北兒童遊樂場",
+            "map_id": "GAUtbkY5Az",
+            "地址": "新界元朗市鎮公園北路 (入口近青山公路-屏山段)",
+            "面積(平方米)": "438",
+            "配套設施": "寵物廁所、寵物遊戲設施、狗糞收集箱及公園椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2478 4342"
+          },
+          "en": {
+            "Name of Venue": "Town Park North Children's Playground",
+            "map_id": "GAUtbkY5Az",
+            "Address": "Town Park North Road, Yuen Long (Entrance near Castle Peak Road - Ping Shan)",
+            "Area(M2)": "438",
+            "Ancillary Facilities": "Pet latrine and dropping collection box Pets' Play Equipment Garden benches",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2478 4342"
+          }
+        }
+      ]
+    },
+    {
+      "district": "Yuen Long",
+      "district_zh": "元朗區",
+      "district_id": 18,
+      "park_type": "inclusive_park",
+      "facility_type_id": 165,
+      "source_url": "https://www.lcsd.gov.hk/clpss/tc/webApp/Facility/Details.do?ftid=165&fcid=&did=18",
+      "venue_count": 8,
+      "venues": [
+        "屏柏里公園",
+        "上村公園",
+        "天河路遊樂場",
+        "天水圍公園 (指定位置)",
+        "天慈花園",
+        "唐人新村遊樂場",
+        "橫台山遊樂場",
+        "宏業南街休憩花園"
+      ],
+      "venue_details": [
+        {
+          "zh": {
+            "場地名稱": "屏柏里公園",
+            "map_id": "GiiHs0eKDz",
+            "地址": "元朗屏山屏柏里",
+            "面積(平方米)": "11,268",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2443 0513 / 2476 7350"
+          },
+          "en": {
+            "Name of Venue": "Ping Pak Lane Park",
+            "map_id": "GiiHs0eKDz",
+            "Address": "Ping Pak Lane, Ping Shan, Yuen Long",
+            "Area(M2)": "11,268",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2443 0513 / 2476 7350"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "上村公園",
+            "map_id": "VdZQoQWSJa",
+            "地址": "元朗錦上路",
+            "面積(平方米)": "14,226",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2475 3445 / 2470 7137"
+          },
+          "en": {
+            "Name of Venue": "Sheung Tsuen Park",
+            "map_id": "VdZQoQWSJa",
+            "Address": "Kam Sheung Road, Yuen Long",
+            "Area(M2)": "14,226",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2475 3445 / 2470 7137"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "天河路遊樂場",
+            "map_id": "2DmZENAIfP",
+            "地址": "元朗天水圍天河路",
+            "面積(平方米)": "10830",
+            "配套設施": "涼亭、蔭棚、公園椅、無障礙通道、洗手間(設有暢通易達洗手間)",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2443 0513"
+          },
+          "en": {
+            "Name of Venue": "Tin Ho Road Playground",
+            "map_id": "2DmZENAIfP",
+            "Address": "Tin Ho Road, Tin Shui Wai, Yuen Long",
+            "Area(M2)": "10830",
+            "Ancillary Facilities": "Pavilion, Arbour, Garden Bench, Barrier-free access, Toilet facilities(including accessible toilets)",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2443 0513"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "天水圍公園 (指定位置)",
+            "map_id": "5K0bBxQNUU",
+            "地址": "元朗天水圍天瑞路六號",
+            "面積(平方米)": "19,000",
+            "配套設施": "狗糞收集箱, 蔭棚, 涼亭, 公園座椅",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2445 5805"
+          },
+          "en": {
+            "Name of Venue": "Tin Shui Wai Park (Designated Areas)",
+            "map_id": "5K0bBxQNUU",
+            "Address": "6 Tin Shui Road, Tin Shui Wai, Yuen Long",
+            "Area(M2)": "19,000",
+            "Ancillary Facilities": "Dog excreta collection bin, Arbour, Pavilion, Park bench",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2445 5805"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "天慈花園",
+            "map_id": "hMwXJpA5GN",
+            "地址": "元朗天水圍天慈路",
+            "面積(平方米)": "5,353",
+            "配套設施": "狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2443 0513 / 2476 7350"
+          },
+          "en": {
+            "Name of Venue": "Tin Tsz Garden",
+            "map_id": "hMwXJpA5GN",
+            "Address": "Tin Tsz Road, Tin Shui Wai, Yuen Long",
+            "Area(M2)": "5,353",
+            "Ancillary Facilities": "Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2443 0513 / 2476 7350"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "唐人新村遊樂場",
+            "map_id": "0uT54qOymY",
+            "地址": "元朗屏山青山公路",
+            "配套設施": "涼亭, 蔭棚, 公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2443 0513"
+          },
+          "en": {
+            "Name of Venue": "Tong Yan San Tsuen Playground",
+            "map_id": "0uT54qOymY",
+            "Address": "Castle Peak Road, Ping Shan, Yuen Long",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2443 0513"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "橫台山遊樂場",
+            "map_id": "7u6NqH5tJG",
+            "地址": "元朗八鄉粉錦路橫台山",
+            "配套設施": "涼亭, 蔭棚, 公園座椅, 狗糞收集箱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2475 3445"
+          },
+          "en": {
+            "Name of Venue": "Wang Toi Shan Playground",
+            "map_id": "7u6NqH5tJG",
+            "Address": "Wang Toi Shan, Fan Kam Road, Pat Heung, Yuen Long",
+            "Ancillary Facilities": "Pavilion, Arbour, Park bench, Dog excreta collection bin",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2475 3445"
+          }
+        },
+        {
+          "zh": {
+            "場地名稱": "宏業南街休憩花園",
+            "map_id": "slSofo0y32",
+            "地址": "元朗宏業南街",
+            "面積(平方米)": "1573",
+            "配套設施": "涼亭、蔭棚、公園椅、無障礙通道、繫狗隻圓柱",
+            "開放時間": "每日24小時開放",
+            "查詢電話": "2475 3445"
+          },
+          "en": {
+            "Name of Venue": "Wang Yip Street South Rest Garden",
+            "map_id": "slSofo0y32",
+            "Address": "Wang Yip Street South, Yuen Long",
+            "Area(M2)": "1573",
+            "Ancillary Facilities": "Pavilion, Arbour, Garden Bench, Barrier-free access , Dog Leash Post",
+            "Opening Hours": "24 hours daily",
+            "Enquiry No.": "2475 3445"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -5,12 +5,13 @@ from __future__ import annotations
 import argparse
 import json
 import re
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from pypdf import PdfReader
 
 from pawplan.normalize import normalize_district
+from pawplan.sources import FEHD_LIST, restaurant_source_url
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -135,22 +136,37 @@ def parse_records(text: str, source_url: str, verified_at: str) -> list[dict]:
 
 def parse_fehd_pdf(pdf_path: Path, out_path: Path | None = None) -> Path:
     pdf_path = Path(pdf_path)
-    text = extract_pdf_text(pdf_path)
-    raw_txt = ROOT / "data" / "raw" / "fehd_fulllist.txt"
-    raw_txt.parent.mkdir(parents=True, exist_ok=True)
-    raw_txt.write_text(text, encoding="utf-8")
-
-    source_url = (
-        "https://www.fehd.gov.hk/english/licensing/dog_restaurants/fulllist.pdf"
-    )
+    web_path = ROOT / "data/raw/fehd_dog_restaurants_current.json"
     verified_at = date.today().isoformat()
-    records = parse_records(text, source_url, verified_at)
+    if web_path.exists():
+        snapshot = json.loads(web_path.read_text(encoding="utf-8"))
+        if not isinstance(snapshot, dict) or "fetched_at_utc" not in snapshot:
+            raise ValueError("FEHD web snapshot needs fetch metadata; fetch the directory again")
+        verified_at = datetime.fromisoformat(snapshot["fetched_at_utc"]).astimezone(timezone(timedelta(hours=8))).date().isoformat()
+        records = []
+        for raw in snapshot["restaurants"]:
+            district = normalize_district(raw["district_en"])
+            records.append({
+                "restaurant_id": f"fehd_{raw['licence']}", "licence_no": str(raw["licence"]),
+                "name_en": raw["shop_sign_en"] or None, "name_zh": raw["shop_sign_tc"] or raw["shop_sign_en"],
+                "district": district, "address": raw["address_tc"] or raw["address_en"],
+                "dog_permission": True, "source_url": restaurant_source_url(district),
+                "last_verified_at": verified_at,
+            })
+    else:
+        text = extract_pdf_text(pdf_path)
+        raw_txt = ROOT / "data/raw/fehd_fulllist.txt"
+        raw_txt.parent.mkdir(parents=True, exist_ok=True)
+        raw_txt.write_text(text, encoding="utf-8")
+        records = parse_records(text, FEHD_LIST, verified_at)
+        for row in records:
+            row["source_url"] = restaurant_source_url(row["district"])
 
     staging_dir = ROOT / "data" / "staging"
     staging_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_path or (staging_dir / "fehd_restaurants.json")
     payload = {
-        "source": source_url,
+        "source": FEHD_LIST,
         "parsed_at": verified_at,
         "count": len(records),
         "restaurants": records,

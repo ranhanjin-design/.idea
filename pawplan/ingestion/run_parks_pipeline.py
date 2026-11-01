@@ -15,7 +15,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def run_parks_pipeline(skip_fetch: bool = False) -> None:
     json_path = ROOT / "data" / "raw" / "lcsd_pet_gardens.json"
     pdf_path = ROOT / "data" / "raw" / "lcsd_ipp_venue.pdf"
-    if not skip_fetch or not json_path.exists() or not pdf_path.exists():
+    pages_path = ROOT / "data" / "raw" / "lcsd_park_pages.json"
+    if not skip_fetch or not all(p.exists() for p in (json_path, pdf_path, pages_path)):
         paths = fetch_park_sources()
         print(f"[1/3] fetched {paths}")
     else:

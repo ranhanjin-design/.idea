@@ -29,3 +29,19 @@ _tmp*.py
 logs/
 xiaoshitou/data/memory.db
 xiaoshitou/data/*.db
+
+# Machine-specific editor files and downloaded website caches
+/.idea/
+/*.iml
+/modules.xml
+/data/raw/*
+!/data/raw/.gitkeep
+!/data/raw/lcsd_pet_gardens.json
+!/data/raw/lcsd_park_pages.json
+!/data/raw/fehd_dog_restaurants_current.json
+!/data/raw/afcd_vet_clinics.pdf
+
+# Include only the current public venue database, never local backups.
+!/data/curated/
+/data/curated/*
+!/data/curated/pawplan.db

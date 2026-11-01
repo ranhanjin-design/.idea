@@ -230,7 +230,7 @@ def _answer_parks(user_question: str, district: str) -> tuple[str, list[dict]]:
         lines.append(f"   地址：{addr}")
         lines.append(f"   开放：{hours}")
         lines.append(
-            f"   来源：{p['source_url']}（核实日期 {p['last_verified_at']}）"
+            f"   来源：[康文署官方场地资料]({p['source_url']})（核实日期 {p['last_verified_at']}）"
         )
     lines.append("")
     lines.append(
@@ -248,13 +248,15 @@ def _format_restaurant_block(restaurants: list[dict], district: str) -> list[str
         lines.append(f"{i}. **{name}**")
         lines.append(f"   地区：{r.get('district') or district}")
         lines.append(f"   地址：{r['address']}")
+        if r.get("licence_no"):
+            lines.append(f"   牌照编号：{r['licence_no']}")
         label = r.get("cuisine_label_zh")
         if label:
             conf = r.get("cuisine_confidence")
             conf_txt = f"，置信度 {conf:.2f}" if isinstance(conf, (int, float)) else ""
             lines.append(f"   菜系标签：{label}{conf_txt}（非正式官方确认）")
         lines.append(
-            f"   来源：[{source}]({source})（核实日期 {r['last_verified_at']}）"
+            f"   来源：[食环署本区获准食肆名单]({source})（核实日期 {r['last_verified_at']}）"
         )
     return lines
 
@@ -371,7 +373,13 @@ def _answer_complementary_places(
             tier_label = f"｜证据层级 Tier {tier}" if tier else ""
             lines.append(f"   来源类型：{src}{tier_label}")
         if url:
-            lines.append(f"   政策/来源链接：{url}")
+            label = {"AFCD": "渔护署兽医诊所名单", "mall_official": "商场官网宠物政策", "venue_official": "场地自有网页"}.get(src, "第三方场地详情")
+            lines.append(f"   来源：[{label}]({url})")
+        detail = p.get("source_detail_url")
+        if detail and detail != url:
+            lines.append(f"   场地详情：[查看对应场地]({detail})")
+        if p.get("source_note"):
+            lines.append(f"   资料说明：{p['source_note']}")
         policy = p.get("pet_policy_json") or ""
         if policy and "summary_zh" in policy:
             try:
@@ -382,7 +390,7 @@ def _answer_complementary_places(
                 pass
         lines.append(f"   核实日期：{p.get('last_verified_at')}")
         lines.append("")
-    lines.append("出发前请打开商场官方政策页再确认最新规则。")
+    lines.append("到访或预约前，请向对应场地确认最新服务、开放时间及宠物规则。")
     return "\n".join(lines), trace
 
 

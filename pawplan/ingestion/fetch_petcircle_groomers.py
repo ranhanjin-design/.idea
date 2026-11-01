@@ -78,13 +78,22 @@ def _get(url: str) -> str:
         return resp.read().decode("utf-8", "replace")
 
 
-def parse_page(html: str) -> list[dict]:
+def parse_page(html: str, page_url: str = BASE) -> list[dict]:
     """Parse grm-XXX cards from Next.js RSC flight HTML.
 
     The HTML is already UTF-8; RSC only escapes quotes as \\". Do not
     unicode_escape the payload (it corrupts Chinese text).
     """
     rows: list[dict] = []
+    # Published card headings preserve complete business names; RSC children can
+    # split a Chinese name into fragments that look like separate strings.
+    card_names = {}
+    visible_cards = list(re.finditer(r'href="/businesses/(grm-\d+)"', html))
+    for index, match in enumerate(visible_cards):
+        end = visible_cards[index + 1].start() if index + 1 < len(visible_cards) else len(html)
+        heading = re.search(r'<h[23]\b[^>]*>(.*?)</h[23]>', html[match.end():end], re.S)
+        if heading:
+            card_names[match[1]] = unescape(re.sub(r"<[^>]+>", "", heading[1])).strip()
     parts = re.split(r'\\"(grm-\d+)\\",\{', html)
     i = 1
     while i + 1 < len(parts):
@@ -152,6 +161,7 @@ def parse_page(html: str) -> list[dict]:
                 and not re.fullmatch(r"\d+(\.\d+)?", t)
             ]
             name = max(candidates, key=len) if candidates else gid
+        name = card_names.get(gid) or name
         rows.append(
             {
                 "petcircle_id": gid,
@@ -162,7 +172,10 @@ def parse_page(html: str) -> list[dict]:
                 "address": address,
                 "phone": phone,
                 "rating": rating,
-                "source_url": f"{BASE}?page=1#{gid}",
+                "source_url": (
+                    f"https://petcircle-hk.vercel.app/businesses/{gid}"
+                    if f'href="/businesses/{gid}"' in html else page_url
+                ),
             }
         )
     return rows
@@ -291,7 +304,7 @@ def fetch_all(skip_fetch: bool = False, sleep_s: float = 0.3, max_pages: int = 2
                 raise
             print(f"[petcircle] stop at page {page}: {exc}")
             break
-        rows = parse_page(html)
+        rows = parse_page(html, page_url=url)
         new = 0
         for row in rows:
             gid = row["petcircle_id"]

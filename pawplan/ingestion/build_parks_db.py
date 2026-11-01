@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from pawplan.database.db import get_connection, init_database
+from pawplan.ingestion.park_sources import park_source_url
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -17,9 +18,18 @@ def import_parks(staging_path: Path, replace: bool = True) -> int:
     conn = get_connection()
     try:
         init_database()
+        coordinates = {
+            r["park_id"]: (r["latitude"], r["longitude"])
+            for r in conn.execute("SELECT park_id, latitude, longitude FROM parks")
+            if r["latitude"] is not None and r["longitude"] is not None
+        }
         if replace:
             conn.execute("DELETE FROM parks")
         for row in rows:
+            # Also accept older staging files without restoring bulk PDF/JSON links.
+            row = {**row, "source_url": park_source_url(row["district"], row["park_type"])}
+            if (row.get("latitude") is None or row.get("longitude") is None) and row["park_id"] in coordinates:
+                row["latitude"], row["longitude"] = coordinates[row["park_id"]]
             conn.execute(
                 """
                 INSERT OR REPLACE INTO parks (

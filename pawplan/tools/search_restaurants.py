@@ -1,6 +1,7 @@
 from pawplan.database.db import get_connection
 from pawplan.ingestion.enrich_cuisine import is_second_source_url
 from pawplan.normalize import cuisine_label_zh, normalize_cuisine, normalize_district
+from pawplan.sources import apply_source_metadata, source_fields
 
 MIN_CUISINE_CONFIDENCE = 0.7
 
@@ -43,7 +44,7 @@ def search_restaurants(
         if cuisine_code:
             rows = conn.execute(
                 """
-                SELECT r.restaurant_id, r.name_en, r.name_zh, r.district, r.address,
+                SELECT r.restaurant_id, r.licence_no, r.name_en, r.name_zh, r.district, r.address,
                        r.opening_hours_json, r.source_url, r.last_verified_at,
                        c.cuisine_code, c.cuisine_label_zh, c.cuisine_label_en,
                        c.cuisine_source_url, c.cuisine_confidence
@@ -72,7 +73,7 @@ def search_restaurants(
         else:
             rows = conn.execute(
                 """
-                SELECT r.restaurant_id, r.name_en, r.name_zh, r.district, r.address,
+                SELECT r.restaurant_id, r.licence_no, r.name_en, r.name_zh, r.district, r.address,
                        r.opening_hours_json, r.source_url, r.last_verified_at
                 FROM restaurants r
                 WHERE r.district = :district
@@ -82,6 +83,7 @@ def search_restaurants(
                 """,
                 {"district": district_norm, "limit": limit},
             ).fetchall()
+        rows = apply_source_metadata(conn, "restaurant", rows)
     finally:
         conn.close()
 
@@ -89,6 +91,7 @@ def search_restaurants(
     for row in rows:
         item = {
             "restaurant_id": row["restaurant_id"],
+            "licence_no": row["licence_no"],
             "name_en": row["name_en"],
             "name_zh": row["name_zh"],
             "district": row["district"],
@@ -97,6 +100,7 @@ def search_restaurants(
             "source_url": row["source_url"],
             "last_verified_at": row["last_verified_at"],
         }
+        item.update(source_fields(row))
         if cuisine_code:
             item["cuisine_code"] = row["cuisine_code"]
             item["cuisine_label_zh"] = row["cuisine_label_zh"]

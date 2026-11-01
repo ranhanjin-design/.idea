@@ -179,6 +179,8 @@
                 <h3 id="detail-name" class="font-bold text-gray-900 text-base leading-snug"></h3>
                 <p id="detail-addr" class="text-sm text-gray-500 mt-1 line-clamp-2"></p>
                 <p id="detail-note" class="text-[11px] text-amber-600 mt-1 hidden"></p>
+                <div id="detail-sources" class="flex flex-wrap gap-x-3 gap-y-1 text-xs mt-2"></div>
+                <p id="detail-source-note" class="text-[11px] text-gray-500 mt-1"></p>
             </div>
             <button type="button" id="detail-close" class="text-gray-300 hover:text-gray-500 p-1">
                 <i data-lucide="x" class="w-4 h-4"></i>
@@ -358,6 +360,26 @@ function showDetail(p) {
     } else {
         note.classList.add('hidden');
     }
+    const sources = document.getElementById('detail-sources');
+    sources.replaceChildren();
+    function addSource(value, label) {
+        try {
+            const url = new URL(value);
+            if (!['https:', 'http:'].includes(url.protocol)) return;
+            const link = document.createElement('a');
+            link.href = url.href;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'text-brand-600 underline';
+            link.textContent = label;
+            sources.appendChild(link);
+        } catch (_) { /* Missing or unsupported source URL. */ }
+    }
+    addSource(p.source_url, p.evidence_tier === 1 || cat === 'parks' ? '政府来源' : p.evidence_tier === 2 ? '场地官网' : '资料来源');
+    if (p.source_detail_url && p.source_detail_url !== p.source_url) {
+        addSource(p.source_detail_url, '场地详情');
+    }
+    document.getElementById('detail-source-note').textContent = p.source_note || '';
     document.getElementById('detail-card').classList.add('show');
     document.getElementById('sheet').classList.remove('open');
     document.getElementById('detail-ask').onclick = () => {

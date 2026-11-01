@@ -76,6 +76,14 @@ CREATE TABLE IF NOT EXISTS places (
 
 CREATE INDEX IF NOT EXISTS idx_places_district ON places(district);
 CREATE INDEX IF NOT EXISTS idx_places_type ON places(place_type);
+
+CREATE TABLE IF NOT EXISTS venue_sources (
+    entity_type     TEXT NOT NULL,
+    entity_id       TEXT NOT NULL,
+    identity_key    TEXT NOT NULL,
+    metadata_json   TEXT NOT NULL,
+    PRIMARY KEY (entity_type, entity_id)
+);
 """
 
 # Demo rows used only when DB is empty (before FEHD pipeline).

@@ -21,8 +21,10 @@ _HISTORY_CONTENT_MAX = 4000
 def _sanitize_history(history: list | None) -> list[dict[str, str]]:
     if not history:
         return []
-    cleaned: list[dict[str, str]] = []
+    cleaned: list[dict[str, str]] = [] # Prepare an empty list
     for item in history:
+        # isinstance is used to check the type of parameter,
+        # in this case, if item is a dict return True, and vice visa.
         if isinstance(item, dict):
             role = item.get("role")
             content = item.get("content")
@@ -31,15 +33,18 @@ def _sanitize_history(history: list | None) -> list[dict[str, str]]:
             content = getattr(item, "content", None)
         if role not in _ALLOWED_HISTORY_ROLES:
             continue
-        text = str(content or "").strip()
+        text = str(content or "").strip() # Change the content into string
         if not text:
             continue
-        cleaned.append({"role": role, "content": text[:_HISTORY_CONTENT_MAX]})
-    return cleaned[-_HISTORY_TURN_CAP:]
+        cleaned.append({"role": role, 
+                        "content": text[:_HISTORY_CONTENT_MAX]})
+    return cleaned[-_HISTORY_TURN_CAP:] # Return the last 12 questions only, cleaned[-12:].
 
 
 def _dispatch_tool(name: str, arguments: dict[str, Any]) -> dict:
     if name == "search_knowledge":
+        # **arguments means Separate the key and value.
+        # equals to return search_knowledge(key=value)
         return search_knowledge(**arguments)
     if name == "search_parks":
         return search_parks(**arguments)
@@ -163,7 +168,7 @@ def run_agent(user_question: str, history: list | None = None) -> dict:
                 }
             )
 
-    reply = "在工具调用次数上限内未能完成请求，请简化问题后重试。"
+    reply = "The request could not be completed within the maximum number of allowed tool calls; please simplify your question and try again."
     log_event(
         {
             "mode": "deepseek",

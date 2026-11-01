@@ -201,6 +201,6 @@ def explore_page():
 
 
 if __name__ == "__main__":
-    import uvicorn
+    import uvicorn # Listen from HTTP requests, and handle them to FastAPI.
 
     uvicorn.run("pawplan.api.main:app", host="127.0.0.1", port=8000, reload=True)

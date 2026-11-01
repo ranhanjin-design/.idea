@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pawplan.database.db import get_connection
 from pawplan.normalize import normalize_district
+from pawplan.sources import apply_source_metadata, place_source_order
 
 # User-facing groups → stored place_type values
 PLACE_TYPE_GROUPS: dict[str, tuple[str, ...]] = {
@@ -105,27 +106,28 @@ def search_places(
         ELSE 9
       END,
       name_en ASC
-    LIMIT :limit
     """
 
     conn = get_connection()
     try:
         rows = conn.execute(sql, params).fetchall()
+        rows = apply_source_metadata(conn, "place", rows)
     finally:
         conn.close()
 
-    places = []
-    for row in rows:
-        item = {key: row[key] for key in row.keys()}
-        src = (item.get("source_name") or "").lower()
-        if src == "mall_official":
-            item["evidence_tier"] = 2
-        else:
-            item["evidence_tier"] = 3
-        places.append(item)
+    places = sorted((r for r in rows if r.get("source_status") != "unverified"), key=place_source_order)[:limit]
 
     sources = {p.get("source_name") for p in places}
-    if type_group == "mall" and "mall_official" in sources:
+    if type_group in {"vet", "clinic"}:
+        source_note = (
+            "优先使用渔护署兽医诊所名单，未匹配者使用诊所自有网页或第三方详情。"
+            "官方名单并非完整名册，仅核对诊所身份及地址；急诊、牙科和24小时服务须向诊所确认。"
+        )
+    elif type_group in {"groomer", "grooming"}:
+        source_note = (
+            "使用店铺自有网页或第三方美容店详情；渔护署宠物店牌照不能证明提供美容服务。"
+        )
+    elif type_group == "mall" and "mall_official" in sources:
         source_note = (
             "Prefer venue-owned mall pet policy pages (Tier 2). "
             "DogDogHK / GoPaw fill gaps as Tier 3 community directories. "

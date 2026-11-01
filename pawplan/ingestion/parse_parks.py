@@ -1,15 +1,18 @@
-"""Parse LCSD pet gardens JSON + Inclusive Park for Pets PDF into staging."""
+"""Parse LCSD parks, preferring verified district pages over bulk JSON/PDF lists."""
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
-from datetime import date
+import unicodedata
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from pypdf import PdfReader
 
+from pawplan.ingestion.park_sources import DISTRICT_IDS, FACILITY_TYPES, park_source_url
 from pawplan.normalize import normalize_district
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -160,7 +163,7 @@ def parse_pet_gardens_json(path: Path, verified_at: str) -> list[dict]:
                 "phone": row.get("Phone"),
                 "latitude": _dms_to_decimal(row.get("Latitude")),
                 "longitude": _dms_to_decimal(row.get("Longitude")),
-                "source_url": SOURCE_PET_GARDEN,
+                "source_url": park_source_url(district, "pet_garden"),
                 "last_verified_at": verified_at,
             }
         )
@@ -278,7 +281,7 @@ def parse_ipp_pdf(pdf_path: Path, verified_at: str) -> list[dict]:
                                 "phone": None,
                                 "latitude": None,
                                 "longitude": None,
-                                "source_url": SOURCE_IPP,
+                                "source_url": park_source_url(district, "inclusive_park"),
                                 "last_verified_at": verified_at,
                             }
                         )
@@ -290,10 +293,90 @@ def parse_ipp_pdf(pdf_path: Path, verified_at: str) -> list[dict]:
     return records
 
 
+def _park_name_key(name: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKC", name) if c.isalnum())
+
+
+def parse_park_pages(path: Path, seed_records: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Use current official lists as the membership source, retaining known IDs/coords."""
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    pages = manifest["pages"]
+    expected = {(d, t) for d in DISTRICT_IDS for t in FACILITY_TYPES}
+    actual = {(p["district"], p["park_type"]) for p in pages}
+    if actual != expected or len(pages) != len(expected):
+        raise ValueError("Incomplete LCSD park snapshot: all 18 districts and both types are required")
+    verified_at = datetime.fromisoformat(manifest["fetched_at_utc"]).astimezone(
+        timezone(timedelta(hours=8))
+    ).date().isoformat()
+    seeds = {r["park_id"]: r for r in seed_records}
+    matched_ids: set[str] = set()
+    parks: list[dict] = []
+    for page in pages:
+        district, kind = page["district"], page["park_type"]
+        if page["source_url"] != park_source_url(district, kind):
+            raise ValueError(f"Unexpected official source URL: {district}/{kind}")
+        if len(page["venue_details"]) != page["venue_count"] or not page["venue_details"]:
+            raise ValueError(f"Incomplete venue details: {district}/{kind}")
+        candidates = [r for r in seeds.values() if (r["district"], r["park_type"]) == (district, kind)]
+        for detail in page["venue_details"]:
+            zh, en = detail["zh"], detail["en"]
+            name_zh, name_en = zh["場地名稱"], en["Name of Venue"]
+            key = _park_name_key(name_zh)
+            # A map ID survives renames (e.g. Man Hong Street Playground -> Pet Garden).
+            prefix = "lcsd_pg_" if kind == "pet_garden" else "lcsd_ipp_"
+            map_id = zh.get("map_id")
+            matches = [r for r in candidates if map_id and r["park_id"] == prefix + map_id]
+            if not matches:
+                matches = [r for r in candidates if _park_name_key(r.get("name_zh") or "") == key]
+            if not matches:
+                matches = [r for r in candidates if r.get("name_zh") and (
+                    _park_name_key(r["name_zh"]) in key or key in _park_name_key(r["name_zh"]))]
+            if len(matches) > 1:
+                raise ValueError(f"Ambiguous LCSD venue match: {district}/{kind}/{name_zh}")
+            seed = matches[0] if matches else {}
+            stable_id = map_id or hashlib.sha256(f"{district}|{name_zh}".encode()).hexdigest()[:12]
+            park_id = seed.get("park_id") or prefix + stable_id
+            if park_id in matched_ids:
+                raise ValueError(f"Duplicate LCSD venue ID: {park_id}")
+            matched_ids.add(park_id)
+            facilities = {
+                "facilities_en": en.get("Facilities"),
+                "facilities_zh": zh.get("設施"),
+                "ancillary_en": en.get("Ancillary Facilities"),
+                "ancillary_zh": zh.get("配套設施"),
+                "remarks_en": en.get("Remarks"),
+                "remarks_zh": zh.get("備註"),
+            }
+            blob = " ".join(str(v or "") for v in facilities.values())
+            facilities["has_dog_latrine"] = "latrine" in blob.lower() or "狗廁" in blob or "寵物廁" in blob
+            if kind == "inclusive_park":
+                facilities["note_en"] = "Inclusive Park for Pets; pets must be leashed"
+                facilities["note_zh"] = "宠物共享公园；须牵绳看管"
+            parks.append({
+                "park_id": park_id,
+                "park_type": kind,
+                "name_en": name_en,
+                "name_zh": name_zh,
+                "district": district,
+                "address": zh.get("地址") or en.get("Address"),
+                "facilities_json": json.dumps(facilities, ensure_ascii=False),
+                "opening_hours": zh.get("開放時間") or en.get("Opening Hours"),
+                "phone": zh.get("查詢電話") or en.get("Enquiry No."),
+                "latitude": seed.get("latitude"),
+                "longitude": seed.get("longitude"),
+                "source_url": park_source_url(district, kind),
+                "last_verified_at": verified_at,
+            })
+    unlisted = [{**r, "reason": "not_listed_on_current_official_facility_pages"}
+                for pid, r in seeds.items() if pid not in matched_ids]
+    return parks, unlisted
+
+
 def parse_all_parks(
     pet_garden_json: Path | None = None,
     ipp_pdf: Path | None = None,
     out_path: Path | None = None,
+    park_pages: Path | None = None,
 ) -> Path:
     verified_at = date.today().isoformat()
     pet_garden_json = pet_garden_json or (
@@ -307,11 +390,19 @@ def parse_all_parks(
     if ipp_pdf.exists():
         parks.extend(parse_ipp_pdf(ipp_pdf, verified_at))
 
+    park_pages = park_pages or (ROOT / "data" / "raw" / "lcsd_park_pages.json")
+    unlisted: list[dict] = []
+    if park_pages.exists():
+        parks, unlisted = parse_park_pages(park_pages, parks)
+
     staging = ROOT / "data" / "staging"
     staging.mkdir(parents=True, exist_ok=True)
     out_path = out_path or (staging / "lcsd_parks.json")
     payload = {
         "sources": [SOURCE_PET_GARDEN, SOURCE_IPP],
+        "source_pages": sorted({p["source_url"] for p in parks}),
+        "official_pages_snapshot": str(park_pages) if park_pages.exists() else None,
+        "unlisted_records": unlisted,
         "parsed_at": verified_at,
         "count": len(parks),
         "pet_gardens": sum(1 for p in parks if p["park_type"] == "pet_garden"),
@@ -326,10 +417,12 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Parse LCSD park sources")
     parser.add_argument("--pet-garden-json", default=None)
     parser.add_argument("--ipp-pdf", default=None)
+    parser.add_argument("--park-pages", default=None, help="Verified LCSD district-page snapshot")
     args = parser.parse_args()
     out = parse_all_parks(
         Path(args.pet_garden_json) if args.pet_garden_json else None,
         Path(args.ipp_pdf) if args.ipp_pdf else None,
+        park_pages=Path(args.park_pages) if args.park_pages else None,
     )
     data = json.loads(out.read_text(encoding="utf-8"))
     print(

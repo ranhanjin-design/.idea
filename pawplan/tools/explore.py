@@ -9,6 +9,7 @@ from typing import Any
 from pawplan.database.db import get_connection
 from pawplan.ingestion.geocode import DISTRICT_CENTROIDS
 from pawplan.normalize import CANONICAL_DISTRICTS, normalize_district
+from pawplan.sources import apply_source_metadata, place_source_order, source_fields
 
 DISTRICT_LABELS: dict[str, str] = {
     "Central/Western": "中西區",
@@ -183,7 +184,7 @@ def _browse_restaurants(
     total = _count(conn, f"SELECT COUNT(*) FROM restaurants WHERE {where_sql}", tuple(params))
     rows = conn.execute(
         f"""
-        SELECT restaurant_id, name_en, name_zh, address, district,
+        SELECT restaurant_id, licence_no, name_en, name_zh, address, district,
                latitude, longitude, source_url, last_verified_at
         FROM restaurants
         WHERE {where_sql}
@@ -192,9 +193,12 @@ def _browse_restaurants(
         """,
         (*params, limit, offset),
     ).fetchall()
+    rows = apply_source_metadata(conn, "restaurant", rows)
     items = [
         {
+            **source_fields(r),
             "id": r["restaurant_id"],
+            "licence_no": r["licence_no"],
             "name_en": r["name_en"],
             "name_zh": r["name_zh"],
             "address": r["address"],
@@ -308,10 +312,13 @@ def _browse_places(
                 ELSE 2
               END,
               name_en COLLATE NOCASE
-            LIMIT ? OFFSET ?
             """,
-            (*params, limit, offset),
+            tuple(params),
         ).fetchall()
+        rows = apply_source_metadata(conn, "place", rows)
+        rows = sorted((r for r in rows if r.get("source_status") != "unverified"), key=place_source_order)
+        total = len(rows)
+        rows = rows[offset:offset + limit]
     except sqlite3.OperationalError:
         return {"category": category, "district": district, "total": 0, "items": []}
 
@@ -319,6 +326,7 @@ def _browse_places(
     for r in rows:
         items.append(
             {
+                **source_fields(r),
                 "id": r["place_id"],
                 "name_en": r["name_en"],
                 "name_zh": r["name_zh"],
@@ -388,7 +396,7 @@ def _query_category_rows(
             params.extend([like, like, like, like])
         sql = f"""
             SELECT restaurant_id AS id, name_en, name_zh, address, district,
-                   latitude, longitude, 'restaurant' AS place_type,
+                   latitude, longitude, source_url, 'restaurant' AS place_type,
                    'restaurants' AS category
             FROM restaurants
             WHERE {" AND ".join(where)}
@@ -410,7 +418,7 @@ def _query_category_rows(
             params.extend([like, like, like, like])
         sql = f"""
             SELECT park_id AS id, name_en, name_zh, address, district,
-                   latitude, longitude, park_type AS place_type,
+                   latitude, longitude, source_url, park_type AS place_type,
                    'parks' AS category
             FROM parks
             WHERE {" AND ".join(where)}
@@ -442,15 +450,14 @@ def _query_category_rows(
             params.extend([like, like, like, like])
         sql = f"""
             SELECT place_id AS id, name_en, name_zh, address, district,
-                   latitude, longitude, place_type,
+                   latitude, longitude, source_url, source_name, place_type,
                    ? AS category
             FROM places
             WHERE {" AND ".join(where)}
             ORDER BY name_en COLLATE NOCASE
-            LIMIT ?
         """
         try:
-            return list(conn.execute(sql, (category, *params, limit)).fetchall())
+            return list(conn.execute(sql, (category, *params)).fetchall())
         except sqlite3.OperationalError:
             return []
     return []
@@ -490,7 +497,15 @@ def explore_map_points(
     try:
         rows: list[sqlite3.Row] = []
         for cat in cats:
-            rows.extend(_query_category_rows(conn, cat, district_n, q_n, per_cat))
+            raw = _query_category_rows(conn, cat, district_n, q_n, per_cat)
+            if cat == "parks":
+                rows.extend(dict(r) for r in raw)
+            else:
+                resolved = apply_source_metadata(conn, "restaurant" if cat == "restaurants" else "place", raw)
+                visible = [r for r in resolved if r.get("source_status") != "unverified"]
+                if cat != "restaurants":
+                    visible.sort(key=place_source_order)
+                rows.extend(visible[:per_cat])
     finally:
         conn.close()
 
@@ -509,6 +524,7 @@ def explore_map_points(
         cat = r["category"] if "category" in r.keys() else category
         points.append(
             {
+                **source_fields(r),
                 "id": r["id"],
                 "name_en": r["name_en"],
                 "name_zh": r["name_zh"],

@@ -1,4 +1,4 @@
-"""Fetch LCSD pet garden JSON and Inclusive Park for Pets PDF."""
+"""Fetch LCSD district pages, pet garden JSON and Inclusive Park for Pets PDF."""
 
 from __future__ import annotations
 
@@ -6,6 +6,8 @@ import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
+
+from pawplan.ingestion.park_sources import fetch_park_pages
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -26,6 +28,7 @@ def fetch_park_sources(out_dir: Path | None = None) -> dict[str, Path]:
     out_dir = out_dir or (ROOT / "data" / "raw")
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
     paths = {
+        "park_pages": fetch_park_pages(out_dir),
         "pet_gardens_json": _download(
             PET_GARDEN_JSON, out_dir / "lcsd_pet_gardens.json"
         ),

@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from pawplan.database.db import get_connection, init_database
+from pawplan.sources import restaurant_source_url
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -20,12 +21,20 @@ def import_restaurants(rows: list[dict], replace: bool = True) -> int:
     conn = get_connection()
     try:
         init_database(apply_second_source=False)  # schema only; cuisine already enriched
+        coordinates = {
+            r["restaurant_id"]: (r["latitude"], r["longitude"])
+            for r in conn.execute("SELECT restaurant_id,latitude,longitude FROM restaurants")
+            if r["latitude"] is not None and r["longitude"] is not None
+        }
         if replace:
             conn.execute("DELETE FROM restaurant_cuisines")
             conn.execute("DELETE FROM restaurants")
 
         count = 0
         for row in rows:
+            row = dict(row)
+            if (row.get("latitude") is None or row.get("longitude") is None) and row["restaurant_id"] in coordinates:
+                row["latitude"], row["longitude"] = coordinates[row["restaurant_id"]]
             conn.execute(
                 """
                 INSERT OR REPLACE INTO restaurants (
@@ -49,7 +58,7 @@ def import_restaurants(rows: list[dict], replace: bool = True) -> int:
                     "longitude": row.get("longitude"),
                     "dog_permission": 1 if row.get("dog_permission", True) else 0,
                     "opening_hours_json": row.get("opening_hours_json"),
-                    "source_url": row["source_url"],
+                    "source_url": restaurant_source_url(row["district"]),
                     "last_verified_at": row["last_verified_at"],
                 },
             )

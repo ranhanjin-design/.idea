@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Health · PawPlan HK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 500: '#f97316', 600: '#ea580c', 50: '#fff7ed' },
+            ink: { 900: '#18181b', 600: '#52525b', 400: '#a1a1aa' }
+          },
+          fontFamily: { sans: ['Quicksand', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: Quicksand, system-ui, sans-serif; background: #fafafa; }
+    .card { background: #fff; border: 1px solid #f4f4f5; border-radius: 1.25rem; }
+    .tab-btn.active { background: #18181b; color: #fff; }
+    .bubble-user { background: #f4f4f5; border-radius: 1rem; }
+    .bubble-ai { background: #f4f4f5; border-radius: 1rem; }
+    #observePreview { max-height: 140px; object-fit: cover; }
+  </style>
+</head>
+<body class="h-full text-ink-900">
+  <div class="min-h-full max-w-5xl mx-auto px-4 py-5 pb-24">
+    <!-- top nav -->
+    <div class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-2 text-sm font-semibold">
+        <a href="/" class="text-ink-400 hover:text-brand-600">Agent</a>
+        <span class="text-ink-400">/</span>
+        <a href="/explore" class="text-ink-400 hover:text-brand-600">Map</a>
+        <span class="text-ink-400">/</span>
+        <span>Health</span>
+      </div>
+      <select id="petSelect" class="text-sm border border-zinc-200 rounded-full px-3 py-1.5 bg-white"></select>
+    </div>
+
+    <!-- profile header -->
+    <section class="card p-5 mb-4">
+      <div class="flex items-start gap-4">
+        <img id="petAvatar" src="/static/buddy_avatar.svg" alt="" class="w-16 h-16 rounded-2xl object-cover bg-orange-50" />
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 id="petName" class="text-2xl font-bold tracking-tight">—</h1>
+            <span id="exampleBadge" class="hidden text-xs px-2.5 py-0.5 rounded-full bg-zinc-100 text-ink-600">Example profile</span>
+          </div>
+          <p id="petMeta" class="text-sm text-ink-400 mt-1"></p>
+        </div>
+      </div>
+      <div class="grid grid-cols-3 gap-3 mt-5">
+        <div>
+          <div class="text-xs text-ink-400">Body weight</div>
+          <div class="text-xl font-bold mt-0.5"><span id="statWeight">—</span> <span class="text-sm font-medium text-ink-400">kg</span></div>
+        </div>
+        <div>
+          <div class="text-xs text-ink-400">Daily food</div>
+          <div class="text-xl font-bold mt-0.5"><span id="statFood">—</span> <span class="text-sm font-medium text-ink-400">g</span></div>
+        </div>
+        <div>
+          <div class="text-xs text-ink-400">Exercise</div>
+          <div class="text-xl font-bold mt-0.5"><span id="statExercise">—</span> <span class="text-sm font-medium text-ink-400">min</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tabs -->
+    <div class="flex gap-2 mb-4">
+      <button class="tab-btn active text-sm font-semibold px-4 py-2 rounded-full" data-tab="dashboard">Dashboard</button>
+      <button class="tab-btn text-sm font-semibold px-4 py-2 rounded-full bg-white border border-zinc-200" data-tab="memory">Memory</button>
+      <button class="tab-btn text-sm font-semibold px-4 py-2 rounded-full bg-white border border-zinc-200" data-tab="observe">Observe</button>
+      <button class="tab-btn text-sm font-semibold px-4 py-2 rounded-full bg-white border border-zinc-200" data-tab="log">Add log</button>
+    </div>
+
+    <!-- dashboard -->
+    <section id="panel-dashboard" class="space-y-4">
+      <div class="card p-5">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-bold">Weight tracking</h2>
+          <span class="text-xs text-ink-400">from daily records</span>
+        </div>
+        <div class="h-56">
+          <canvas id="weightChart"></canvas>
+        </div>
+      </div>
+      <div class="card p-5">
+        <h2 class="font-bold mb-3">Recent logs</h2>
+        <div id="recentLogs" class="space-y-2 text-sm"></div>
+      </div>
+    </section>
+
+    <!-- memory library -->
+    <section id="panel-memory" class="hidden space-y-4">
+      <div class="card p-5">
+        <h2 class="font-bold mb-3">Add a memory</h2>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <input id="memTitle" class="border border-zinc-200 rounded-xl px-3 py-2 text-sm" placeholder="Title" />
+          <select id="memType" class="border border-zinc-200 rounded-xl px-3 py-2 text-sm">
+            <option value="note">Note</option>
+            <option value="vet">Vet visit</option>
+            <option value="vaccine">Vaccine / deworm</option>
+            <option value="symptom">Symptom</option>
+            <option value="milestone">Milestone</option>
+          </select>
+        </div>
+        <textarea id="memBody" rows="3" class="mt-2 w-full border border-zinc-200 rounded-xl px-3 py-2 text-sm" placeholder="What happened?"></textarea>
+        <div class="mt-2 flex gap-2">
+          <input id="memDate" type="date" class="border border-zinc-200 rounded-xl px-3 py-2 text-sm" />
+          <button id="btnAddMemory" class="ml-auto bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold px-4 py-2 rounded-xl">Save memory</button>
+        </div>
+      </div>
+      <div id="memoryList" class="space-y-3"></div>
+    </section>
+
+    <!-- observe (multimodal basic) -->
+    <section id="panel-observe" class="hidden space-y-4">
+      <div class="card p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-brand-500"></i>
+          <h2 class="font-bold">PawPlan Health Assistant</h2>
+        </div>
+        <p class="text-xs text-ink-400 mb-4">Upload a photo + ask. We describe visible signs and suggest next questions — never a diagnosis.</p>
+        <div id="observeChat" class="space-y-3 mb-4 max-h-80 overflow-y-auto"></div>
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <label class="text-sm font-medium px-3 py-2 rounded-xl border border-dashed border-zinc-300 cursor-pointer hover:bg-zinc-50">
+            <input id="observeFile" type="file" accept="image/*" class="hidden" />
+            Choose photo
+          </label>
+          <img id="observePreview" class="hidden rounded-xl border border-zinc-200" alt="preview" />
+        </div>
+        <div class="flex gap-2">
+          <input id="observeQ" class="flex-1 border border-zinc-200 rounded-xl px-3 py-2 text-sm" placeholder="e.g. 牙齿上有黄褐色的东西，是牙结石吗？" />
+          <button id="btnObserve" class="bg-zinc-900 text-white text-sm font-semibold px-4 py-2 rounded-xl">Ask</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- add log -->
+    <section id="panel-log" class="hidden">
+      <div class="card p-5 space-y-3">
+        <h2 class="font-bold">Daily record</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <label class="text-sm">Date<input id="logDate" type="date" class="mt-1 w-full border border-zinc-200 rounded-xl px-3 py-2" /></label>
+          <label class="text-sm">Weight (kg)<input id="logWeight" type="number" step="0.1" class="mt-1 w-full border border-zinc-200 rounded-xl px-3 py-2" /></label>
+          <label class="text-sm">Food (g)<input id="logFood" type="number" step="1" class="mt-1 w-full border border-zinc-200 rounded-xl px-3 py-2" /></label>
+          <label class="text-sm">Exercise (min)<input id="logExercise" type="number" step="1" class="mt-1 w-full border border-zinc-200 rounded-xl px-3 py-2" /></label>
+        </div>
+        <label class="text-sm block">Notes<textarea id="logNotes" rows="2" class="mt-1 w-full border border-zinc-200 rounded-xl px-3 py-2"></textarea></label>
+        <button id="btnSaveLog" class="bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold px-4 py-2 rounded-xl">Save log</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let pets = [];
+    let currentPetId = null;
+    let weightChart = null;
+    let observeFile = null;
+
+    const $ = (id) => document.getElementById(id);
+
+    function fmt(n, digits = 1) {
+      if (n === null || n === undefined || n === '') return '—';
+      return Number(n).toFixed(digits).replace(/\.0$/, '');
+    }
+
+    async function api(path, opts) {
+      const res = await fetch(path, opts);
+      if (!res.ok) {
+        const t = await res.text();
+        throw new Error(t || res.statusText);
+      }
+      return res.json();
+    }
+
+    function switchTab(name) {
+      document.querySelectorAll('.tab-btn').forEach((b) => {
+        const on = b.dataset.tab === name;
+        b.classList.toggle('active', on);
+        b.classList.toggle('bg-white', !on);
+        b.classList.toggle('border', !on);
+        b.classList.toggle('border-zinc-200', !on);
+      });
+      ['dashboard', 'memory', 'observe', 'log'].forEach((t) => {
+        $('panel-' + t).classList.toggle('hidden', t !== name);
+      });
+    }
+
+    document.querySelectorAll('.tab-btn').forEach((b) => {
+      b.addEventListener('click', () => switchTab(b.dataset.tab));
+    });
+
+    function renderMemories(memories) {
+      const box = $('memoryList');
+      if (!memories.length) {
+        box.innerHTML = '<div class="card p-5 text-sm text-ink-400">No memories yet.</div>';
+        return;
+      }
+      box.innerHTML = memories.map((m) => `
+        <article class="card p-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <div class="text-xs uppercase tracking-wide text-ink-400">${m.memory_type || 'note'}</div>
+              <h3 class="font-bold mt-0.5">${escapeHtml(m.title || 'Untitled')}</h3>
+            </div>
+            <div class="text-xs text-ink-400 whitespace-nowrap">${escapeHtml(m.event_date || '')}</div>
+          </div>
+          <p class="text-sm text-ink-600 mt-2 whitespace-pre-wrap">${escapeHtml(m.body || '')}</p>
+          ${m.image_path ? `<img src="${m.image_path}" class="mt-3 rounded-xl max-h-40 object-cover" alt="" />` : ''}
+          ${(m.tags || []).length ? `<div class="mt-2 flex flex-wrap gap-1">${m.tags.map(t => `<span class="text-[11px] px-2 py-0.5 rounded-full bg-zinc-100 text-ink-600">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+        </article>
+      `).join('');
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderChart(series) {
+      const labels = series.map((p, i) => {
+        if (series.length <= 8) return 'Week ' + (i + 1);
+        return p.date;
+      });
+      const data = series.map((p) => p.weight_kg);
+      const ctx = $('weightChart').getContext('2d');
+      if (weightChart) weightChart.destroy();
+      weightChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Weight',
+            data,
+            borderColor: '#3b82f6',
+            backgroundColor: '#3b82f6',
+            tension: 0.25,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (c) => 'Weight ' + c.parsed.y + ' kg'
+              }
+            }
+          },
+          scales: {
+            y: {
+              grid: { color: '#e4e4e7', borderDash: [4, 4] },
+              ticks: { callback: (v) => v + ' kg' }
+            },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    function renderLogs(records) {
+      const latest = [...records].reverse().slice(0, 6);
+      $('recentLogs').innerHTML = latest.map((r) => `
+        <div class="flex justify-between border-b border-zinc-100 py-2">
+          <span class="text-ink-600">${escapeHtml(r.record_date)}</span>
+          <span>${r.weight_kg != null ? r.weight_kg + ' kg' : '—'} · ${r.food_g != null ? r.food_g + ' g' : '—'} · ${r.exercise_min != null ? r.exercise_min + ' min' : '—'}</span>
+        </div>
+      `).join('') || '<div class="text-ink-400">No logs yet.</div>';
+    }
+
+    async function loadDashboard(petId) {
+      const data = await api('/api/pets/' + encodeURIComponent(petId) + '/dashboard');
+      const pet = data.pet;
+      $('petName').textContent = pet.name;
+      $('petMeta').textContent = [pet.breed, pet.sex, pet.age_years != null ? (pet.age_years + ' years old') : null]
+        .filter(Boolean).join(' · ');
+      $('exampleBadge').classList.toggle('hidden', !pet.is_example);
+      $('petAvatar').src = pet.avatar_url || '/static/buddy_avatar.svg';
+      $('statWeight').textContent = fmt(data.latest.weight_kg);
+      $('statFood').textContent = fmt(data.latest.food_g, 0);
+      $('statExercise').textContent = fmt(data.latest.exercise_min, 0);
+      renderChart(data.weight_series || []);
+      renderLogs(data.records || []);
+      renderMemories(data.memories || []);
+    }
+
+    async function boot() {
+      const data = await api('/api/pets');
+      pets = data.pets || [];
+      const sel = $('petSelect');
+      sel.innerHTML = pets.map((p) => `<option value="${p.pet_id}">${escapeHtml(p.name)}</option>`).join('');
+      currentPetId = pets[0]?.pet_id;
+      if (!currentPetId) {
+        alert('No pets yet');
+        return;
+      }
+      sel.value = currentPetId;
+      $('logDate').valueAsDate = new Date();
+      $('memDate').valueAsDate = new Date();
+      await loadDashboard(currentPetId);
+    }
+
+    $('petSelect').addEventListener('change', async (e) => {
+      currentPetId = e.target.value;
+      await loadDashboard(currentPetId);
+    });
+
+    $('btnSaveLog').addEventListener('click', async () => {
+      try {
+        await api('/api/pets/records', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pet_id: currentPetId,
+            record_date: $('logDate').value || null,
+            weight_kg: $('logWeight').value ? Number($('logWeight').value) : null,
+            food_g: $('logFood').value ? Number($('logFood').value) : null,
+            exercise_min: $('logExercise').value ? Number($('logExercise').value) : null,
+            notes: $('logNotes').value || null,
+          })
+        });
+        await loadDashboard(currentPetId);
+        switchTab('dashboard');
+      } catch (err) {
+        alert('Save failed: ' + err.message);
+      }
+    });
+
+    $('btnAddMemory').addEventListener('click', async () => {
+      try {
+        await api('/api/pets/memories', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pet_id: currentPetId,
+            memory_type: $('memType').value,
+            title: $('memTitle').value,
+            body: $('memBody').value,
+            event_date: $('memDate').value || null,
+          })
+        });
+        $('memTitle').value = '';
+        $('memBody').value = '';
+        await loadDashboard(currentPetId);
+      } catch (err) {
+        alert('Save failed: ' + err.message);
+      }
+    });
+
+    $('observeFile').addEventListener('change', (e) => {
+      observeFile = e.target.files?.[0] || null;
+      const img = $('observePreview');
+      if (observeFile) {
+        img.src = URL.createObjectURL(observeFile);
+        img.classList.remove('hidden');
+      } else {
+        img.classList.add('hidden');
+      }
+    });
+
+    function appendObserveBubble(role, text, imageUrl) {
+      const box = $('observeChat');
+      const wrap = document.createElement('div');
+      if (role === 'user') {
+        wrap.innerHTML = `
+          <div class="flex gap-3 justify-end">
+            ${imageUrl ? `<img src="${imageUrl}" class="w-20 h-20 rounded-xl object-cover" />` : ''}
+            <div class="bubble-user px-3 py-2 text-sm max-w-[75%] whitespace-pre-wrap">${escapeHtml(text)}</div>
+          </div>`;
+      } else {
+        wrap.innerHTML = `
+          <div>
+            <div class="flex items-center gap-1.5 text-sm font-semibold mb-1">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-500"></i>
+              PawPlan Health Assistant
+            </div>
+            <div class="bubble-ai px-3 py-2 text-sm whitespace-pre-wrap">${escapeHtml(text)}</div>
+          </div>`;
+      }
+      box.appendChild(wrap);
+      lucide.createIcons();
+      box.scrollTop = box.scrollHeight;
+    }
+
+    $('btnObserve').addEventListener('click', async () => {
+      const q = $('observeQ').value.trim();
+      if (!q) return;
+      const previewUrl = observeFile ? URL.createObjectURL(observeFile) : null;
+      appendObserveBubble('user', q, previewUrl);
+      const fd = new FormData();
+      fd.append('pet_id', currentPetId);
+      fd.append('question', q);
+      if (observeFile) fd.append('image', observeFile);
+      try {
+        const res = await fetch('/api/pets/observe', { method: 'POST', body: fd });
+        if (!res.ok) throw new Error(await res.text());
+        const data = await res.json();
+        appendObserveBubble('assistant', data.reply);
+        $('observeQ').value = '';
+        observeFile = null;
+        $('observeFile').value = '';
+        $('observePreview').classList.add('hidden');
+        await loadDashboard(currentPetId);
+      } catch (err) {
+        appendObserveBubble('assistant', '请求失败：' + err.message);
+      }
+    });
+
+    boot().then(() => lucide.createIcons()).catch((e) => alert(e.message));
+  </script>
+</body>
+</html>

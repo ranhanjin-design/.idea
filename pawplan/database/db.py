@@ -217,6 +217,12 @@ def init_database(force_seed: bool = False, apply_second_source: bool = True) ->
         elif count == 0:
             seed_demo_rows(conn)
         conn.commit()
+        try:
+            from pawplan.database.pet_health import ensure_pet_tables
+
+            ensure_pet_tables(conn)
+        except Exception as exc:  # noqa: BLE001 — keep place DB bootable
+            print(f"[pawplan] pet health tables skipped: {exc}")
     finally:
         conn.close()
     if apply_second_source:

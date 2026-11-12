@@ -24,11 +24,17 @@ data/raw/gopaw_*.json
 data/raw/dogdog_malls*
 data/raw/petcircle_*.json
 _probe_*.py
+_pc*.py
+_pc_part_*.txt
+_parse_*.py
+_petcircle_*
 _dogdog_*.json
 _tmp*.py
+_briefing_extract/
+xiaoshitou/
 logs/
-xiaoshitou/data/memory.db
-xiaoshitou/data/*.db
+data/pet_uploads/*
+!data/pet_uploads/.gitkeep
 
 # Machine-specific editor files and downloaded website caches
 /.idea/
